@@ -23,6 +23,7 @@
 </head>
 <body class="bg-slate-900 text-slate-100 font-sans flex flex-col min-h-screen">
 
+  <!-- Navigation -->
   <nav class="bg-brandDark border-b border-slate-800 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center space-x-3">
@@ -35,8 +36,8 @@
 
       <div class="flex items-center space-x-6">
         <div class="hidden md:flex space-x-4 text-slate-400">
-          <a href="https://instagram.com/maktechsolutions" target="_blank" class="hover:text-brandRed transition"><i class="fab fa-instagram text-xl"></i></a>
-          <a href="https://facebook.com/MaktechSolutions" target="_blank" class="hover:text-brandRed transition"><i class="fab fa-facebook text-xl"></i></a>
+          <a href="https://instagram.com/maktechsolutions_1" target="_blank" class="hover:text-brandRed transition"><i class="fab fa-instagram text-xl"></i></a>
+          <a href="https://www.facebook.com/share/1M7sUf3TR1/" target="_blank" class="hover:text-brandRed transition"><i class="fab fa-facebook text-xl"></i></a>
         </div>
         <button onclick="toggleView('client')" id="btnClient" class="px-3 py-1.5 rounded text-sm font-semibold bg-brandRed text-white">Client View</button>
         <button onclick="toggleView('admin')" id="btnAdmin" class="px-3 py-1.5 rounded text-sm font-semibold bg-slate-800 text-slate-300 hover:text-white">Admin View</button>
@@ -44,6 +45,7 @@
     </div>
   </nav>
 
+  <!-- Client View -->
   <main id="clientView" class="flex-grow max-w-7xl w-full mx-auto px-4 py-8">
     <div class="text-center my-8">
       <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-2">Premium Security & Style</h1>
@@ -60,6 +62,7 @@
     <div id="doorGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </main>
 
+  <!-- Admin View -->
   <main id="adminView" class="hidden flex-grow max-w-7xl w-full mx-auto px-4 py-8">
     <div class="bg-brandDark p-6 rounded-lg border border-slate-800 mb-8 max-w-2xl mx-auto">
       <h2 class="text-2xl font-bold text-white mb-4">Add New Door Listing</h2>
@@ -84,7 +87,7 @@
         </div>
         <div>
           <label class="block text-sm font-medium text-slate-300">Upload Image</label>
-          <input type="file" id="doorImageFile" accept="image/*" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-slate-300 mt-1 file:mr-4 file:py-1 file:px-3 file:rounded [...]
+          <input type="file" id="doorImageFile" accept="image/*" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-slate-300 mt-1 file:mr-4 file:py-1 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-brandRed file:text-white hover:file:bg-red-700 cursor-pointer">
         </div>
         <div>
           <label class="block text-sm font-medium text-slate-300">Description</label>
@@ -100,28 +103,27 @@
     </div>
   </main>
 
+  <!-- Footer -->
   <footer class="bg-brandDark border-t border-slate-800 py-6 mt-12">
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm gap-4">
       <p>&copy; 2026 Maktech Doors. All rights reserved.</p>
       <div class="flex space-x-6">
-        <a href="https://instagram.com/maktechsolutions" target="_blank" class="hover:text-brandRed"><i class="fab fa-instagram"></i> @maktechsolutions</a>
-        <a href="https://facebook.com/MaktechSolutions" target="_blank" class="hover:text-brandRed"><i class="fab fa-facebook"></i> MaktechSolutions</a>
+        <a href="https://instagram.com/maktechsolutions_1" target="_blank" class="hover:text-brandRed"><i class="fab fa-instagram"></i> @maktechsolutions_1</a>
+        <a href="https://www.facebook.com/share/1M7sUf3TR1/" target="_blank" class="hover:text-brandRed"><i class="fab fa-facebook"></i> Maktech Solutions</a>
         <span><i class="fas fa-phone"></i> +263 789 009 829</span>
       </div>
     </div>
   </footer>
 
   <script>
-    // INITIAL SAMPLE DATA
     let doors = JSON.parse(localStorage.getItem('maktech_doors')) || [
-      { id: 1, title: 'Modern Composite Sliding Gate', category: 'Aluminium', price: '650', image: 'https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=600&q=80', desc: 'S[...]
-      { id: 2, title: '8-Locking Pin Security Garage Door', category: 'Steel', price: '850', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80', desc[...]
-      { id: 3, title: 'Solid Exterior Hardwood Door', category: 'Wood', price: '400', image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80', desc: 'Natu[...]
+      { id: 1, title: 'Modern Composite Sliding Gate', category: 'Aluminium', price: '650', image: 'https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=600&q=80', desc: 'Sleek dark finish with high corrosion resistance.' },
+      { id: 2, title: '8-Locking Pin Security Garage Door', category: 'Steel', price: '850', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80', desc: 'Maximum security garage entrance with heavy-duty locks.' },
+      { id: 3, title: 'Solid Exterior Hardwood Door', category: 'Wood', price: '400', image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80', desc: 'Natural grain finish providing elegant security.' }
     ];
 
     const whatsappNumber = "263789009829";
 
-    // RENDER CLIENT CATALOG
     function renderClientCatalog(items = doors) {
       const container = document.getElementById('doorGrid');
       container.innerHTML = items.map(door => `
@@ -144,7 +146,6 @@
       `).join('');
     }
 
-    // RENDER ADMIN LIST
     function renderAdminCatalog() {
       const container = document.getElementById('adminDoorList');
       container.innerHTML = doors.map(door => `
@@ -161,11 +162,10 @@
       `).join('');
     }
 
-    // VIEW TOGGLE WITH PASSWORD PROTECTION
     function toggleView(view) {
       if (view === 'admin') {
         const password = prompt("Enter Admin Password:");
-        if (password !== "admin123") { // Change "admin123" to your preferred password
+        if (password !== "admin123") {
           alert("Incorrect password!");
           return;
         }
@@ -183,47 +183,82 @@
       }
     }
 
-    // CATEGORY FILTER
     function filterDoors(cat) {
       if (cat === 'All') renderClientCatalog(doors);
       else renderClientCatalog(doors.filter(d => d.category === cat));
     }
 
-    // CONVERT FILE TO BASE64 & ADD DOOR
+    // RESIZE & COMPRESS IMAGE BEFORE SAVING TO PREVENT STORAGE CRASH
+    function compressImage(file, callback) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const img = new Image();
+        img.onload = function () {
+          const canvas = document.createElement('canvas');
+          const maxDim = 800; // Resize to maximum 800px width/height
+          let width = img.width;
+          let height = img.height;
+
+          if (width > height && width > maxDim) {
+            height = Math.round((height * maxDim) / width);
+            width = maxDim;
+          } else if (height > maxDim) {
+            width = Math.round((width * maxDim) / height);
+            height = maxDim;
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0, width, height);
+
+          // Compress quality to 70% JPEG
+          const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+          callback(dataUrl);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
     function handleAddDoor(e) {
       e.preventDefault();
       const fileInput = document.getElementById('doorImageFile');
       const file = fileInput.files[0];
 
-      if (!file) return;
+      if (!file) {
+        alert("Please select an image file.");
+        return;
+      }
 
-      const reader = new FileReader();
-      reader.onloadend = function () {
-        const newDoor = {
-          id: Date.now(),
-          title: document.getElementById('doorTitle').value,
-          category: document.getElementById('doorCategory').value,
-          price: document.getElementById('doorPrice').value,
-          image: reader.result,
-          desc: document.getElementById('doorDesc').value
-        };
-        doors.push(newDoor);
-        localStorage.setItem('maktech_doors', JSON.stringify(doors));
-        document.getElementById('addDoorForm').reset();
-        renderAdminCatalog();
-      };
+      compressImage(file, function (compressedBase64) {
+        try {
+          const newDoor = {
+            id: Date.now(),
+            title: document.getElementById('doorTitle').value,
+            category: document.getElementById('doorCategory').value,
+            price: document.getElementById('doorPrice').value,
+            image: compressedBase64,
+            desc: document.getElementById('doorDesc').value
+          };
 
-      reader.readAsDataURL(file);
+          doors.push(newDoor);
+          localStorage.setItem('maktech_doors', JSON.stringify(doors));
+          document.getElementById('addDoorForm').reset();
+          renderAdminCatalog();
+          alert("Door listing saved successfully!");
+        } catch (err) {
+          alert("Storage full! Delete some older listings before adding new ones.");
+        }
+      });
     }
 
-    // DELETE DOOR
     function deleteDoor(id) {
       doors = doors.filter(d => d.id !== id);
       localStorage.setItem('maktech_doors', JSON.stringify(doors));
       renderAdminCatalog();
     }
 
-    // INITIAL LOAD
     renderClientCatalog();
   </script>
 </body>
