@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maktech Doors | Security. Style. Durability.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandNavy: '#0F172A',
+            brandDark: '#0A0F1D',
+            brandRed: '#DC2626',
+            brandAccent: '#1E293B'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans flex flex-col min-h-screen">
+
+  <nav class="bg-brandDark border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="logo.jpg" alt="Maktech Doors Logo" class="h-12 w-auto object-contain rounded" id="navLogo">
+        <div>
+          <span class="text-xl font-bold tracking-wider text-white block leading-none">MAKTECH <span class="text-brandRed">DOORS</span></span>
+          <span class="text-xs text-slate-400 tracking-widest uppercase">Security. Style. Durability.</span>
+        </div>
+      </div>
+
+      <div class="flex items-center space-x-6">
+        <div class="hidden md:flex space-x-4 text-slate-400">
+          <a href="https://instagram.com/maktechsolutions_1" target="_blank" class="hover:text-brandRed transition"><i class="fab fa-instagram text-xl"></i></a>
+          <a href="https://facebook.com/maktechsolution" target="_blank" class="hover:text-brandRed transition"><i class="fab fa-facebook text-xl"></i></a>
+        </div>
+        <button onclick="toggleView('client')" id="btnClient" class="px-3 py-1.5 rounded text-sm font-semibold bg-brandRed text-white">Client View</button>
+        <button onclick="toggleView('admin')" id="btnAdmin" class="px-3 py-1.5 rounded text-sm font-semibold bg-slate-800 text-slate-300 hover:text-white">Admin View</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="clientView" class="flex-grow max-w-7xl w-full mx-auto px-4 py-8">
+    <div class="text-center my-8">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-2">Premium Security & Style</h1>
+      <p class="text-slate-400 max-w-xl mx-auto">Explore high-quality Aluminium, Steel, and Wood doors tailored for home and business security.</p>
+    </div>
+
+    <div class="flex justify-center space-x-2 mb-8 flex-wrap gap-y-2">
+      <button onclick="filterDoors('All')" class="filter-btn bg-brandRed text-white px-4 py-2 rounded-full text-sm font-semibold">All Doors</button>
+      <button onclick="filterDoors('Aluminium')" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-4 py-2 rounded-full text-sm font-semibold">Aluminium</button>
+      <button onclick="filterDoors('Steel')" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-4 py-2 rounded-full text-sm font-semibold">Steel</button>
+      <button onclick="filterDoors('Wood')" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-4 py-2 rounded-full text-sm font-semibold">Wood</button>
+    </div>
+
+    <div id="doorGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </main>
+
+  <main id="adminView" class="hidden flex-grow max-w-7xl w-full mx-auto px-4 py-8">
+    <div class="bg-brandDark p-6 rounded-lg border border-slate-800 mb-8 max-w-2xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-4">Add New Door Listing</h2>
+      <form id="addDoorForm" onsubmit="handleAddDoor(event)" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-slate-300">Door Title</label>
+          <input type="text" id="doorTitle" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1">
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-300">Material</label>
+            <select id="doorCategory" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1">
+              <option value="Aluminium">Aluminium</option>
+              <option value="Steel">Steel</option>
+              <option value="Wood">Wood</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-300">Estimated Price ($)</label>
+            <input type="number" id="doorPrice" placeholder="e.g. 450" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1">
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-300">Image URL</label>
+          <input type="url" id="doorImage" placeholder="https://..." required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1">
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-300">Description</label>
+          <textarea id="doorDesc" rows="3" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-brandRed text-white py-2 rounded font-semibold hover:bg-red-700 transition">Save Product Listing</button>
+      </form>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <h3 class="text-xl font-bold text-white mb-4">Manage Listings</h3>
+      <div id="adminDoorList" class="space-y-4"></div>
+    </div>
+  </main>
+
+  <footer class="bg-brandDark border-t border-slate-800 py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-slate-400 text-sm gap-4">
+      <p>&copy; 2026 Maktech Doors. All rights reserved.</p>
+      <div class="flex space-x-6">
+        <a href="https://instagram.com/maktechsolutions_1" target="_blank" class="hover:text-brandRed"><i class="fab fa-instagram"></i> @maktechsolutions_1</a>
+        <a href="https://facebook.com/maktechsolution" target="_blank" class="hover:text-brandRed"><i class="fab fa-facebook"></i> Maktech Solution</a>
+        <span><i class="fas fa-phone"></i> +263 789 009 829</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // INITIAL SAMPLE DATA
+    let doors = JSON.parse(localStorage.getItem('maktech_doors')) || [
+      { id: 1, title: 'Modern Composite Sliding Gate', category: 'Aluminium', price: '650', image: 'https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=600&q=80', desc: 'Sleek dark finish with high corrosion resistance.' },
+      { id: 2, title: '8-Locking Pin Security Garage Door', category: 'Steel', price: '850', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80', desc: 'Maximum security garage entrance with heavy-duty locks.' },
+      { id: 3, title: 'Solid Exterior Hardwood Door', category: 'Wood', price: '400', image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80', desc: 'Natural grain finish providing elegant security.' }
+    ];
+
+    const whatsappNumber = "263789009829";
+
+    // RENDER CLIENT CATALOG
+    function renderClientCatalog(items = doors) {
+      const container = document.getElementById('doorGrid');
+      container.innerHTML = items.map(door => `
+        <div class="bg-brandDark rounded-lg overflow-hidden border border-slate-800 flex flex-col">
+          <img src="${door.image}" alt="${door.title}" class="h-56 w-full object-cover">
+          <div class="p-5 flex flex-col flex-grow">
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">${door.category}</span>
+              <span class="text-brandRed font-bold text-lg">$${door.price}</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">${door.title}</h3>
+            <p class="text-slate-400 text-sm flex-grow mb-4">${door.desc}</p>
+            <a href="https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Hi Maktech Doors, I would like to request a quote for: ' + door.title + ' (Category: ' + door.category + ')')}" 
+               target="_blank" 
+               class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 rounded text-center transition flex items-center justify-center gap-2">
+              <i class="fab fa-whatsapp text-lg"></i> Request Quotation
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // RENDER ADMIN LIST
+    function renderAdminCatalog() {
+      const container = document.getElementById('adminDoorList');
+      container.innerHTML = doors.map(door => `
+        <div class="bg-brandDark p-4 rounded border border-slate-800 flex justify-between items-center">
+          <div class="flex items-center space-x-4">
+            <img src="${door.image}" class="w-16 h-16 object-cover rounded">
+            <div>
+              <h4 class="font-bold text-white">${door.title}</h4>
+              <p class="text-xs text-slate-400">${door.category} • $${door.price}</p>
+            </div>
+          </div>
+          <button onclick="deleteDoor(${door.id})" class="text-red-500 hover:text-red-400 font-semibold text-sm">Delete</button>
+        </div>
+      `).join('');
+    }
+
+    // VIEW TOGGLE
+    function toggleView(view) {
+      if (view === 'admin') {
+        document.getElementById('clientView').classList.add('hidden');
+        document.getElementById('adminView').classList.remove('hidden');
+        document.getElementById('btnAdmin').classList.replace('bg-slate-800', 'bg-brandRed');
+        document.getElementById('btnClient').classList.replace('bg-brandRed', 'bg-slate-800');
+        renderAdminCatalog();
+      } else {
+        document.getElementById('adminView').classList.add('hidden');
+        document.getElementById('clientView').classList.remove('hidden');
+        document.getElementById('btnClient').classList.replace('bg-slate-800', 'bg-brandRed');
+        document.getElementById('btnAdmin').classList.replace('bg-brandRed', 'bg-slate-800');
+        renderClientCatalog();
+      }
+    }
+
+    // CATEGORY FILTER
+    function filterDoors(cat) {
+      if (cat === 'All') renderClientCatalog(doors);
+      else renderClientCatalog(doors.filter(d => d.category === cat));
+    }
+
+    // ADD NEW DOOR
+    function handleAddDoor(e) {
+      e.preventDefault();
+      const newDoor = {
+        id: Date.now(),
+        title: document.getElementById('doorTitle').value,
+        category: document.getElementById('doorCategory').value,
+        price: document.getElementById('doorPrice').value,
+        image: document.getElementById('doorImage').value,
+        desc: document.getElementById('doorDesc').value
+      };
+      doors.push(newDoor);
+      localStorage.setItem('maktech_doors', JSON.stringify(doors));
+      document.getElementById('addDoorForm').reset();
+      renderAdminCatalog();
+    }
+
+    // DELETE DOOR
+    function deleteDoor(id) {
+      doors = doors.filter(d => d.id !== id);
+      localStorage.setItem('maktech_doors', JSON.stringify(doors));
+      renderAdminCatalog();
+    }
+
+    // INITIAL LOAD
+    renderClientCatalog();
+  </script>
+</body>
+</html>
