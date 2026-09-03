@@ -26,7 +26,7 @@
   <nav class="bg-brandDark border-b border-slate-800 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <div class="flex items-center space-x-3">
-        <img src="logo.jpg" alt="Maktech Doors Logo" class="h-12 w-auto object-contain rounded" id="navLogo">
+        <img src="shared image.jpg" alt="Maktech Doors Logo" class="h-12 w-auto object-contain rounded" id="navLogo">
         <div>
           <span class="text-xl font-bold tracking-wider text-white block leading-none">MAKTECH <span class="text-brandRed">DOORS</span></span>
           <span class="text-xs text-slate-400 tracking-widest uppercase">Security. Style. Durability.</span>
@@ -84,7 +84,7 @@
         </div>
         <div>
           <label class="block text-sm font-medium text-slate-300">Upload Image</label>
-          <input type="file" id="doorImageFile" accept="image/*" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-slate-300 mt-1 file:mr-4 file:py-1 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-brandRed file:text-white hover:file:bg-red-700 cursor-pointer">
+          <input type="file" id="doorImageFile" accept="image/*" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-slate-300 mt-1 file:mr-4 file:py-1 file:px-3 file:rounded [...]
         </div>
         <div>
           <label class="block text-sm font-medium text-slate-300">Description</label>
@@ -114,9 +114,9 @@
   <script>
     // INITIAL SAMPLE DATA
     let doors = JSON.parse(localStorage.getItem('maktech_doors')) || [
-      { id: 1, title: 'Modern Composite Sliding Gate', category: 'Aluminium', price: '650', image: 'https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=600&q=80', desc: 'Sleek dark finish with high corrosion resistance.' },
-      { id: 2, title: '8-Locking Pin Security Garage Door', category: 'Steel', price: '850', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80', desc: 'Maximum security garage entrance with heavy-duty locks.' },
-      { id: 3, title: 'Solid Exterior Hardwood Door', category: 'Wood', price: '400', image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80', desc: 'Natural grain finish providing elegant security.' }
+      { id: 1, title: 'Modern Composite Sliding Gate', category: 'Aluminium', price: '650', image: 'https://images.unsplash.com/photo-1558036117-15d82a90b9b1?auto=format&fit=crop&w=600&q=80', desc: 'S[...]
+      { id: 2, title: '8-Locking Pin Security Garage Door', category: 'Steel', price: '850', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80', desc[...]
+      { id: 3, title: 'Solid Exterior Hardwood Door', category: 'Wood', price: '400', image: 'https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80', desc: 'Natu[...]
     ];
 
     const whatsappNumber = "263789009829";
