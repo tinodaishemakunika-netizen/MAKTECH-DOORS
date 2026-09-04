@@ -221,7 +221,15 @@
       const container = document.getElementById('doorGrid');
       container.innerHTML = items.map(door => `
         <div class="bg-brandDark rounded-lg overflow-hidden border border-slate-800 flex flex-col">
-          <img src="${door.image}" alt="${door.title}" class="h-48 sm:h-56 w-full object-cover" onerror="this.src='shared image.jpg'">
+          const firebaseConfig = {
+  apiKey: "AIzaSyB8j3JPOmbYsgXajURFYeNXC41LS8FojYw",
+  authDomain: "maktech-doors.firebaseapp.com",
+  projectId: "maktech-doors",
+  storageBucket: "maktech-doors.firebasestorage.app",
+  messagingSenderId: "223743246235",
+  appId: "1:223743246235:web:b0270c5f4ca84d1bc66b3e",
+  measurementId: "G-X383548C9V"
+};<img src="${door.image}" alt="${door.title}" class="h-48 sm:h-56 w-full object-cover" onerror="this.src='shared image.jpg'">
           <div class="p-4 sm:p-5 flex flex-col flex-grow">
             <div class="flex justify-between items-start mb-2">
               <span class="text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">${door.category}</span>
