@@ -85,7 +85,7 @@
           </div>
         </div>
         <div>
-          <label class="block text-sm font-medium text-slate-300">Image File Name / URL</label>
+          <label class="block text-sm font-medium text-slate-300">Image URL or Local Image File</label>
           <input type="text" id="doorImage" placeholder="shared image.jpg or https://..." required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1 text-sm">
         </div>
         <div>
@@ -170,11 +170,36 @@
     </div>
   </footer>
 
+  <!-- Firebase Integration Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB8j3JPOmbYsgXajURFYeNXC41LS8FojYw",
+      authDomain: "maktech-doors.firebaseapp.com",
+      projectId: "maktech-doors",
+      storageBucket: "maktech-doors.firebasestorage.app",
+      messagingSenderId: "223743246235",
+      appId: "1:223743246235:web:b0270c5f4ca84d1bc66b3e",
+      measurementId: "G-X383548C9V"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.db = db;
+    window.collection = collection;
+    window.addDoc = addDoc;
+    window.getDocs = getDocs;
+    window.deleteDoc = deleteDoc;
+    window.doc = doc;
+  </script>
+
   <script>
     const DEFAULT_PASS = "Maktech2026";
     let isAdminAuthenticated = false;
 
-    // DEFAULT DATA SETTINGS
     let siteSettings = JSON.parse(localStorage.getItem('maktech_settings')) || {
       whatsapp: "263789009829",
       instagram: "https://instagram.com/maktechsolutions_1",
@@ -188,10 +213,28 @@
     ];
 
     let doors = JSON.parse(localStorage.getItem('maktech_doors')) || [
-      { id: 1, title: 'Aluminium Composite Sliding Gate', category: 'Aluminium', price: '650', image: 'shared image.jpg', desc: 'Sleek dark finish with high corrosion resistance.' },
-      { id: 2, title: '8-Locking Pin Garage Door', category: 'Steel', price: '850', image: 'shared image.jpg', desc: 'Maximum security garage entrance with heavy-duty locking pins.' },
-      { id: 3, title: 'Solid Exterior Hardwood Door', category: 'Wood', price: '400', image: 'shared image.jpg', desc: 'Natural grain finish providing elegant security.' }
+      { id: '1', title: 'Aluminium Composite Sliding Gate', category: 'Aluminium', price: '650', image: 'shared image.jpg', desc: 'Sleek dark finish with high corrosion resistance.' },
+      { id: '2', title: '8-Locking Pin Garage Door', category: 'Steel', price: '850', image: 'shared image.jpg', desc: 'Maximum security garage entrance with heavy-duty locking pins.' },
+      { id: '3', title: 'Solid Exterior Hardwood Door', category: 'Wood', price: '400', image: 'shared image.jpg', desc: 'Natural grain finish providing elegant security.' }
     ];
+
+    async function fetchDoorsFromFirebase() {
+      if (window.db) {
+        try {
+          const querySnapshot = await window.getDocs(window.collection(window.db, "doors"));
+          if (!querySnapshot.empty) {
+            const fbDoors = [];
+            querySnapshot.forEach((docSnap) => {
+              fbDoors.push({ id: docSnap.id, ...docSnap.data() });
+            });
+            doors = fbDoors;
+            renderClientCatalog();
+          }
+        } catch (err) {
+          console.warn("Firestore sync error, falling back to local storage:", err);
+        }
+      }
+    }
 
     function applySiteSettings() {
       document.getElementById('hdrInsta').href = siteSettings.instagram;
@@ -221,15 +264,7 @@
       const container = document.getElementById('doorGrid');
       container.innerHTML = items.map(door => `
         <div class="bg-brandDark rounded-lg overflow-hidden border border-slate-800 flex flex-col">
-          const firebaseConfig = {
-  apiKey: "AIzaSyB8j3JPOmbYsgXajURFYeNXC41LS8FojYw",
-  authDomain: "maktech-doors.firebaseapp.com",
-  projectId: "maktech-doors",
-  storageBucket: "maktech-doors.firebasestorage.app",
-  messagingSenderId: "223743246235",
-  appId: "1:223743246235:web:b0270c5f4ca84d1bc66b3e",
-  measurementId: "G-X383548C9V"
-};<img src="${door.image}" alt="${door.title}" class="h-48 sm:h-56 w-full object-cover" onerror="this.src='shared image.jpg'">
+          <img src="${door.image}" alt="${door.title}" class="h-48 sm:h-56 w-full object-cover" onerror="this.src='shared image.jpg'">
           <div class="p-4 sm:p-5 flex flex-col flex-grow">
             <div class="flex justify-between items-start mb-2">
               <span class="text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">${door.category}</span>
@@ -258,7 +293,7 @@
               <p class="text-xs text-slate-400">${door.category} • $${door.price}</p>
             </div>
           </div>
-          <button onclick="deleteDoor(${door.id})" class="text-red-500 hover:text-red-400 font-semibold text-xs sm:text-sm">Delete</button>
+          <button onclick="deleteDoor('${door.id}')" class="text-red-500 hover:text-red-400 font-semibold text-xs sm:text-sm">Delete</button>
         </div>
       `).join('');
     }
@@ -312,20 +347,33 @@
       else renderClientCatalog(doors.filter(d => d.category === cat));
     }
 
-    function handleAddDoor(e) {
+    async function handleAddDoor(e) {
       e.preventDefault();
       const newDoor = {
-        id: Date.now(),
         title: document.getElementById('doorTitle').value,
         category: document.getElementById('doorCategory').value,
         price: document.getElementById('doorPrice').value,
         image: document.getElementById('doorImage').value,
         desc: document.getElementById('doorDesc').value
       };
+
+      if (window.db) {
+        try {
+          const docRef = await window.addDoc(window.collection(window.db, "doors"), newDoor);
+          newDoor.id = docRef.id;
+        } catch (err) {
+          console.error("Firestore write failed:", err);
+          newDoor.id = Date.now().toString();
+        }
+      } else {
+        newDoor.id = Date.now().toString();
+      }
+
       doors.push(newDoor);
       localStorage.setItem('maktech_doors', JSON.stringify(doors));
       document.getElementById('addDoorForm').reset();
       renderAdminCatalog();
+      alert("Door listing saved!");
     }
 
     function handleSaveSettings(e) {
@@ -352,15 +400,27 @@
       alert('FAQ entry added!');
     }
 
-    function deleteDoor(id) {
+    async function deleteDoor(id) {
       doors = doors.filter(d => d.id !== id);
       localStorage.setItem('maktech_doors', JSON.stringify(doors));
+
+      if (window.db) {
+        try {
+          await window.deleteDoc(window.doc(window.db, "doors", id));
+        } catch (err) {
+          console.error("Failed to delete from Firestore:", err);
+        }
+      }
       renderAdminCatalog();
     }
 
     applySiteSettings();
     renderFaqs();
     renderClientCatalog();
+
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(fetchDoorsFromFirebase, 1000);
+    });
   </script>
 </body>
 </html>
