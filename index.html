@@ -11,9 +11,10 @@
         extend: {
           colors: {
             brandNavy: '#0F172A',
-            brandDark: '#0A0F1D',
+            brandDark: '#020617',
             brandRed: '#DC2626',
-            brandAccent: '#1E293B'
+            brandAccent: '#1E293B',
+            brandLight: '#F8FAFC'
           }
         }
       }
@@ -21,141 +22,257 @@
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans flex flex-col min-h-screen">
+<body class="bg-slate-50 text-slate-800 font-sans flex flex-col min-h-screen">
 
-  <nav class="bg-brandDark border-b border-slate-800 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      <div class="flex items-center space-x-3">
-        <img src="shared image.jpg" alt="Maktech Doors Logo" class="h-10 sm:h-12 w-auto object-contain rounded" id="siteLogo">
-        <div>
-          <span class="text-lg sm:text-xl font-bold tracking-wider text-white block leading-none">MAKTECH <span class="text-brandRed">DOORS</span></span>
-          <span class="text-[10px] sm:text-xs text-slate-400 tracking-widest uppercase">Security. Style. Durability.</span>
+  <nav class="bg-brandNavy text-white border-b border-slate-700 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <div class="flex items-center space-x-3 w-full sm:w-auto justify-between sm:justify-start">
+        <div class="flex items-center space-x-3">
+          <img src="shared image.jpg" alt="Maktech Doors Logo" class="h-10 sm:h-12 w-auto object-contain rounded bg-white p-1" id="siteLogo" onerror="this.src='https://via.placeholder.com/150?text=MAKTECH'">
+          <div>
+            <span class="text-lg sm:text-xl font-bold tracking-wider text-white block leading-none">MAKTECH <span class="text-brandRed">DOORS</span></span>
+            <span class="text-[10px] sm:text-xs text-slate-300 tracking-widest uppercase block">Security. Style. Durability.</span>
+          </div>
         </div>
+        <button onclick="toggleMobileMenu()" class="sm:hidden text-white focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
       </div>
 
-      <div class="flex items-center space-x-4 text-slate-400">
-        <a id="hdrInsta" href="https://instagram.com/maktechsolutions_1" target="_blank" class="hover:text-brandRed transition text-lg sm:text-xl"><i class="fab fa-instagram"></i></a>
-        <a id="hdrFb" href="https://facebook.com/maktechsolution" target="_blank" class="hover:text-brandRed transition text-lg sm:text-xl"><i class="fab fa-facebook"></i></a>
+      <div id="navLinks" class="hidden sm:flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm font-semibold w-full sm:w-auto">
+        <button onclick="switchPage('home')" class="nav-link hover:text-brandRed transition py-1 text-slate-200">Home</button>
+        <button onclick="switchPage('products')" class="nav-link hover:text-brandRed transition py-1 text-slate-200">Products</button>
+        <button onclick="switchPage('gallery')" class="nav-link hover:text-brandRed transition py-1 text-slate-200">Gallery</button>
+        <div class="flex space-x-4 pt-2 sm:pt-0 text-slate-300 border-t sm:border-0 border-slate-700 w-full sm:w-auto justify-center">
+          <a id="hdrInsta" href="https://instagram.com/maktechsolutions_1" target="_blank" class="hover:text-brandRed transition text-lg"><i class="fab fa-instagram"></i></a>
+          <a id="hdrFb" href="https://facebook.com/maktechsolution" target="_blank" class="hover:text-brandRed transition text-lg"><i class="fab fa-facebook"></i></a>
+        </div>
       </div>
     </div>
   </nav>
 
-  <main id="clientView" class="flex-grow max-w-7xl w-full mx-auto px-4 py-6 sm:py-8">
-    <div class="text-center my-4 sm:my-8">
-      <h1 class="text-3xl sm:text-5xl font-extrabold text-white mb-2">Premium Security & Style</h1>
-      <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto px-2">Explore high-quality Aluminium, Steel, and Wood doors tailored for home and business security.</p>
-    </div>
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-6">
 
-    <div class="flex justify-center space-x-2 mb-6 sm:mb-8 flex-wrap gap-y-2">
-      <button onclick="filterDoors('All')" class="filter-btn bg-brandRed text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold">All Doors</button>
-      <button onclick="filterDoors('Aluminium')" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold">Aluminium</button>
-      <button onclick="filterDoors('Steel')" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold">Steel</button>
-      <button onclick="filterDoors('Wood')" class="filter-btn bg-slate-800 text-slate-300 hover:bg-slate-700 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold">Wood</button>
-    </div>
-
-    <div id="doorGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"></div>
-
-    <section class="mt-16 bg-brandDark p-6 rounded-lg border border-slate-800 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6 text-center">Frequently Asked Questions</h2>
-      <div id="faqList" class="space-y-4"></div>
-    </section>
-  </main>
-
-  <main id="adminView" class="hidden flex-grow max-w-7xl w-full mx-auto px-4 py-6 sm:py-8 space-y-8">
-    
-    <div class="bg-brandDark p-4 sm:p-6 rounded-lg border border-slate-800 max-w-2xl mx-auto">
-      <h2 class="text-xl sm:text-2xl font-bold text-white mb-4">Add New Door Listing</h2>
-      <form id="addDoorForm" onsubmit="handleAddDoor(event)" class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium text-slate-300">Door Title</label>
-          <input type="text" id="doorTitle" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1 text-sm">
+    <div id="clientView">
+      
+      <section id="pageHome" class="space-y-12">
+        <div class="relative bg-brandNavy text-white rounded-xl overflow-hidden shadow-xl min-h-[280px] sm:min-h-[360px] flex items-center justify-center p-6 sm:p-12 text-center">
+          <div id="slideshowContainer" class="max-w-3xl space-y-4">
+            </div>
+          <button onclick="prevSlide()" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full"><i class="fas fa-chevron-left"></i></button>
+          <button onclick="nextSlide()" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white p-2 rounded-full"><i class="fas fa-chevron-right"></i></button>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md border-t-4 border-brandNavy space-y-3">
+            <div class="flex items-center space-x-3 text-brandNavy mb-2">
+              <i class="fas fa-bullseye text-2xl text-brandRed"></i>
+              <h3 class="text-xl sm:text-2xl font-bold">Our Mission</h3>
+            </div>
+            <p id="dispMission" class="text-slate-600 leading-relaxed text-sm sm:text-base"></p>
+          </div>
+
+          <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md border-t-4 border-brandNavy space-y-3">
+            <div class="flex items-center space-x-3 text-brandNavy mb-2">
+              <i class="fas fa-eye text-2xl text-brandRed"></i>
+              <h3 class="text-xl sm:text-2xl font-bold">Our Vision</h3>
+            </div>
+            <p id="dispVision" class="text-slate-600 leading-relaxed text-sm sm:text-base"></p>
+          </div>
+        </div>
+
+        <section class="bg-white p-6 sm:p-8 rounded-xl shadow-md border border-slate-200">
+          <h2 class="text-2xl font-bold text-brandNavy mb-6 text-center">Frequently Asked Questions</h2>
+          <div id="faqList" class="space-y-4 divide-y divide-slate-100"></div>
+        </section>
+      </section>
+
+      <section id="pageProducts" class="hidden space-y-8">
+        <div class="text-center my-4">
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-brandNavy mb-2">Premium Product Catalog</h1>
+          <p class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto">Explore high-quality Aluminium, Steel, and Wood doors tailored for ultimate security and aesthetic appeal.</p>
+        </div>
+
+        <div class="flex justify-center space-x-2 flex-wrap gap-y-2">
+          <button onclick="filterDoors('All')" class="filter-btn bg-brandNavy text-white px-4 py-2 rounded-full text-xs sm:text-sm font-semibold shadow">All Doors</button>
+          <button onclick="filterDoors('Aluminium')" class="filter-btn bg-white text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold border border-slate-200">Aluminium</button>
+          <button onclick="filterDoors('Steel')" class="filter-btn bg-white text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold border border-slate-200">Steel</button>
+          <button onclick="filterDoors('Wood')" class="filter-btn bg-white text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold border border-slate-200">Wood</button>
+        </div>
+
+        <div id="doorGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </section>
+
+      <section id="pageGallery" class="hidden space-y-12">
+        <div class="text-center my-4">
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-brandNavy mb-2">Project Gallery & Videos</h1>
+          <p class="text-slate-600 text-sm sm:text-base max-w-xl mx-auto">Take a look at our recent installations, custom door fittings, and video walkthroughs.</p>
+        </div>
+
+        <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+        <div class="bg-white p-6 sm:p-8 rounded-xl shadow-md border border-slate-200 max-w-2xl mx-auto space-y-6">
+          <h3 class="text-2xl font-bold text-brandNavy text-center">Leave Us a Review</h3>
+          <form onsubmit="handleSubmitRating(event)" class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-slate-700">Your Name</label>
+              <input type="text" id="rateName" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1 focus:ring-2 focus:ring-brandNavy focus:outline-none">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700">Rating (1 to 5 Stars)</label>
+              <select id="rateStars" class="w-full border border-slate-300 rounded p-2 text-sm mt-1 focus:ring-2 focus:ring-brandNavy focus:outline-none">
+                <option value="5">⭐⭐⭐⭐⭐ (5 - Excellent)</option>
+                <option value="4">⭐⭐⭐⭐ (4 - Very Good)</option>
+                <option value="3">⭐⭐⭐ (3 - Average)</option>
+                <option value="2">⭐⭐ (2 - Poor)</option>
+                <option value="1">⭐ (1 - Very Bad)</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700">Comments</label>
+              <textarea id="rateComment" rows="3" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1 focus:ring-2 focus:ring-brandNavy focus:outline-none" placeholder="Share your experience with our services..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-brandNavy text-white py-2 rounded font-semibold hover:bg-slate-800 transition text-sm shadow">Submit Feedback</button>
+          </form>
+
+          <div class="pt-6 border-t border-slate-200">
+            <h4 class="font-bold text-slate-800 mb-4">Recent Customer Ratings</h4>
+            <div id="reviewsList" class="space-y-3"></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <div id="adminView" class="hidden space-y-8">
+      <div class="bg-brandNavy text-white p-4 rounded-lg flex justify-between items-center">
+        <h2 class="text-xl font-bold"><i class="fas fa-user-shield mr-2"></i> Admin Control Panel</h2>
+        <span class="text-xs bg-brandRed px-2.5 py-1 rounded font-semibold">Authenticated</span>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200 max-w-2xl mx-auto space-y-4">
+        <h3 class="text-xl font-bold text-brandNavy">Add New Product Listing</h3>
+        <form id="addDoorForm" onsubmit="handleAddDoor(event)" class="space-y-4">
           <div>
-            <label class="block text-sm font-medium text-slate-300">Material</label>
-            <select id="doorCategory" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1 text-sm">
-              <option value="Aluminium">Aluminium</option>
-              <option value="Steel">Steel</option>
-              <option value="Wood">Wood</option>
+            <label class="block text-sm font-medium text-slate-700">Door Title</label>
+            <input type="text" id="doorTitle" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1">
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-medium text-slate-700">Material</label>
+              <select id="doorCategory" class="w-full border border-slate-300 rounded p-2 text-sm mt-1">
+                <option value="Aluminium">Aluminium</option>
+                <option value="Steel">Steel</option>
+                <option value="Wood">Wood</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-slate-700">Price ($)</label>
+              <input type="number" id="doorPrice" placeholder="e.g. 450" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Product Image (File Upload or URL)</label>
+            <input type="file" id="doorFileInput" accept="image/*" class="w-full text-xs text-slate-500 mt-1 mb-2">
+            <input type="text" id="doorImage" placeholder="Or paste image URL (e.g. shared image.jpg)" class="w-full border border-slate-300 rounded p-2 text-sm">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Description</label>
+            <textarea id="doorDesc" rows="2" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-brandRed text-white py-2 rounded font-semibold hover:bg-red-700 transition text-sm">Save Door Listing</button>
+        </form>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200 max-w-2xl mx-auto space-y-4">
+        <h3 class="text-xl font-bold text-brandNavy">Upload Gallery Item (Image or Video)</h3>
+        <form onsubmit="handleAddGalleryItem(event)" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Media Title</label>
+            <input type="text" id="galTitle" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Media Type</label>
+            <select id="galType" class="w-full border border-slate-300 rounded p-2 text-sm mt-1">
+              <option value="image">Image</option>
+              <option value="video">Video</option>
             </select>
           </div>
           <div>
-            <label class="block text-sm font-medium text-slate-300">Estimated Price ($)</label>
-            <input type="number" id="doorPrice" placeholder="e.g. 450" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1 text-sm">
+            <label class="block text-sm font-medium text-slate-700">Media File Upload</label>
+            <input type="file" id="galFileInput" accept="image/*,video/*" class="w-full text-xs text-slate-500 mt-1 mb-2">
+            <input type="text" id="galUrl" placeholder="Or enter direct URL" class="w-full border border-slate-300 rounded p-2 text-sm">
           </div>
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-300">Image URL or Local Image File</label>
-          <input type="text" id="doorImage" placeholder="shared image.jpg or https://..." required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1 text-sm">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-300">Description</label>
-          <textarea id="doorDesc" rows="3" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1 text-sm"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-brandRed text-white py-2 rounded font-semibold hover:bg-red-700 transition text-sm">Save Door Listing</button>
-      </form>
+          <button type="submit" class="w-full bg-brandNavy text-white py-2 rounded font-semibold hover:bg-slate-800 transition text-sm">Upload to Gallery</button>
+        </form>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200 max-w-2xl mx-auto space-y-4">
+        <h3 class="text-xl font-bold text-brandNavy">Manage Mission, Vision & Slideshow</h3>
+        <form onsubmit="handleSaveCompanyInfo(event)" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Mission Statement</label>
+            <textarea id="cfgMission" rows="2" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Vision Statement</label>
+            <textarea id="cfgVision" rows="2" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1"></textarea>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Slideshow Slides (One per line: Title|Description)</label>
+            <textarea id="cfgSlides" rows="3" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1" placeholder="Title|Description"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-brandNavy text-white py-2 rounded font-semibold hover:bg-slate-800 transition text-sm">Update Homepage Content</button>
+        </form>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200 max-w-2xl mx-auto space-y-4">
+        <h3 class="text-xl font-bold text-brandNavy">Manage Social Links & Footer</h3>
+        <form onsubmit="handleSaveSettings(event)" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-slate-700">WhatsApp Number (Without + or spaces)</label>
+            <input type="text" id="cfgWhatsapp" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Instagram Profile URL</label>
+            <input type="text" id="cfgInsta" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Facebook Page URL</label>
+            <input type="text" id="cfgFb" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700">Footer Copyright</label>
+            <input type="text" id="cfgCopyright" required class="w-full border border-slate-300 rounded p-2 text-sm mt-1">
+          </div>
+          <button type="submit" class="w-full bg-slate-800 text-white py-2 rounded font-semibold hover:bg-slate-700 transition text-sm">Update Settings</button>
+        </form>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-4">
+        <h3 class="text-xl font-bold text-brandNavy">Manage Product Listings</h3>
+        <div id="adminDoorList" class="space-y-3"></div>
+      </div>
     </div>
 
-    <div class="bg-brandDark p-4 sm:p-6 rounded-lg border border-slate-800 max-w-2xl mx-auto">
-      <h2 class="text-xl sm:text-2xl font-bold text-white mb-4">Manage Social Links & Footer Text</h2>
-      <form onsubmit="handleSaveSettings(event)" class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium text-slate-300">WhatsApp Number (Without + or spaces)</label>
-          <input type="text" id="cfgWhatsapp" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1 text-sm">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-300">Instagram Profile URL</label>
-          <input type="text" id="cfgInsta" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1 text-sm">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-300">Facebook Page URL</label>
-          <input type="text" id="cfgFb" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1 text-sm">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-300">Footer Copyright Text</label>
-          <input type="text" id="cfgCopyright" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1 text-sm">
-        </div>
-        <button type="submit" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white py-2 rounded font-semibold transition text-sm">Update Settings</button>
-      </form>
-    </div>
-
-    <div class="bg-brandDark p-4 sm:p-6 rounded-lg border border-slate-800 max-w-2xl mx-auto">
-      <h2 class="text-xl sm:text-2xl font-bold text-white mb-4">Add FAQ Item</h2>
-      <form onsubmit="handleAddFaq(event)" class="space-y-4">
-        <div>
-          <label class="block text-sm font-medium text-slate-300">Question</label>
-          <input type="text" id="faqQuestion" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1 text-sm">
-        </div>
-        <div>
-          <label class="block text-sm font-medium text-slate-300">Answer</label>
-          <textarea id="faqAnswer" rows="2" required class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white mt-1 text-sm"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-brandRed text-white py-2 rounded font-semibold hover:bg-red-700 transition text-sm">Add FAQ Entry</button>
-      </form>
-    </div>
-
-    <div class="max-w-4xl mx-auto">
-      <h3 class="text-lg sm:text-xl font-bold text-white mb-4">Existing Products</h3>
-      <div id="adminDoorList" class="space-y-4"></div>
-    </div>
   </main>
 
   <div id="authModal" class="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50 hidden">
-    <div class="bg-brandDark p-6 rounded-lg border border-slate-800 max-w-sm w-full space-y-4">
-      <h3 class="text-lg font-bold text-white text-center"><i class="fas fa-lock text-brandRed mr-2"></i>Admin Verification</h3>
-      <p class="text-slate-400 text-xs text-center">Enter the security password to unlock administrative controls.</p>
-      <input type="password" id="adminPasswordInput" placeholder="Enter Password" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white text-center text-sm">
+    <div class="bg-white p-6 rounded-xl border border-slate-200 max-w-sm w-full space-y-4 shadow-2xl">
+      <h3 class="text-lg font-bold text-brandNavy text-center"><i class="fas fa-lock text-brandRed mr-2"></i>Admin Verification</h3>
+      <p class="text-slate-600 text-xs text-center">Enter the security password to unlock administrative controls.</p>
+      <input type="password" id="adminPasswordInput" placeholder="Enter Password" class="w-full border border-slate-300 rounded p-2 text-center text-sm focus:outline-none focus:ring-2 focus:ring-brandNavy">
       <div id="authError" class="text-red-500 text-xs text-center hidden">Incorrect password!</div>
       <div class="flex space-x-2">
-        <button onclick="closeAuthModal()" class="w-1/2 bg-slate-800 text-slate-300 py-2 rounded text-xs font-semibold">Cancel</button>
-        <button onclick="verifyPassword()" class="w-1/2 bg-brandRed text-white py-2 rounded text-xs font-semibold">Unlock</button>
+        <button onclick="closeAuthModal()" class="w-1/2 bg-slate-200 text-slate-700 py-2 rounded text-xs font-semibold hover:bg-slate-300">Cancel</button>
+        <button onclick="verifyPassword()" class="w-1/2 bg-brandRed text-white py-2 rounded text-xs font-semibold hover:bg-red-700">Unlock</button>
       </div>
     </div>
   </div>
 
-  <footer class="bg-brandDark border-t border-slate-800 py-6 mt-12">
-    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center text-slate-400 text-xs sm:text-sm gap-4">
-      <div class="flex flex-wrap justify-center gap-4 text-center">
+  <footer class="bg-brandNavy text-white border-t border-slate-800 py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center text-slate-300 text-xs sm:text-sm gap-4">
+      <div class="flex flex-wrap justify-center gap-6 text-center">
         <a id="ftrInsta" href="https://instagram.com/maktechsolutions_1" target="_blank" class="hover:text-brandRed"><i class="fab fa-instagram"></i> @maktechsolutions_1</a>
         <a id="ftrFb" href="https://facebook.com/maktechsolution" target="_blank" class="hover:text-brandRed"><i class="fab fa-facebook"></i> Maktech Solution</a>
         <span id="ftrPhone"><i class="fas fa-phone"></i> +263 789 009 829</span>
@@ -163,43 +280,19 @@
       
       <p id="ftrCopyright">&copy; 2026 Maktech Doors. All rights reserved.</p>
 
-      <div class="pt-4 border-t border-slate-800/60 w-full flex justify-center space-x-3 opacity-60 hover:opacity-100 transition">
-        <button onclick="toggleView('client')" id="btnClient" class="px-2.5 py-1 rounded text-xs font-medium bg-brandRed text-white">Client Mode</button>
-        <button onclick="openAuthModal()" id="btnAdmin" class="px-2.5 py-1 rounded text-xs font-medium bg-slate-800 text-slate-400">Admin Mode</button>
+      <div class="pt-4 border-t border-slate-800/80 w-full flex justify-center space-x-3">
+        <button onclick="toggleView('client')" id="btnClient" class="px-3 py-1 rounded text-xs font-medium bg-brandRed text-white">Client View</button>
+        <button onclick="openAuthModal()" id="btnAdmin" class="px-3 py-1 rounded text-xs font-medium bg-slate-800 text-slate-400 border border-slate-700">Admin Mode</button>
       </div>
     </div>
   </footer>
 
-  <!-- Firebase Integration Script -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyB8j3JPOmbYsgXajURFYeNXC41LS8FojYw",
-      authDomain: "maktech-doors.firebaseapp.com",
-      projectId: "maktech-doors",
-      storageBucket: "maktech-doors.firebasestorage.app",
-      messagingSenderId: "223743246235",
-      appId: "1:223743246235:web:b0270c5f4ca84d1bc66b3e",
-      measurementId: "G-X383548C9V"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    window.db = db;
-    window.collection = collection;
-    window.addDoc = addDoc;
-    window.getDocs = getDocs;
-    window.deleteDoc = deleteDoc;
-    window.doc = doc;
-  </script>
-
   <script>
     const DEFAULT_PASS = "Maktech2026";
     let isAdminAuthenticated = false;
+    let currentSlideIdx = 0;
 
+    // LOCAL STORAGE STATE INITIALIZATION
     let siteSettings = JSON.parse(localStorage.getItem('maktech_settings')) || {
       whatsapp: "263789009829",
       instagram: "https://instagram.com/maktechsolutions_1",
@@ -207,10 +300,15 @@
       copyright: "© 2026 Maktech Doors. All rights reserved."
     };
 
-    let faqs = JSON.parse(localStorage.getItem('maktech_faqs')) || [
-      { q: "Do you supply and install doors nationwide?", a: "Yes, Maktech Solution provides delivery and professional installation services across Zimbabwe." },
-      { q: "How strong are the garage door security locks?", a: "Our steel security garage doors are built with heavy-duty 8-locking-pin systems for maximum intrusion resistance." }
-    ];
+    let companyInfo = JSON.parse(localStorage.getItem('maktech_info')) || {
+      mission: "To provide world-class, stylish, and high-security door and garage solutions that guarantee absolute peace of mind for residential and commercial clients.",
+      vision: "To be the leading innovator and trusted partner in architectural composite security doors and automated garage entry systems across Zimbabwe and beyond.",
+      slides: [
+        { title: "Custom Aluminium Composite Doors", desc: "Designed for weather resistance, sleek modern styling, and long-lasting security." },
+        { title: "High-Security Garage Locks", desc: "Heavy-duty 8-locking-pin systems engineered for maximum protection against intrusion." },
+        { title: "Professional Installation & Support", desc: "Complete nationwide delivery, fitting, and structural maintenance services." }
+      ]
+    };
 
     let doors = JSON.parse(localStorage.getItem('maktech_doors')) || [
       { id: '1', title: 'Aluminium Composite Sliding Gate', category: 'Aluminium', price: '650', image: 'shared image.jpg', desc: 'Sleek dark finish with high corrosion resistance.' },
@@ -218,22 +316,146 @@
       { id: '3', title: 'Solid Exterior Hardwood Door', category: 'Wood', price: '400', image: 'shared image.jpg', desc: 'Natural grain finish providing elegant security.' }
     ];
 
-    async function fetchDoorsFromFirebase() {
-      if (window.db) {
-        try {
-          const querySnapshot = await window.getDocs(window.collection(window.db, "doors"));
-          if (!querySnapshot.empty) {
-            const fbDoors = [];
-            querySnapshot.forEach((docSnap) => {
-              fbDoors.push({ id: docSnap.id, ...docSnap.data() });
-            });
-            doors = fbDoors;
-            renderClientCatalog();
+    let galleryItems = JSON.parse(localStorage.getItem('maktech_gallery')) || [
+      { id: '1', title: 'Aluminium Gate Installation', type: 'image', url: 'shared image.jpg' },
+      { id: '2', title: '8-Locking Pin Mechanism Test', type: 'image', url: 'shared image.jpg' }
+    ];
+
+    let reviews = JSON.parse(localStorage.getItem('maktech_reviews')) || [
+      { name: 'Tinashe M.', stars: '5', comment: 'The 8-locking pin door provides absolute peace of mind. Excellent workmanship!' },
+      { name: 'Sarah K.', stars: '5', comment: 'Beautiful composite sliding gate. Highly recommended team.' }
+    ];
+
+    let faqs = JSON.parse(localStorage.getItem('maktech_faqs')) || [
+      { q: "Do you supply and install doors nationwide?", a: "Yes, Maktech Solution provides delivery and professional installation services across Zimbabwe." },
+      { q: "How strong are the garage door security locks?", a: "Our steel security garage doors are built with heavy-duty 8-locking-pin systems for maximum intrusion resistance." }
+    ];
+
+    // NAVIGATION SYSTEM
+    function switchPage(pageId) {
+      document.getElementById('pageHome').classList.add('hidden');
+      document.getElementById('pageProducts').classList.add('hidden');
+      document.getElementById('pageGallery').classList.add('hidden');
+
+      if (pageId === 'home') document.getElementById('pageHome').classList.remove('hidden');
+      if (pageId === 'products') document.getElementById('pageProducts').classList.remove('hidden');
+      if (pageId === 'gallery') document.getElementById('pageGallery').classList.remove('hidden');
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('hidden');
+    }
+
+    // SLIDESHOW LOGIC
+    function renderSlideshow() {
+      const container = document.getElementById('slideshowContainer');
+      const slide = companyInfo.slides[currentSlideIdx] || companyInfo.slides[0];
+      if (!slide) return;
+
+      container.innerHTML = `
+        <span class="text-xs font-semibold bg-brandRed text-white px-3 py-1 rounded-full uppercase tracking-wider">Our Services & Solutions</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-white leading-tight">${slide.title}</h2>
+        <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto">${slide.desc}</p>
+      `;
+    }
+
+    function nextSlide() {
+      currentSlideIdx = (currentSlideIdx + 1) % companyInfo.slides.length;
+      renderSlideshow();
+    }
+
+    function prevSlide() {
+      currentSlideIdx = (currentSlideIdx - 1 + companyInfo.slides.length) % companyInfo.slides.length;
+      renderSlideshow();
+    }
+
+    // RENDER FUNCTIONS
+    function renderCompanyInfo() {
+      document.getElementById('dispMission').innerText = companyInfo.mission;
+      document.getElementById('dispVision').innerText = companyInfo.vision;
+
+      document.getElementById('cfgMission').value = companyInfo.mission;
+      document.getElementById('cfgVision').value = companyInfo.vision;
+      document.getElementById('cfgSlides').value = companyInfo.slides.map(s => `${s.title}|${s.desc}`).join('\n');
+      
+      renderSlideshow();
+    }
+
+    function renderClientCatalog(items = doors) {
+      const container = document.getElementById('doorGrid');
+      container.innerHTML = items.map(door => `
+        <div class="bg-white rounded-xl overflow-hidden shadow-md border border-slate-200 flex flex-col transition hover:shadow-lg">
+          <img src="${door.image}" alt="${door.title}" class="h-48 sm:h-56 w-full object-cover" onerror="this.src='https://via.placeholder.com/400x300?text=Door+Image'">
+          <div class="p-5 flex flex-col flex-grow">
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-300 uppercase">${door.category}</span>
+              <span class="text-brandRed font-extrabold text-lg">$${door.price}</span>
+            </div>
+            <h3 class="text-lg font-bold text-brandNavy mb-2 leading-snug">${door.title}</h3>
+            <p class="text-slate-600 text-xs sm:text-sm flex-grow mb-4">${door.desc}</p>
+            <a href="https://wa.me/${siteSettings.whatsapp}?text=${encodeURIComponent('Hi Maktech Doors, I would like to request a quote for: ' + door.title + ' (Category: ' + door.category + ')')}" 
+               target="_blank" 
+               class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 rounded-lg text-center transition flex items-center justify-center gap-2 text-sm shadow">
+              <i class="fab fa-whatsapp text-base"></i> Request Quotation
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderGallery() {
+      const container = document.getElementById('galleryGrid');
+      container.innerHTML = galleryItems.map(item => `
+        <div class="bg-white rounded-xl overflow-hidden shadow-md border border-slate-200 p-3 space-y-2">
+          ${item.type === 'video' 
+            ? `<video src="${item.url}" controls class="w-full h-48 sm:h-56 object-cover rounded"></video>`
+            : `<img src="${item.url}" class="w-full h-48 sm:h-56 object-cover rounded" onerror="this.src='https://via.placeholder.com/400x300?text=Gallery+Media'">`
           }
-        } catch (err) {
-          console.warn("Firestore sync error, falling back to local storage:", err);
-        }
-      }
+          <h4 class="font-bold text-brandNavy text-sm text-center pt-1">${item.title}</h4>
+        </div>
+      `).join('');
+    }
+
+    function renderReviews() {
+      const container = document.getElementById('reviewsList');
+      container.innerHTML = reviews.map(r => `
+        <div class="bg-slate-50 p-3 rounded-lg border border-slate-200 space-y-1 text-xs sm:text-sm">
+          <div class="flex justify-between items-center">
+            <span class="font-bold text-brandNavy">${r.name}</span>
+            <span class="text-amber-500">{"⭐".repeat(parseInt(r.stars))}</span>
+          </div>
+          <p class="text-slate-600">${r.comment}</p>
+        </div>
+      `).join('');
+    }
+
+    function renderFaqs() {
+      const container = document.getElementById('faqList');
+      container.innerHTML = faqs.map(item => `
+        <div class="pt-3">
+          <h4 class="font-bold text-brandNavy text-sm sm:text-base">${item.q}</h4>
+          <p class="text-slate-600 text-xs sm:text-sm mt-1">${item.a}</p>
+        </div>
+      `).join('');
+    }
+
+    function renderAdminCatalog() {
+      const container = document.getElementById('adminDoorList');
+      container.innerHTML = doors.map(door => `
+        <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm flex justify-between items-center">
+          <div class="flex items-center space-x-3">
+            <img src="${door.image}" class="w-12 h-12 object-cover rounded border" onerror="this.src='https://via.placeholder.com/100'">
+            <div>
+              <h4 class="font-bold text-brandNavy text-sm">${door.title}</h4>
+              <p class="text-xs text-slate-500">${door.category} • $${door.price}</p>
+            </div>
+          </div>
+          <button onclick="deleteDoor('${door.id}')" class="text-red-600 hover:text-red-800 font-bold text-xs">Delete</button>
+        </div>
+      `).join('');
     }
 
     function applySiteSettings() {
@@ -250,54 +472,124 @@
       document.getElementById('cfgCopyright').value = siteSettings.copyright;
     }
 
-    function renderFaqs() {
-      const container = document.getElementById('faqList');
-      container.innerHTML = faqs.map(item => `
-        <div class="border-b border-slate-800 pb-3">
-          <h4 class="font-semibold text-white text-base">${item.q}</h4>
-          <p class="text-slate-400 text-sm mt-1">${item.a}</p>
-        </div>
-      `).join('');
+    // HELPER: FILE TO BASE64
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+      });
     }
 
-    function renderClientCatalog(items = doors) {
-      const container = document.getElementById('doorGrid');
-      container.innerHTML = items.map(door => `
-        <div class="bg-brandDark rounded-lg overflow-hidden border border-slate-800 flex flex-col">
-          <img src="${door.image}" alt="${door.title}" class="h-48 sm:h-56 w-full object-cover" onerror="this.src='shared image.jpg'">
-          <div class="p-4 sm:p-5 flex flex-col flex-grow">
-            <div class="flex justify-between items-start mb-2">
-              <span class="text-[10px] sm:text-xs font-semibold px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">${door.category}</span>
-              <span class="text-brandRed font-bold text-base sm:text-lg">$${door.price}</span>
-            </div>
-            <h3 class="text-lg sm:text-xl font-bold text-white mb-2 leading-snug">${door.title}</h3>
-            <p class="text-slate-400 text-xs sm:text-sm flex-grow mb-4">${door.desc}</p>
-            <a href="https://wa.me/${siteSettings.whatsapp}?text=${encodeURIComponent('Hi Maktech Doors, I would like to request a quote for: ' + door.title + ' (Category: ' + door.category + ')')}" 
-               target="_blank" 
-               class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2 rounded text-center transition flex items-center justify-center gap-2 text-sm">
-              <i class="fab fa-whatsapp text-base"></i> Request Quotation
-            </a>
-          </div>
-        </div>
-      `).join('');
+    // EVENT HANDLERS
+    async function handleAddDoor(e) {
+      e.preventDefault();
+      const fileInput = document.getElementById('doorFileInput');
+      let imageSrc = document.getElementById('doorImage').value;
+
+      if (fileInput.files.length > 0) {
+        imageSrc = await fileToBase64(fileInput.files[0]);
+      }
+
+      const newDoor = {
+        id: Date.now().toString(),
+        title: document.getElementById('doorTitle').value,
+        category: document.getElementById('doorCategory').value,
+        price: document.getElementById('doorPrice').value,
+        image: imageSrc || 'shared image.jpg',
+        desc: document.getElementById('doorDesc').value
+      };
+
+      doors.push(newDoor);
+      localStorage.setItem('maktech_doors', JSON.stringify(doors));
+      document.getElementById('addDoorForm').reset();
+      renderAdminCatalog();
+      renderClientCatalog();
+      alert("New door product listed successfully!");
     }
 
-    function renderAdminCatalog() {
-      const container = document.getElementById('adminDoorList');
-      container.innerHTML = doors.map(door => `
-        <div class="bg-brandDark p-3 sm:p-4 rounded border border-slate-800 flex justify-between items-center">
-          <div class="flex items-center space-x-3 sm:space-x-4">
-            <img src="${door.image}" class="w-12 h-12 sm:w-16 sm:h-16 object-cover rounded" onerror="this.src='shared image.jpg'">
-            <div>
-              <h4 class="font-bold text-white text-sm sm:text-base">${door.title}</h4>
-              <p class="text-xs text-slate-400">${door.category} • $${door.price}</p>
-            </div>
-          </div>
-          <button onclick="deleteDoor('${door.id}')" class="text-red-500 hover:text-red-400 font-semibold text-xs sm:text-sm">Delete</button>
-        </div>
-      `).join('');
+    async function handleAddGalleryItem(e) {
+      e.preventDefault();
+      const fileInput = document.getElementById('galFileInput');
+      let mediaSrc = document.getElementById('galUrl').value;
+
+      if (fileInput.files.length > 0) {
+        mediaSrc = await fileToBase64(fileInput.files[0]);
+      }
+
+      const newItem = {
+        id: Date.now().toString(),
+        title: document.getElementById('galTitle').value,
+        type: document.getElementById('galType').value,
+        url: mediaSrc
+      };
+
+      galleryItems.push(newItem);
+      localStorage.setItem('maktech_gallery', JSON.stringify(galleryItems));
+      renderGallery();
+      alert("Gallery media uploaded successfully!");
     }
 
+    function handleSubmitRating(e) {
+      e.preventDefault();
+      const newReview = {
+        name: document.getElementById('rateName').value,
+        stars: document.getElementById('rateStars').value,
+        comment: document.getElementById('rateComment').value
+      };
+      reviews.unshift(newReview);
+      localStorage.setItem('maktech_reviews', JSON.stringify(reviews));
+      renderReviews();
+      e.target.reset();
+      alert("Thank you for your rating!");
+    }
+
+    function handleSaveCompanyInfo(e) {
+      e.preventDefault();
+      const rawSlides = document.getElementById('cfgSlides').value.split('\n');
+      const parsedSlides = rawSlides.map(line => {
+        const parts = line.split('|');
+        return { title: parts[0] || 'Service', desc: parts[1] || '' };
+      });
+
+      companyInfo = {
+        mission: document.getElementById('cfgMission').value,
+        vision: document.getElementById('cfgVision').value,
+        slides: parsedSlides
+      };
+
+      localStorage.setItem('maktech_info', JSON.stringify(companyInfo));
+      renderCompanyInfo();
+      alert("Homepage company information updated!");
+    }
+
+    function handleSaveSettings(e) {
+      e.preventDefault();
+      siteSettings = {
+        whatsapp: document.getElementById('cfgWhatsapp').value,
+        instagram: document.getElementById('cfgInsta').value,
+        facebook: document.getElementById('cfgFb').value,
+        copyright: document.getElementById('cfgCopyright').value
+      };
+      localStorage.setItem('maktech_settings', JSON.stringify(siteSettings));
+      applySiteSettings();
+      alert('Site settings updated!');
+    }
+
+    function deleteDoor(id) {
+      doors = doors.filter(d => d.id !== id);
+      localStorage.setItem('maktech_doors', JSON.stringify(doors));
+      renderAdminCatalog();
+      renderClientCatalog();
+    }
+
+    function filterDoors(cat) {
+      if (cat === 'All') renderClientCatalog(doors);
+      else renderClientCatalog(doors.filter(d => d.category === cat));
+    }
+
+    // AUTHENTICATION MODAL CONTROLS
     function openAuthModal() {
       if (isAdminAuthenticated) {
         toggleView('admin');
@@ -342,85 +634,16 @@
       }
     }
 
-    function filterDoors(cat) {
-      if (cat === 'All') renderClientCatalog(doors);
-      else renderClientCatalog(doors.filter(d => d.category === cat));
-    }
-
-    async function handleAddDoor(e) {
-      e.preventDefault();
-      const newDoor = {
-        title: document.getElementById('doorTitle').value,
-        category: document.getElementById('doorCategory').value,
-        price: document.getElementById('doorPrice').value,
-        image: document.getElementById('doorImage').value,
-        desc: document.getElementById('doorDesc').value
-      };
-
-      if (window.db) {
-        try {
-          const docRef = await window.addDoc(window.collection(window.db, "doors"), newDoor);
-          newDoor.id = docRef.id;
-        } catch (err) {
-          console.error("Firestore write failed:", err);
-          newDoor.id = Date.now().toString();
-        }
-      } else {
-        newDoor.id = Date.now().toString();
-      }
-
-      doors.push(newDoor);
-      localStorage.setItem('maktech_doors', JSON.stringify(doors));
-      document.getElementById('addDoorForm').reset();
-      renderAdminCatalog();
-      alert("Door listing saved!");
-    }
-
-    function handleSaveSettings(e) {
-      e.preventDefault();
-      siteSettings = {
-        whatsapp: document.getElementById('cfgWhatsapp').value,
-        instagram: document.getElementById('cfgInsta').value,
-        facebook: document.getElementById('cfgFb').value,
-        copyright: document.getElementById('cfgCopyright').value
-      };
-      localStorage.setItem('maktech_settings', JSON.stringify(siteSettings));
-      applySiteSettings();
-      alert('Site settings updated successfully!');
-    }
-
-    function handleAddFaq(e) {
-      e.preventDefault();
-      faqs.push({
-        q: document.getElementById('faqQuestion').value,
-        a: document.getElementById('faqAnswer').value
-      });
-      localStorage.setItem('maktech_faqs', JSON.stringify(faqs));
-      renderFaqs();
-      alert('FAQ entry added!');
-    }
-
-    async function deleteDoor(id) {
-      doors = doors.filter(d => d.id !== id);
-      localStorage.setItem('maktech_doors', JSON.stringify(doors));
-
-      if (window.db) {
-        try {
-          await window.deleteDoc(window.doc(window.db, "doors", id));
-        } catch (err) {
-          console.error("Failed to delete from Firestore:", err);
-        }
-      }
-      renderAdminCatalog();
-    }
-
+    // INITIALIZATION
     applySiteSettings();
+    renderCompanyInfo();
     renderFaqs();
     renderClientCatalog();
+    renderGallery();
+    renderReviews();
 
-    window.addEventListener('DOMContentLoaded', () => {
-      setTimeout(fetchDoorsFromFirebase, 1000);
-    });
+    // Auto-advance slideshow
+    setInterval(nextSlide, 6000);
   </script>
 </body>
 </html>
