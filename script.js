@@ -120,7 +120,7 @@ quoteForm.addEventListener("submit", function(event) {
   */
  
   const businessNumber =
-    "263000000000";
+    "263789009829";
  
   const whatsappMessage =
     `Hello MakTech Solutions,
