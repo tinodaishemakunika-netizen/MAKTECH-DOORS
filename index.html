@@ -3,241 +3,453 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maktech Solution | Aluminium Composite Gates & Security Doors</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    .glass-nav {
-      background: rgba(15, 23, 42, 0.9);
-      backdrop-filter: blur(8px);
-    }
-  </style>
+  <title>MAKTECH SOLUTIONS | Doors & Home Solutions</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between">
-
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <div class="bg-blue-600 p-2.5 rounded-xl">
-          <i class="fa-solid fa-shield-halved text-2xl text-white"></i>
-        </div>
-        <div>
-          <span class="text-xl font-bold tracking-tight text-white block">MAKTECH SOLUTION</span>
-          <span class="text-xs text-blue-400 font-medium tracking-wide uppercase">Harare, Zimbabwe</span>
-        </div>
-      </div>
-      
-      <div class="hidden md:flex items-center space-x-8 text-sm font-semibold">
-        <a href="#catalog" class="hover:text-blue-400 transition">Products</a>
-        <a href="#gallery" class="hover:text-blue-400 transition">Gallery</a>
-        <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
-        <a href="https://wa.me/263789009829" target="_blank" class="bg-green-600 hover:bg-green-500 text-white px-5 py-2.5 rounded-full flex items-center space-x-2 transition shadow-lg shadow-green-600/20">
-          <i class="fa-brands fa-whatsapp text-lg"></i>
-          <span>WhatsApp Us</span>
-        </a>
+ 
+<body>
+ 
+  <!-- TOP SLIDING BAR -->
+  <div class="announcement-bar">
+    <div class="announcement-track">
+      <span>🚪 TURKISH STEEL DOORS</span>
+      <span>🔐 HIGH SECURITY</span>
+      <span>🇹🇷 IMPORTED FROM TURKEY</span>
+      <span>🏠 QUALITY HOME SOLUTIONS</span>
+      <span>⚡ MAKTECH SOLUTIONS</span>
+ 
+      <!-- Duplicate for continuous animation -->
+      <span>🚪 TURKISH STEEL DOORS</span>
+      <span>🔐 HIGH SECURITY</span>
+      <span>🇹🇷 IMPORTED FROM TURKEY</span>
+      <span>🏠 QUALITY HOME SOLUTIONS</span>
+      <span>⚡ MAKTECH SOLUTIONS</span>
+    </div>
+  </div>
+ 
+  <!-- NAVIGATION -->
+  <header class="navbar">
+    <div class="logo-area">
+      <div class="logo-mark">M</div>
+      <div>
+        <h2>MAKTECH</h2>
+        <small>SOLUTIONS</small>
       </div>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="pt-36 pb-20 px-4 text-center max-w-4xl mx-auto">
-    <span class="bg-blue-500/10 text-blue-400 border border-blue-500/20 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider inline-block mb-4">
-      High-Security & Architectural Solutions
-    </span>
-    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
-      Aluminium Composite Gates & 8-Locking Pin Security Doors
-    </h1>
-    <p class="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
-      Premium custom fabrication, high-security garage doors, sliding perimeter gates, and professional installation across Harare.
-    </p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="#catalog" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-8 py-3.5 rounded-xl transition shadow-lg shadow-blue-600/25">
-        Explore Catalog
-      </a>
-      <a href="https://wa.me/263789009829" target="_blank" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 font-semibold px-8 py-3.5 rounded-xl transition">
-        Get Free Quote
-      </a>
+ 
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#catalogue">Catalogue</a>
+      <a href="#about">About Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+ 
+    <a href="#catalogue" class="nav-button">View Products</a>
+  </header>
+ 
+  <!-- HERO -->
+  <section class="hero" id="home">
+ 
+    <div class="hero-content">
+      <span class="hero-label">QUALITY • SECURITY • STYLE</span>
+ 
+      <h1>
+        Doors That Make<br>
+        <span>A Statement.</span>
+      </h1>
+ 
+      <p>
+        Discover premium Turkish doors and quality home solutions
+        supplied by MakTech Solutions.
+      </p>
+ 
+      <div class="hero-buttons">
+        <a href="#catalogue" class="primary-button">Explore Catalogue</a>
+        <a href="#contact" class="secondary-button">Contact Us</a>
+      </div>
     </div>
+ 
+    <div class="hero-door">
+      <div class="door-frame">
+        <div class="door">
+          <div class="door-lines"></div>
+          <div class="door-handle"></div>
+          <div class="door-lock lock-one"></div>
+          <div class="door-lock lock-two"></div>
+          <div class="door-lock lock-three"></div>
+        </div>
+      </div>
+    </div>
+ 
   </section>
-
-  <!-- Product Catalog -->
-  <section id="catalog" class="py-16 bg-slate-950 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-        <div>
-          <h2 class="text-3xl font-bold text-white">Product Catalog</h2>
-          <p class="text-slate-400 mt-2">Explore our custom perimeter gates and security doors.</p>
-        </div>
-        <div id="category-filters" class="flex flex-wrap gap-2 mt-4 md:mt-0">
-          <button data-filter="All" class="filter-btn bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition">All</button>
-          <button data-filter="Aluminium" class="filter-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-lg text-sm font-medium transition">Aluminium</button>
-          <button data-filter="Steel" class="filter-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-lg text-sm font-medium transition">Steel & Security</button>
-        </div>
-      </div>
-
-      <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Dynamic catalog items will render here -->
-      </div>
+ 
+  <!-- TRUST SECTION -->
+  <section class="trust-section">
+ 
+    <div>
+      <strong>🇹🇷 Turkish Imports</strong>
+      <span>Premium quality products</span>
     </div>
-  </section>
-
-  <!-- Project Gallery -->
-  <section id="gallery" class="py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="mb-12">
-        <h2 class="text-3xl font-bold text-white">Project Gallery</h2>
-        <p class="text-slate-400 mt-2">Recent installations and fabrication work completed for clients.</p>
-      </div>
-
-      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Dynamic gallery items will render here -->
-      </div>
+ 
+    <div>
+      <strong>🔐 High Security</strong>
+      <span>Built for protection</span>
     </div>
+ 
+    <div>
+      <strong>🚚 Available in Zimbabwe</strong>
+      <span>Serving customers locally</span>
+    </div>
+ 
+    <div>
+      <strong>⭐ Quality First</strong>
+      <span>Products we can trust</span>
+    </div>
+ 
   </section>
-
-  <!-- Contact & Location Footer -->
-  <footer id="contact" class="bg-slate-950 border-t border-slate-800 pt-16 pb-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-        <div>
-          <h3 class="text-xl font-bold text-white mb-4">Maktech Solution</h3>
-          <p class="text-slate-400 text-sm leading-relaxed mb-4">
-            Specialists in custom aluminium composite sliding gates, high-security garage doors with 8-locking pins, and perimeter automation services.
+ 
+  <!-- CATALOGUE -->
+  <section class="catalogue" id="catalogue">
+ 
+    <div class="section-heading">
+      <span>OUR PRODUCTS</span>
+      <h2>Explore Our Catalogue</h2>
+      <p>
+        Browse our collection of quality products and choose what
+        suits your project.
+      </p>
+    </div>
+ 
+    <!-- CATEGORY BUTTONS -->
+    <div class="categories">
+      <button class="category active" data-category="all">
+        All Products
+      </button>
+ 
+      <button class="category" data-category="doors">
+        Doors
+      </button>
+ 
+      <button class="category" data-category="security">
+        Security
+      </button>
+ 
+      <button class="category" data-category="home">
+        Home Solutions
+      </button>
+ 
+      <button class="category" data-category="other">
+        Other
+      </button>
+    </div>
+ 
+    <!-- PRODUCTS -->
+    <div class="products-grid" id="productsGrid">
+ 
+      <!-- PRODUCT 1 -->
+      <article class="product-card"
+               data-category="doors">
+ 
+        <div class="product-image door-image">
+          <span class="product-badge">POPULAR</span>
+ 
+          <div class="catalogue-door">
+            <div class="catalogue-handle"></div>
+            <div class="catalogue-lock"></div>
+          </div>
+        </div>
+ 
+        <div class="product-info">
+          <span class="product-category">TURKISH IMPORT</span>
+ 
+          <h3>Turkish Steel Security Door</h3>
+ 
+          <p>
+            Strong and stylish Turkish security door designed
+            for modern homes and businesses.
           </p>
-          <p class="text-slate-400 text-sm"><i class="fa-solid fa-location-dot text-blue-500 mr-2"></i>Harare, Zimbabwe</p>
+ 
+          <div class="product-bottom">
+            <strong>$360</strong>
+ 
+            <button
+              class="quote-button"
+              onclick="requestQuote('Turkish Steel Security Door')">
+              Get Quote
+            </button>
+          </div>
         </div>
-        <div>
-          <h4 class="text-white font-semibold mb-4">Quick Links & Socials</h4>
-          <ul class="space-y-2.5 text-sm text-slate-400">
-            <li><a href="https://wa.me/263789009829" target="_blank" class="hover:text-green-400 transition"><i class="fa-brands fa-whatsapp text-green-500 mr-2"></i>+263 789 009 829 (Tino)</a></li>
-            <li><a href="https://instagram.com/maktechsolutions_1" target="_blank" class="hover:text-pink-400 transition"><i class="fa-brands fa-instagram text-pink-500 mr-2"></i>@maktechsolutions_1</a></li>
-            <li><a href="https://facebook.com/maktechsolution" target="_blank" class="hover:text-blue-400 transition"><i class="fa-brands fa-facebook text-blue-500 mr-2"></i>Maktech Solution</a></li>
-          </ul>
+      </article>
+ 
+      <!-- PRODUCT 2 -->
+      <article class="product-card"
+               data-category="security">
+ 
+        <div class="product-image security-image">
+          <span class="product-badge">SECURITY</span>
+ 
+          <div class="security-icon">
+            🔐
+          </div>
         </div>
-        <div>
-          <h4 class="text-white font-semibold mb-4">Admin Cache Control</h4>
-          <p class="text-xs text-slate-500 mb-3">If updated images do not show immediately, reset your local cache below.</p>
-          <button id="reset-cache-btn" class="bg-rose-600/20 hover:bg-rose-600 text-rose-400 hover:text-white border border-rose-500/30 px-4 py-2 rounded-lg text-xs font-semibold transition flex items-center space-x-2">
-            <i class="fa-solid fa-rotate-right"></i>
-            <span>Reset Local Cache</span>
-          </button>
+ 
+        <div class="product-info">
+          <span class="product-category">SECURITY</span>
+ 
+          <h3>High Security Door</h3>
+ 
+          <p>
+            Designed with multiple locking points for additional
+            protection and peace of mind.
+          </p>
+ 
+          <div class="product-bottom">
+            <strong>From $360</strong>
+ 
+            <button
+              class="quote-button"
+              onclick="requestQuote('High Security Door')">
+              Get Quote
+            </button>
+          </div>
         </div>
+      </article>
+ 
+      <!-- PRODUCT 3 -->
+      <article class="product-card"
+               data-category="home">
+ 
+        <div class="product-image home-image">
+          <span class="product-badge">HOME</span>
+ 
+          <div class="home-icon">
+            🏠
+          </div>
+        </div>
+ 
+        <div class="product-info">
+          <span class="product-category">HOME SOLUTIONS</span>
+ 
+          <h3>Home Improvement Solutions</h3>
+ 
+          <p>
+            Quality products designed to improve the appearance,
+            security and functionality of your home.
+          </p>
+ 
+          <div class="product-bottom">
+            <strong>Contact Us</strong>
+ 
+            <button
+              class="quote-button"
+              onclick="requestQuote('Home Improvement Solutions')">
+              Enquire
+            </button>
+          </div>
+        </div>
+      </article>
+ 
+    </div>
+ 
+  </section>
+ 
+  <!-- WHY US -->
+  <section class="why-us" id="about">
+ 
+    <div class="why-content">
+ 
+      <span>WHY MAKTECH?</span>
+ 
+      <h2>
+        Quality You Can See.<br>
+        Security You Can Trust.
+      </h2>
+ 
+      <p>
+        At MakTech Solutions, we focus on supplying quality products
+        that combine durability, modern design and security.
+      </p>
+ 
+      <div class="features">
+ 
+        <div class="feature">
+          <div>✓</div>
+          <span>
+            <strong>Premium Quality</strong>
+            Carefully selected products.
+          </span>
+        </div>
+ 
+        <div class="feature">
+          <div>✓</div>
+          <span>
+            <strong>Modern Designs</strong>
+            Products made to look great.
+          </span>
+        </div>
+ 
+        <div class="feature">
+          <div>✓</div>
+          <span>
+            <strong>Reliable Service</strong>
+            We are here to help you choose.
+          </span>
+        </div>
+ 
       </div>
-      <div class="border-t border-slate-900 pt-8 text-center text-xs text-slate-600">
-        &copy; 2026 Maktech Solution. All rights reserved.
+ 
+    </div>
+ 
+    <div class="why-card">
+ 
+      <div class="big-m">
+        M
+      </div>
+ 
+      <h3>MAKTECH</h3>
+      <p>SOLUTIONS</p>
+ 
+      <div class="line"></div>
+ 
+      <span>
+        QUALITY • SECURITY • STYLE
+      </span>
+ 
+    </div>
+ 
+  </section>
+ 
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+ 
+    <div class="contact-heading">
+      <span>GET IN TOUCH</span>
+      <h2>Ready to Find Your Product?</h2>
+      <p>
+        Contact MakTech Solutions for prices, availability and quotations.
+      </p>
+    </div>
+ 
+    <div class="contact-grid">
+ 
+      <a class="contact-card"
+         href="mailto:tinodaishemakunika@gmail.com">
+ 
+        <div class="contact-icon">✉</div>
+ 
+        <div>
+          <small>EMAIL</small>
+          <strong>tinodaishemakunika@gmail.com</strong>
+        </div>
+ 
+      </a>
+ 
+      <a class="contact-card"
+         href="https://wa.me/263000000000"
+         target="_blank">
+ 
+        <div class="contact-icon">☏</div>
+ 
+        <div>
+          <small>WHATSAPP</small>
+          <strong>Chat With Us</strong>
+        </div>
+ 
+      </a>
+ 
+      <a class="contact-card"
+         href="#">
+ 
+        <div class="contact-icon">📍</div>
+ 
+        <div>
+          <small>LOCATION</small>
+          <strong>Harare, Zimbabwe</strong>
+        </div>
+ 
+      </a>
+ 
+    </div>
+ 
+  </section>
+ 
+  <!-- FOOTER -->
+  <footer>
+ 
+    <div class="footer-logo">
+      <div class="logo-mark">M</div>
+ 
+      <div>
+        <strong>MAKTECH</strong>
+        <small>SOLUTIONS</small>
       </div>
     </div>
+ 
+    <p>
+      Quality products. Better solutions.
+    </p>
+ 
+    <div class="socials">
+      <a href="#">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">WhatsApp</a>
+    </div>
+ 
+    <div class="copyright">
+      © 2026 MakTech Solutions. All rights reserved.
+    </div>
+ 
   </footer>
-
-  <!-- Application Logic -->
-  <script type="module">
-    // Default initial data featuring all specified image files
-    const defaultDoors = [
-      { id: '1', title: 'Aluminium Composite Sliding Gate', category: 'Aluminium', price: '650', image: 'shared image (1).jpg', desc: 'Sleek dark finish with high corrosion resistance.' },
-      { id: '2', title: '8-Locking Pin Security Door', category: 'Steel', price: '850', image: 'shared image (2).jpg', desc: 'Maximum security entrance with heavy-duty locking pins.' },
-      { id: '3', title: 'Custom Modern Entrance Door', category: 'Aluminium', price: '720', image: 'shared image (3)', desc: 'Architectural entry door with custom styling and weather sealing.' },
-      { id: '5', title: 'Heavy Duty Security Panel Door', category: 'Steel', price: '790', image: 'shared image (5).jpg', desc: 'Reinforced core with multi-point locking mechanism.' },
-      { id: '6', title: 'Modern Aluminium Slat Gate', category: 'Aluminium', price: '680', image: 'shared image (6).jpg', desc: 'Durable composite slats for privacy and perimeter security.' },
-      { id: '9', title: 'Architectural Composite Panel Door', category: 'Aluminium', price: '750', image: 'shared image (9).jpg', desc: 'High-end residential design with thermal insulation.' },
-      { id: '10', title: 'Automated Garage Door System', category: 'Steel', price: '920', image: 'shared image (10).jpg', desc: 'Smooth remote operation with 8-point security locks.' },
-      { id: '11', title: 'Premium Black Frame Gate', category: 'Aluminium', price: '810', image: 'shared image (11).jpg', desc: 'Custom powder-coated finish designed for modern driveways.' }
-    ];
-
-    const defaultGallery = [
-      { title: 'Aluminium Sliding Gate Installation', type: 'image', url: 'shared image (1).jpg' },
-      { title: '8-Locking Pin Door Fitting', type: 'image', url: 'shared image (2).jpg' },
-      { title: 'Modern Entrance Design', type: 'image', url: 'shared image (3)' },
-      { title: 'Security Garage Door Panel', type: 'image', url: 'shared image (5).jpg' },
-      { title: 'Aluminium Composite Gate Fitting', type: 'image', url: 'shared image (6).jpg' },
-      { title: 'Custom Entry Door Detail', type: 'image', url: 'shared image (9).jpg' },
-      { title: 'Garage Automation Setup', type: 'image', url: 'shared image (10).jpg' },
-      { title: 'Completed Driveway Gate Project', type: 'image', url: 'shared image (11).jpg' }
-    ];
-
-    // Load data from LocalStorage or fall back to defaults
-    function loadData() {
-      window.doors = JSON.parse(localStorage.getItem('maktech_doors')) || defaultDoors;
-      window.galleryItems = JSON.parse(localStorage.getItem('maktech_gallery')) || defaultGallery;
-    }
-
-    // Render Catalog Items
-    function renderCatalog(filter = 'All') {
-      const grid = document.getElementById('catalog-grid');
-      grid.innerHTML = '';
-      
-      const items = filter === 'All' ? window.doors : window.doors.filter(d => d.category === filter);
-      
-      items.forEach(door => {
-        const card = document.createElement('div');
-        card.className = 'bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition flex flex-col justify-between';
-        card.innerHTML = `
-          <div>
-            <div class="h-56 bg-slate-800 overflow-hidden relative">
-              <img src="${door.image}" alt="${door.title}" class="w-full h-full object-cover transition duration-300 hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80'">
-              <span class="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-md text-xs px-2.5 py-1 rounded-md border border-slate-700 font-semibold text-blue-400">${door.category}</span>
-            </div>
-            <div class="p-5">
-              <h3 class="text-lg font-bold text-white mb-2">${door.title}</h3>
-              <p class="text-xs text-slate-400 mb-4 line-clamp-2">${door.desc}</p>
-            </div>
-          </div>
-          <div class="px-5 pb-5 pt-0 flex items-center justify-between border-t border-slate-800/50 mt-auto">
-            <span class="text-lg font-extrabold text-white">$${door.price}</span>
-            <a href="https://wa.me/263789009829?text=Inquiry%20about%20${encodeURIComponent(door.title)}" target="_blank" class="bg-blue-600/10 hover:bg-blue-600 text-blue-400 hover:text-white border border-blue-500/20 px-3.5 py-2 rounded-lg text-xs font-semibold transition">
-              Inquire
-            </a>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    // Render Gallery Items
-    function renderGallery() {
-      const grid = document.getElementById('gallery-grid');
-      grid.innerHTML = '';
-      
-      window.galleryItems.forEach(item => {
-        const el = document.createElement('div');
-        el.className = 'bg-slate-900 border border-slate-800 rounded-xl overflow-hidden group';
-        el.innerHTML = `
-          <div class="h-48 bg-slate-800 overflow-hidden relative">
-            <img src="${item.url}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80'">
-          </div>
-          <div class="p-3">
-            <p class="text-xs font-medium text-slate-300 truncate">${item.title}</p>
-          </div>
-        `;
-        grid.appendChild(el);
-      });
-    }
-
-    // Reset Cache Handler
-    document.getElementById('reset-cache-btn').addEventListener('click', () => {
-      localStorage.removeItem('maktech_doors');
-      localStorage.removeItem('maktech_gallery');
-      loadData();
-      renderCatalog();
-      renderGallery();
-      alert('Local storage cache cleared! Updated image catalog has been loaded.');
-    });
-
-    // Category Filter Event Listeners
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        document.querySelectorAll('.filter-btn').forEach(b => {
-          b.className = 'filter-btn bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-lg text-sm font-medium transition';
-        });
-        e.target.className = 'filter-btn bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition';
-        renderCatalog(e.target.dataset.filter);
-      });
-    });
-
-    // Initialize
-    loadData();
-    renderCatalog();
-    renderGallery();
-  </script>
+ 
+  <!-- QUOTE MODAL -->
+  <div class="modal" id="quoteModal">
+ 
+    <div class="modal-box">
+ 
+      <button class="close-modal"
+              onclick="closeQuote()">
+        ×
+      </button>
+ 
+      <span>MAKTECH SOLUTIONS</span>
+ 
+      <h2>Request a Quote</h2>
+ 
+      <p id="selectedProduct">
+        Product
+      </p>
+ 
+      <form id="quoteForm">
+ 
+        <input
+          type="text"
+          id="customerName"
+          placeholder="Your Name"
+          required>
+ 
+        <input
+          type="tel"
+          id="customerPhone"
+          placeholder="Phone / WhatsApp Number"
+          required>
+ 
+        <textarea
+          id="customerMessage"
+          placeholder="Tell us what you need..."
+          rows="4"></textarea>
+ 
+        <button type="submit">
+          Send Enquiry
+        </button>
+ 
+      </form>
+ 
+    </div>
+ 
+  </div>
+ 
+  <script src="script.js"></script>
+ 
 </body>
 </html>
+ 
