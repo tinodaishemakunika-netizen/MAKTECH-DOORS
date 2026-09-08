@@ -44,24 +44,11 @@
     .gradient-navy {
       background: linear-gradient(135deg, #001f3f 0%, #001428 100%);
     }
-    .gradient-navy-alt {
-      background: linear-gradient(90deg, #001428 0%, #001f3f 100%);
-    }
     .text-shadow {
       text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     }
     /* Modal styles */
     .modal-backdrop { background: rgba(2,6,23,0.6); }
-    
-    /* Header highlight accent */
-    .header-accent {
-      color: #DC3545;
-    }
-    
-    /* Button hover effect */
-    .btn-primary-hover:hover {
-      background-color: #C82333;
-    }
   </style>
 </head>
 <body class="bg-white text-slate-800 font-sans antialiased">
@@ -125,10 +112,10 @@
   <section class="relative bg-gradient-to-r from-brandNavy-950 to-slate-900 text-white overflow-hidden py-12 md:py-16 px-4">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
       <div class="md:w-1/2 space-y-4">
-        <span class="bg-brandRed-600/20 text-brandRed-300 text-xs font-bold px-3 py-1 rounded-full uppercase border-2 border-brandRed-600 inline-block">
+        <span class="bg-brandRed-600/20 text-brandRed-500 text-xs font-bold px-3 py-1 rounded-full uppercase border-2 border-brandRed-600 inline-block">
           Security • Style • Durability
         </span>
-        <h2 class="text-3xl md:text-5xl font-black leading-tight tracking-tight text-shadow" style="font-family: 'Montserrat', sans-serif;">
+        <h2 class="text-3xl md:text-5xl font-black leading-tight tracking-tight text-shadow text-white" style="font-family: 'Montserrat', sans-serif;">
           Premium Turkish Steel & Aluminium Doors
         </h2>
         <p class="text-slate-200 text-sm md:text-base leading-relaxed">
@@ -149,7 +136,7 @@
   </section>
 
   <!-- About Us, Our Mission & Our Vision -->
-  <section id="about" class="py-12 bg-brandWhite-50 border-b-4 border-brandRed-600">
+  <section id="about" class="py-12 bg-white border-b-2 border-slate-200">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-10">
         <h2 class="text-3xl font-extrabold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">About Maktech Doors</h2>
@@ -194,7 +181,7 @@
   </section>
 
   <!-- Product Catalog -->
-  <section id="products" class="py-12 max-w-7xl mx-auto px-4">
+  <section id="products" class="py-12 bg-white max-w-7xl mx-auto px-4">
     <div class="text-center mb-8">
       <h2 class="text-3xl font-extrabold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">Maktech Doors Catalog</h2>
       <div class="w-16 h-1.5 bg-brandRed-600 mx-auto mt-3 rounded"></div>
@@ -215,7 +202,7 @@
   </section>
 
   <!-- Customer Ratings Section -->
-  <section id="reviews" class="py-12 bg-brandWhite-50 border-t-4 border-brandRed-600">
+  <section id="reviews" class="py-12 bg-white border-t-2 border-slate-200">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-8">
         <h2 class="text-3xl font-extrabold text-brandNavy-900 uppercase tracking-wide">Customer Ratings</h2>
@@ -238,6 +225,60 @@
           <div class="text-amber-400 text-xs mb-2">★★★★★</div>
           <p class="text-xs text-slate-600 italic">"Top quality teak-look aluminium door. Prompt assistance via WhatsApp!"</p>
           <span class="text-[11px] font-bold text-brandNavy-900 block mt-3">— K. Sibanda (Bulawayo)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-12 bg-white max-w-7xl mx-auto px-4">
+    <div class="text-center mb-8">
+      <h2 class="text-3xl font-extrabold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">Frequently Asked Questions</h2>
+      <div class="w-16 h-1.5 bg-brandRed-600 mx-auto mt-3 rounded"></div>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-4">
+      <!-- FAQ Item 1 -->
+      <div class="bg-white border-2 border-slate-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+        <button onclick="toggleFAQ(this)" class="w-full p-4 flex justify-between items-center font-bold text-brandNavy-900 hover:bg-slate-50 transition-colors">
+          <span class="text-left">Do you supply and install doors nationwide?</span>
+          <i class="fa-solid fa-chevron-down text-brandRed-600"></i>
+        </button>
+        <div class="faq-content hidden p-4 border-t border-slate-200 bg-slate-50 text-slate-700 text-sm">
+          Yes, Maktech Solution provides delivery and professional installation services across Zimbabwe.
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="bg-white border-2 border-slate-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+        <button onclick="toggleFAQ(this)" class="w-full p-4 flex justify-between items-center font-bold text-brandNavy-900 hover:bg-slate-50 transition-colors">
+          <span class="text-left">How strong are the security garage door locks?</span>
+          <i class="fa-solid fa-chevron-down text-brandRed-600"></i>
+        </button>
+        <div class="faq-content hidden p-4 border-t border-slate-200 bg-slate-50 text-slate-700 text-sm">
+          Our steel security garage doors are built with heavy-duty 8-locking-pin systems for maximum intrusion resistance.
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="bg-white border-2 border-slate-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+        <button onclick="toggleFAQ(this)" class="w-full p-4 flex justify-between items-center font-bold text-brandNavy-900 hover:bg-slate-50 transition-colors">
+          <span class="text-left">Can I customize door colors and designs?</span>
+          <i class="fa-solid fa-chevron-down text-brandRed-600"></i>
+        </button>
+        <div class="faq-content hidden p-4 border-t border-slate-200 bg-slate-50 text-slate-700 text-sm">
+          Absolutely! We offer custom design and color options for all our doors to match your property aesthetic.
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="bg-white border-2 border-slate-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+        <button onclick="toggleFAQ(this)" class="w-full p-4 flex justify-between items-center font-bold text-brandNavy-900 hover:bg-slate-50 transition-colors">
+          <span class="text-left">What warranty do you offer?</span>
+          <i class="fa-solid fa-chevron-down text-brandRed-600"></i>
+        </button>
+        <div class="faq-content hidden p-4 border-t border-slate-200 bg-slate-50 text-slate-700 text-sm">
+          All Maktech doors come with a comprehensive warranty covering manufacturing defects and hardware quality.
         </div>
       </div>
     </div>
@@ -376,6 +417,15 @@
       if (img) img.src = slideImages[currentSlide];
     }
     setInterval(nextSlide, 4000);
+
+    // FAQ Toggle
+    function toggleFAQ(button) {
+      const content = button.nextElementSibling;
+      content.classList.toggle('hidden');
+      const icon = button.querySelector('i');
+      icon.classList.toggle('fa-chevron-down');
+      icon.classList.toggle('fa-chevron-up');
+    }
 
     // Modal for product preview & reviews
     function openProductModal(productId) {
