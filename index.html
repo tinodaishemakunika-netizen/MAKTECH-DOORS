@@ -47,6 +47,20 @@
     }
     /* Modal styles */
     .modal-backdrop { background: rgba(0,0,0,0.5); }
+    
+    /* Logo overlay on slideshow */
+    .slideshow-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(15, 36, 55, 0.85);
+      padding: 24px;
+      border-radius: 12px;
+      border: 2px solid rgba(200, 35, 51, 0.5);
+      backdrop-filter: blur(8px);
+      z-index: 10;
+    }
   </style>
 </head>
 <body class="bg-white text-slate-700 font-sans antialiased">
@@ -77,15 +91,15 @@
 
   <!-- Header -->
   <header class="gradient-navy text-white sticky top-0 z-50 border-b border-slate-700 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
       
       <!-- Logo Container -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="relative p-2 bg-white rounded-lg shadow-md group-hover:shadow-lg transition-shadow border border-slate-300">
-          <img src="the%20LOGO" alt="Maktech Doors Logo" class="h-10 w-auto rounded object-contain px-2 py-0.5" style="filter: saturate(0.95) brightness(1);" />
+      <a href="#" class="flex items-center gap-4 group min-w-0">
+        <div class="relative bg-white rounded-lg shadow-md group-hover:shadow-lg transition-shadow border border-slate-300 p-3 flex-shrink-0">
+          <img src="the%20LOGO" alt="Maktech Doors Logo" class="h-14 w-auto object-contain" style="filter: saturate(0.95) brightness(1);" />
         </div>
-        <div>
-          <h1 class="text-lg font-bold tracking-wide text-white group-hover:text-slate-200 transition-colors text-shadow" style="font-family: 'Montserrat', sans-serif;">
+        <div class="min-w-0">
+          <h1 class="text-lg font-bold tracking-wide text-white group-hover:text-slate-200 transition-colors text-shadow whitespace-nowrap" style="font-family: 'Montserrat', sans-serif;">
             MAK<span class="text-brandRed-600">TECH</span> DOORS
           </h1>
           <p class="text-[8px] text-slate-300 tracking-widest uppercase font-medium">Security . Style . Durability</p>
@@ -93,13 +107,13 @@
       </a>
 
       <!-- Navigation & Primary Action -->
-      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wide text-slate-300">
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wide text-slate-300 ml-auto mr-8">
         <a href="#about" class="hover:text-white transition-colors">About Us</a>
         <a href="#products" class="hover:text-white transition-colors">Products</a>
         <a href="#reviews" class="hover:text-white transition-colors">Ratings</a>
       </nav>
 
-      <a href="https://wa.me/263789009829" target="_blank" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all flex items-center gap-2 shadow-md">
+      <a href="https://wa.me/263789009829" target="_blank" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all flex items-center gap-2 shadow-md flex-shrink-0">
         <i class="fa-brands fa-whatsapp text-sm"></i>
         <span class="hidden sm:inline">WhatsApp Us</span>
       </a>
@@ -121,10 +135,15 @@
         </a>
       </div>
 
-      <!-- Banner Image -->
+      <!-- Banner Image with Logo Overlay -->
       <div class="md:w-1/2 w-full">
         <div class="relative w-full rounded-lg overflow-hidden border border-slate-400 shadow-lg bg-slate-100" style="aspect-ratio:16/9; max-height:420px;">
           <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-cover object-center transition-all duration-700"/>
+          
+          <!-- Logo Overlay on Slideshow -->
+          <div class="slideshow-logo">
+            <img src="the%20LOGO" alt="Maktech Doors Logo" class="h-16 w-auto object-contain" style="filter: saturate(0.95) brightness(1);" />
+          </div>
         </div>
       </div>
     </div>
