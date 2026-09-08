@@ -8,20 +8,27 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- FontAwesome CDN for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Professional fonts: Montserrat for headings, Inter for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+            heading: ['Montserrat', 'ui-sans-serif', 'system-ui']
+          },
           colors: {
             brandNavy: {
               800: '#001f3f',
               900: '#001428',
               950: '#000a12',
             },
+            /* Reuse brandRed name but make it a muted navy accent so existing classes become navy-blue accents */
             brandRed: {
-              500: '#d32f2f',
-              600: '#c62828',
-              700: '#b71c1c',
+              500: '#003366',
+              600: '#002b52',
+              700: '#00203a',
             },
             brandWhite: {
               50: '#fafafa',
@@ -33,12 +40,16 @@
     }
   </script>
   <style>
-    .gradient-red-navy {
-      background: linear-gradient(135deg, #d32f2f 0%, #001428 100%);
+    body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    h1,h2,h3 { font-family: 'Montserrat', system-ui, sans-serif; }
+    .gradient-navy {
+      background: linear-gradient(135deg, #003366 0%, #001428 100%);
     }
     .text-shadow {
       text-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
+    /* Modal styles */
+    .modal-backdrop { background: rgba(2,6,23,0.6); }
   </style>
 </head>
 <body class="bg-white text-slate-800 font-sans antialiased">
@@ -49,7 +60,7 @@
       <div class="flex items-center gap-2">
         <span class="text-brandRed-500 font-bold tracking-widest uppercase text-[10px] text-shadow">Security . Style . Durability</span>
         <span class="text-slate-600 hidden sm:inline">|</span>
-        <span class="text-slate-400 text-[11px] hidden sm:inline">Supplying Harare, Bulawayo, Gweru & Nationwide</span>
+        <span class="text-slate-400 text-[11px] hidden sm:inline">Locally made in Zimbabwe • Supplying Harare, Bulawayo, Gweru & Nationwide</span>
       </div>
       
       <!-- Social Media Quick Links -->
@@ -68,16 +79,16 @@
   </div>
 
   <!-- Header -->
-  <header class="gradient-red-navy text-white sticky top-0 z-50 border-b-4 border-brandRed-600 shadow-2xl">
+  <header class="gradient-navy text-white sticky top-0 z-50 border-b-4 border-brandRed-600 shadow-2xl">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       
       <!-- Logo Container -->
       <a href="#" class="flex items-center gap-3 group">
         <div class="relative p-2 bg-white rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-300 border-2 border-brandRed-600">
-          <img src="the%20LOGO" alt="Maktech Doors Logo" class="h-12 w-auto rounded-lg object-contain px-2 py-1" />
+          <img src="the%20LOGO" alt="Maktech Doors Logo" class="h-12 w-auto rounded-lg object-contain px-2 py-1" style="filter: saturate(0.9) brightness(0.95);" />
         </div>
         <div>
-          <h1 class="text-xl font-black tracking-wider text-white group-hover:text-brandRed-300 transition-colors text-shadow">
+          <h1 class="text-xl font-black tracking-wider text-white group-hover:text-brandRed-300 transition-colors text-shadow" style="font-family: 'Montserrat', sans-serif;">
             MAK<span class="text-brandRed-300">TECH</span> DOORS
           </h1>
           <p class="text-[9px] text-slate-200 tracking-widest uppercase">Security . Style . Durability</p>
@@ -91,7 +102,7 @@
         <a href="#reviews" class="hover:text-brandRed-300 transition-colors">Ratings</a>
       </nav>
 
-      <a href="https://wa.me/263789009829" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 shadow-lg">
+      <a href="https://wa.me/263789009829" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
         <i class="fa-brands fa-whatsapp text-sm"></i>
         <span>WhatsApp Us</span>
       </a>
@@ -105,21 +116,21 @@
         <span class="bg-brandRed-600/20 text-brandRed-300 text-xs font-bold px-3 py-1 rounded-full uppercase border-2 border-brandRed-600 inline-block">
           Security • Style • Durability
         </span>
-        <h2 class="text-3xl md:text-5xl font-black leading-tight tracking-tight text-shadow">
+        <h2 class="text-3xl md:text-5xl font-black leading-tight tracking-tight text-shadow" style="font-family: 'Montserrat', sans-serif;">
           Premium Turkish Steel & Aluminium Doors
         </h2>
         <p class="text-slate-200 text-sm md:text-base leading-relaxed">
-          Engineered with precision Turkish craftsmanship for maximum weather resistance, reinforced core protection, and luxury entrance styling. Supplying Harare, Bulawayo, Gweru, and nationwide.
+          Locally made in Zimbabwe using high-grade Turkish components and engineered for maximum weather resistance, reinforced core protection, and luxury entrance styling. Supplying Harare, Bulawayo, Gweru, and nationwide.
         </p>
-        <a href="#products" class="inline-block bg-brandRed-600 hover:bg-brandRed-700 text-white font-bold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all shadow-lg hover:shadow-xl">
+        <a href="#products" class="inline-block bg-brandRed-600 hover:bg-brandRed-700 text-white font-bold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all shadow-lg">
           Browse Catalog
         </a>
       </div>
 
-      <!-- Banner Image -->
+      <!-- Banner Image (landscape aspect) -->
       <div class="md:w-1/2 w-full">
-        <div class="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden border-4 border-brandRed-600 shadow-2xl bg-brandNavy-900">
-          <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-cover transition-all duration-700"/>
+        <div class="relative w-full rounded-2xl overflow-hidden border-4 border-brandRed-600 shadow-2xl bg-brandNavy-900" style="aspect-ratio:16/9; max-height:480px;">
+          <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-cover object-center transition-all duration-700"/>
         </div>
       </div>
     </div>
@@ -129,10 +140,10 @@
   <section id="about" class="py-12 bg-brandWhite-50 border-b-4 border-brandRed-600">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-10">
-        <h2 class="text-3xl font-extrabold text-brandNavy-900 uppercase tracking-wide">About Maktech Doors</h2>
+        <h2 class="text-3xl font-extrabold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">About Maktech Doors</h2>
         <div class="w-16 h-1.5 bg-brandRed-600 mx-auto mt-3 rounded"></div>
         <p class="text-slate-600 text-xs md:text-sm mt-4 leading-relaxed">
-          Maktech Doors supplies high-security entrance doors, Turkish aluminium composite doors, solid teak wood doors, and custom door solutions tailored for modern residential and commercial properties across Zimbabwe.
+          Maktech Doors supplies high-security entrance doors, Turkish aluminium composite doors, aluminium stable doors, and custom door solutions tailored for modern residential and commercial property requirements — proudly manufactured locally in Zimbabwe.
         </p>
       </div>
 
@@ -173,7 +184,7 @@
   <!-- Product Catalog -->
   <section id="products" class="py-12 max-w-7xl mx-auto px-4">
     <div class="text-center mb-8">
-      <h2 class="text-3xl font-extrabold text-brandNavy-900 uppercase tracking-wide">Maktech Doors Catalog</h2>
+      <h2 class="text-3xl font-extrabold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">Maktech Doors Catalog</h2>
       <div class="w-16 h-1.5 bg-brandRed-600 mx-auto mt-3 rounded"></div>
       <p class="text-xs text-slate-500 mt-3">Select a category to filter your door preferences</p>
     </div>
@@ -181,9 +192,8 @@
     <!-- Filter Buttons -->
     <div class="flex flex-wrap gap-2 justify-center mb-8">
       <button onclick="filterProducts('all')" class="filter-btn bg-brandNavy-900 text-white px-4 py-2 rounded-lg text-xs font-bold transition-all hover:bg-brandRed-600 shadow-md">All Products</button>
-      <button onclick="filterProducts('aluminium')" class="filter-btn bg-slate-200 hover:bg-brandRed-600 hover:text-white text-slate-700 px-4 py-2 rounded-lg text-xs font-bold transition-all shadow-md">Turkish Aluminium Composite</button>
-      <button onclick="filterProducts('steel')" class="filter-btn bg-slate-200 hover:bg-brandRed-600 hover:text-white text-slate-700 px-4 py-2 rounded-lg text-xs font-bold transition-all shadow-md">Steel / Security</button>
-      <button onclick="filterProducts('wood')" class="filter-btn bg-slate-200 hover:bg-brandRed-600 hover:text-white text-slate-700 px-4 py-2 rounded-lg text-xs font-bold transition-all shadow-md">Teak / Wooden</button>
+      <button onclick="filterProducts('aluminium')" class="filter-btn bg-slate-200 hover:bg-brandRed-600 hover:text-white text-slate-700 px-4 py-2 rounded-lg text-xs font-bold transition-all shadow-md">Aluminium</button>
+      <button onclick="filterProducts('steel')" class="filter-btn bg-slate-200 hover:bg-brandRed-600 hover:text-white text-slate-700 px-4 py-2 rounded-lg text-xs font-bold transition-all shadow-md">Steel</button>
     </div>
 
     <!-- Product Grid -->
@@ -214,7 +224,7 @@
         </div>
         <div class="bg-white p-5 rounded-xl border-2 border-slate-200 shadow-md hover:shadow-lg transition-shadow border-l-4 border-l-brandRed-600">
           <div class="text-amber-400 text-xs mb-2">★★★★★</div>
-          <p class="text-xs text-slate-600 italic">"Top quality teak wood door. Prompt assistance via WhatsApp!"</p>
+          <p class="text-xs text-slate-600 italic">"Top quality teak-look aluminium door. Prompt assistance via WhatsApp!"</p>
           <span class="text-[11px] font-bold text-brandNavy-900 block mt-3">— K. Sibanda (Bulawayo)</span>
         </div>
       </div>
@@ -232,7 +242,7 @@
         </div>
         <p class="text-slate-300 text-xs leading-relaxed">
           Security. Style. Durability.<br>
-          High-security doors, Turkish aluminium composite doors, and custom door fittings.
+          High-security doors, Turkish aluminium composite doors, and custom door fittings — locally made in Zimbabwe.
         </p>
         <p class="text-slate-500 text-[11px]">Supplying Harare, Bulawayo, Gweru & Nationwide.</p>
       </div>
@@ -252,13 +262,13 @@
       <div class="space-y-3">
         <p class="font-bold text-white text-sm">Connect With Us</p>
         <div class="flex gap-3">
-          <a href="https://wa.me/263789009829" target="_blank" class="w-9 h-9 rounded-lg bg-brandNavy-900 hover:bg-emerald-600 text-white flex items-center justify-center transition-colors text-base border-2 border-emerald-600">
+          <a href="https://wa.me/263789009829" target="_blank" class="w-9 h-9 rounded-lg bg-brandNavy-900 hover:bg-emerald-600 text-white flex items-center justify-center transition-colors">
             <i class="fa-brands fa-whatsapp"></i>
           </a>
-          <a href="https://facebook.com/maktechsolution" target="_blank" class="w-9 h-9 rounded-lg bg-brandNavy-900 hover:bg-blue-600 text-white flex items-center justify-center transition-colors text-base border-2 border-blue-600">
+          <a href="https://facebook.com/maktechsolution" target="_blank" class="w-9 h-9 rounded-lg bg-brandNavy-900 hover:bg-blue-600 text-white flex items-center justify-center transition-colors">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
-          <a href="https://instagram.com/maktechsolutions_1" target="_blank" class="w-9 h-9 rounded-lg bg-brandNavy-900 hover:bg-pink-600 text-white flex items-center justify-center transition-colors text-base border-2 border-pink-600">
+          <a href="https://instagram.com/maktechsolutions_1" target="_blank" class="w-9 h-9 rounded-lg bg-brandNavy-900 hover:bg-pink-600 text-white flex items-center justify-center transition-colors">
             <i class="fa-brands fa-instagram"></i>
           </a>
         </div>
@@ -271,9 +281,10 @@
     </div>
   </footer>
 
+  <!-- Product / UI Scripts -->
   <script>
     const standardPrice = "$400 USD";
-    const standardDescription = "Engineered with high-grade Turkish composite materials for luxury aesthetics, heat insulation, and maximum entryway security.";
+    const standardDescription = "Locally made in Zimbabwe using high-grade Turkish components; luxury aesthetics, heat insulation, and maximum entryway security.";
 
     const products = [
       {
@@ -318,9 +329,9 @@
       },
       {
         id: 5,
-        title: "Teak Wood Entrance Door",
-        category: "wood",
-        categoryLabel: "Wood",
+        title: "Teak-effect Aluminium Entrance Door",
+        category: "aluminium",
+        categoryLabel: "Turkish Composite",
         description: standardDescription,
         price: standardPrice,
         rating: 5,
@@ -328,9 +339,9 @@
       },
       {
         id: 6,
-        title: "Premium Stable Door",
-        category: "wood",
-        categoryLabel: "Wood",
+        title: "Premium Stable Aluminium Door",
+        category: "aluminium",
+        categoryLabel: "Turkish Composite",
         description: standardDescription,
         price: standardPrice,
         rating: 5,
@@ -338,7 +349,7 @@
       }
     ];
 
-    // Banner Slideshow with repository images
+    // Banner Slideshow with repository images (landscape fit)
     const slideImages = [
       "shared%20image%20(1).jpg",
       "shared%20image%20(2).jpg",
@@ -354,14 +365,52 @@
     }
     setInterval(nextSlide, 4000);
 
-    // Render Product Cards
+    // Modal for product preview & reviews
+    function openProductModal(productId) {
+      const product = products.find(p => p.id === productId);
+      if (!product) return;
+      const modal = document.getElementById('product-modal');
+      document.getElementById('modal-title').innerText = product.title;
+      document.getElementById('modal-image').src = product.image;
+      document.getElementById('modal-desc').innerText = product.description;
+      document.getElementById('modal-price').innerText = product.price;
+      loadReviews(productId);
+      modal.classList.remove('hidden');
+    }
+
+    function closeProductModal() {
+      document.getElementById('product-modal').classList.add('hidden');
+    }
+
+    // LocalStorage reviews
+    function submitReview(productId) {
+      const name = document.getElementById('reviewer-name').value || 'Anonymous';
+      const text = document.getElementById('review-text').value;
+      if (!text) return alert('Please write a short review.');
+      const key = 'maktech_reviews_' + productId;
+      const existing = JSON.parse(localStorage.getItem(key) || '[]');
+      existing.unshift({ name, text, date: new Date().toISOString() });
+      localStorage.setItem(key, JSON.stringify(existing));
+      document.getElementById('review-text').value = '';
+      document.getElementById('reviewer-name').value = '';
+      loadReviews(productId);
+    }
+
+    function loadReviews(productId) {
+      const key = 'maktech_reviews_' + productId;
+      const list = JSON.parse(localStorage.getItem(key) || '[]');
+      const container = document.getElementById('reviews-list');
+      container.innerHTML = list.length ? list.map(r => `<div class=\"p-3 border-b\"><div class=\"text-xs text-slate-600\">${r.name} <span class=\"text-[10px] text-slate-400 ml-2\">${new Date(r.date).toLocaleString()}</span></div><div class=\"text-sm mt-1\">${r.text}</div></div>`).join('') : '<div class="text-xs text-slate-500 p-3">No reviews yet — be the first to review this door.</div>';
+    }
+
+    // Render Product Cards (catalogue images cropped from top)
     function renderProducts(items) {
       const grid = document.getElementById("product-grid");
       grid.innerHTML = items.map(product => `
         <div class="bg-white border-2 border-slate-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg hover:border-brandRed-600 transition-all flex flex-col justify-between">
           <div>
-            <div class="relative h-56 bg-slate-100 border-b-2 border-slate-200">
-              <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover" />
+            <div class="relative h-56 bg-slate-100 border-b-2 border-slate-200 overflow-hidden">
+              <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover object-top cursor-pointer" onclick="openProductModal(${product.id})" />
               <span class="absolute top-3 right-3 bg-brandNavy-900 text-white text-[10px] font-bold px-2 py-1 rounded uppercase border border-brandRed-600">
                 ${product.categoryLabel}
               </span>
@@ -370,7 +419,7 @@
               <div class="flex items-center gap-1 text-amber-400 text-xs mb-2">
                 ${"★".repeat(product.rating)} <span class="text-slate-400 text-[10px] ml-1">(5.0)</span>
               </div>
-              <h3 class="text-sm font-bold text-brandNavy-900 mb-2">${product.title}</h3>
+              <h3 class="text-sm font-bold text-brandNavy-900 mb-2" style="font-family: 'Montserrat', sans-serif;">${product.title}</h3>
               <p class="text-xs text-slate-500 leading-relaxed">${product.description}</p>
             </div>
           </div>
@@ -398,5 +447,52 @@
     // Initial Load
     renderProducts(products);
   </script>
+
+  <!-- Product Modal (hidden by default) -->
+  <div id="product-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop">
+    <div class="bg-white rounded-xl max-w-4xl w-full mx-4 shadow-xl overflow-hidden">
+      <div class="p-4 flex justify-between items-start border-b">
+        <div>
+          <h3 id="modal-title" class="text-lg font-bold text-brandNavy-900"></h3>
+          <div id="modal-price" class="text-sm text-brandRed-600 mt-1 font-black"></div>
+        </div>
+        <button onclick="closeProductModal()" class="text-slate-600 hover:text-slate-900 text-xl">&times;</button>
+      </div>
+      <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <img id="modal-image" src="shared%20image%20(1).jpg" alt="preview" class="w-full h-72 object-cover rounded-lg" />
+          <p id="modal-desc" class="text-xs text-slate-600 mt-3"></p>
+        </div>
+        <div>
+          <div class="mb-3">
+            <label class="text-xs font-bold">Leave a review</label>
+            <input id="reviewer-name" placeholder="Your name (optional)" class="w-full border rounded px-3 py-2 mt-2 text-sm" />
+            <textarea id="review-text" placeholder="Write your review here" class="w-full border rounded px-3 py-2 mt-2 text-sm h-28"></textarea>
+            <div class="flex gap-2 mt-2">
+              <button onclick="submitReview(currentModalProductId || 1)" class="bg-brandNavy-900 text-white px-4 py-2 rounded">Submit</button>
+              <button onclick="loadReviews(currentModalProductId || 1)" class="bg-slate-100 px-4 py-2 rounded">Refresh</button>
+            </div>
+          </div>
+          <div class="border-t pt-3">
+            <h4 class="text-sm font-bold mb-2">Reviews</h4>
+            <div id="reviews-list" class="text-xs text-slate-700 max-h-64 overflow-auto"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // track which product is open in modal
+    let currentModalProductId = null;
+    const openProductModalOrig = openProductModal;
+    function openProductModal(productId) { currentModalProductId = productId; openProductModalOrig(productId); }
+
+    // small accessibility: close modal with Esc
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProductModal(); });
+    // click outside modal to close
+    document.getElementById('product-modal').addEventListener('click', (e) => { if (e.target.id === 'product-modal') closeProductModal(); });
+  </script>
+
 </body>
 </html>
