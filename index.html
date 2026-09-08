@@ -14,28 +14,40 @@
         extend: {
           colors: {
             brandNavy: {
-              800: '#0f1c3f',
-              900: '#0a122a',
-              950: '#050914',
+              800: '#001f3f',
+              900: '#001428',
+              950: '#000a12',
             },
             brandRed: {
-              500: '#ef4444',
-              600: '#dc2626',
-              700: '#b91c1c',
+              500: '#d32f2f',
+              600: '#c62828',
+              700: '#b71c1c',
+            },
+            brandWhite: {
+              50: '#fafafa',
+              100: '#f5f5f5',
             }
           }
         }
       }
     }
   </script>
+  <style>
+    .gradient-red-navy {
+      background: linear-gradient(135deg, #d32f2f 0%, #001428 100%);
+    }
+    .text-shadow {
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+  </style>
 </head>
 <body class="bg-white text-slate-800 font-sans antialiased">
-
+ 
   <!-- Top Bar with Tagline & Social Links -->
-  <div class="bg-brandNavy-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+  <div class="bg-brandNavy-950 text-slate-200 text-xs py-2 px-4 border-b-2 border-brandRed-600">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
       <div class="flex items-center gap-2">
-        <span class="text-brandRed-500 font-bold tracking-widest uppercase text-[10px]">Security . Style . Durability</span>
+        <span class="text-brandRed-500 font-bold tracking-widest uppercase text-[10px] text-shadow">Security . Style . Durability</span>
         <span class="text-slate-600 hidden sm:inline">|</span>
         <span class="text-slate-400 text-[11px] hidden sm:inline">Supplying Harare, Bulawayo, Gweru & Nationwide</span>
       </div>
@@ -56,30 +68,30 @@
   </div>
 
   <!-- Header -->
-  <header class="bg-brandNavy-900 text-white sticky top-0 z-50 border-b-2 border-brandRed-600 shadow-xl">
+  <header class="gradient-red-navy text-white sticky top-0 z-50 border-b-4 border-brandRed-600 shadow-2xl">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       
       <!-- Logo Container -->
       <a href="#" class="flex items-center gap-3 group">
-        <div class="relative p-1 bg-gradient-to-r from-brandRed-600 via-white to-brandNavy-800 rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-300">
-          <img src="logo.jpg" alt="Maktech Doors Logo" class="h-12 w-auto rounded-lg object-contain bg-brandNavy-950 px-2 py-1" onError="this.onerror=null; this.parentElement.innerHTML='<div class=\'bg-brandNavy-950 border border-brandRed-600 text-white font-black text-xl px-3 py-1.5 rounded-lg flex items-center gap-1\'><span class=\'text-brandRed-500\'>M</span>D</div>';"/>
+        <div class="relative p-2 bg-white rounded-xl shadow-lg group-hover:scale-105 transition-transform duration-300 border-2 border-brandRed-600">
+          <img src="the%20LOGO" alt="Maktech Doors Logo" class="h-12 w-auto rounded-lg object-contain px-2 py-1" />
         </div>
         <div>
-          <h1 class="text-xl font-black tracking-wider text-white group-hover:text-brandRed-500 transition-colors">
-            MAK<span class="text-brandRed-600">TECH</span> DOORS
+          <h1 class="text-xl font-black tracking-wider text-white group-hover:text-brandRed-300 transition-colors text-shadow">
+            MAK<span class="text-brandRed-300">TECH</span> DOORS
           </h1>
-          <p class="text-[9px] text-slate-400 tracking-widest uppercase">Security . Style . Durability</p>
+          <p class="text-[9px] text-slate-200 tracking-widest uppercase">Security . Style . Durability</p>
         </div>
       </a>
 
       <!-- Navigation & Primary Action -->
-      <nav class="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-slate-300">
-        <a href="#about" class="hover:text-brandRed-500 transition-colors">About Us</a>
-        <a href="#products" class="hover:text-brandRed-500 transition-colors">Products</a>
-        <a href="#reviews" class="hover:text-brandRed-500 transition-colors">Ratings</a>
+      <nav class="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-wider text-slate-200">
+        <a href="#about" class="hover:text-brandRed-300 transition-colors">About Us</a>
+        <a href="#products" class="hover:text-brandRed-300 transition-colors">Products</a>
+        <a href="#reviews" class="hover:text-brandRed-300 transition-colors">Ratings</a>
       </nav>
 
-      <a href="https://wa.me/263789009829" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 shadow-lg hover:shadow-emerald-600/30">
+      <a href="https://wa.me/263789009829" target="_blank" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition-all flex items-center gap-2 shadow-lg">
         <i class="fa-brands fa-whatsapp text-sm"></i>
         <span>WhatsApp Us</span>
       </a>
@@ -87,63 +99,69 @@
   </header>
 
   <!-- Slideshow / Hero Banner -->
-  <section class="relative bg-brandNavy-950 text-white overflow-hidden py-12 md:py-16 px-4">
+  <section class="relative bg-gradient-to-r from-brandNavy-950 to-slate-900 text-white overflow-hidden py-12 md:py-16 px-4">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
       <div class="md:w-1/2 space-y-4">
-        <span class="bg-brandRed-600/20 text-brandRed-500 text-xs font-bold px-3 py-1 rounded-full uppercase border border-brandRed-600/30 inline-block">
+        <span class="bg-brandRed-600/20 text-brandRed-300 text-xs font-bold px-3 py-1 rounded-full uppercase border-2 border-brandRed-600 inline-block">
           Security • Style • Durability
         </span>
-        <h2 class="text-3xl md:text-5xl font-black leading-tight tracking-tight">
-          High-Security & Turkish Aluminium Composite Doors
+        <h2 class="text-3xl md:text-5xl font-black leading-tight tracking-tight text-shadow">
+          Premium Turkish Steel & Aluminium Doors
         </h2>
-        <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+        <p class="text-slate-200 text-sm md:text-base leading-relaxed">
           Engineered with precision Turkish craftsmanship for maximum weather resistance, reinforced core protection, and luxury entrance styling. Supplying Harare, Bulawayo, Gweru, and nationwide.
         </p>
-        <a href="#products" class="inline-block bg-brandRed-600 hover:bg-brandRed-700 text-white font-bold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all shadow-lg hover:shadow-brandRed-600/40">
+        <a href="#products" class="inline-block bg-brandRed-600 hover:bg-brandRed-700 text-white font-bold px-6 py-3 rounded-lg text-xs uppercase tracking-wider transition-all shadow-lg hover:shadow-xl">
           Browse Catalog
         </a>
       </div>
 
       <!-- Banner Image -->
       <div class="md:w-1/2 w-full">
-        <div class="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden border border-slate-800 shadow-2xl bg-brandNavy-900">
-          <img id="slideshow-img" src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80" alt="Maktech Slide" class="w-full h-full object-cover transition-all duration-700"/>
+        <div class="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden border-4 border-brandRed-600 shadow-2xl bg-brandNavy-900">
+          <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-cover transition-all duration-700"/>
         </div>
       </div>
     </div>
   </section>
 
   <!-- About Us, Our Mission & Our Vision -->
-  <section id="about" class="py-12 bg-slate-50 border-b border-slate-200">
+  <section id="about" class="py-12 bg-brandWhite-50 border-b-4 border-brandRed-600">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-10">
-        <h2 class="text-2xl font-extrabold text-brandNavy-900 uppercase tracking-wide">About Maktech Doors</h2>
-        <div class="w-12 h-1 bg-brandRed-600 mx-auto mt-2 rounded"></div>
-        <p class="text-slate-600 text-xs md:text-sm mt-3 leading-relaxed">
-          Maktech Doors supplies high-security entrance doors, Turkish aluminium composite doors, solid teak wood doors, and custom door solutions tailored for modern residential and commercial properties.
+        <h2 class="text-3xl font-extrabold text-brandNavy-900 uppercase tracking-wide">About Maktech Doors</h2>
+        <div class="w-16 h-1.5 bg-brandRed-600 mx-auto mt-3 rounded"></div>
+        <p class="text-slate-600 text-xs md:text-sm mt-4 leading-relaxed">
+          Maktech Doors supplies high-security entrance doors, Turkish aluminium composite doors, solid teak wood doors, and custom door solutions tailored for modern residential and commercial properties across Zimbabwe.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Our Mission -->
-        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm border-t-4 border-t-brandRed-600">
-          <h3 class="text-base font-bold text-brandNavy-900 mb-2">Our Mission</h3>
+        <div class="bg-white p-6 rounded-xl border-2 border-slate-200 shadow-md border-t-4 border-t-brandRed-600 hover:shadow-lg transition-shadow">
+          <h3 class="text-base font-bold text-brandNavy-900 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-bullseye text-brandRed-600"></i> Our Mission
+          </h3>
           <p class="text-xs text-slate-600 leading-relaxed">
             To deliver uncompromised security, modern Turkish architectural aesthetics, and lasting durability for homes across Zimbabwe.
           </p>
         </div>
 
         <!-- Our Vision -->
-        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm border-t-4 border-t-brandNavy-900">
-          <h3 class="text-base font-bold text-brandNavy-900 mb-2">Our Vision</h3>
+        <div class="bg-white p-6 rounded-xl border-2 border-slate-200 shadow-md border-t-4 border-t-brandNavy-900 hover:shadow-lg transition-shadow">
+          <h3 class="text-base font-bold text-brandNavy-900 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-eye text-brandNavy-900"></i> Our Vision
+          </h3>
           <p class="text-xs text-slate-600 leading-relaxed">
             To be Zimbabwe's premier provider of modern composite entrance doors and high-security entry solutions.
           </p>
         </div>
 
         <!-- Cities We Supply -->
-        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm border-t-4 border-t-brandRed-600">
-          <h3 class="text-base font-bold text-brandNavy-900 mb-2">Supplying Nationwide</h3>
+        <div class="bg-white p-6 rounded-xl border-2 border-slate-200 shadow-md border-t-4 border-t-brandRed-600 hover:shadow-lg transition-shadow">
+          <h3 class="text-base font-bold text-brandNavy-900 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-map-location-dot text-brandRed-600"></i> Supplying Nationwide
+          </h3>
           <p class="text-xs text-slate-600 leading-relaxed">
             We regularly supply and service clients in <strong>Harare, Bulawayo, Gweru, Mutare</strong>, and all surrounding regions.
           </p>
@@ -155,17 +173,17 @@
   <!-- Product Catalog -->
   <section id="products" class="py-12 max-w-7xl mx-auto px-4">
     <div class="text-center mb-8">
-      <h2 class="text-2xl font-extrabold text-brandNavy-900 uppercase tracking-wide">Maktech Doors Catalog</h2>
-      <p class="text-xs text-slate-500 mt-1">Select a category to filter your door preferences</p>
-      <div class="w-12 h-1 bg-brandRed-600 mx-auto mt-2 rounded"></div>
+      <h2 class="text-3xl font-extrabold text-brandNavy-900 uppercase tracking-wide">Maktech Doors Catalog</h2>
+      <div class="w-16 h-1.5 bg-brandRed-600 mx-auto mt-3 rounded"></div>
+      <p class="text-xs text-slate-500 mt-3">Select a category to filter your door preferences</p>
     </div>
 
     <!-- Filter Buttons -->
     <div class="flex flex-wrap gap-2 justify-center mb-8">
-      <button onclick="filterProducts('all')" class="filter-btn bg-brandNavy-900 text-white px-4 py-2 rounded-lg text-xs font-bold transition-all">All Products</button>
-      <button onclick="filterProducts('aluminium')" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-xs font-bold transition-all">Turkish Aluminium Composite</button>
-      <button onclick="filterProducts('steel')" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-xs font-bold transition-all">Steel / Security</button>
-      <button onclick="filterProducts('wood')" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 px-4 py-2 rounded-lg text-xs font-bold transition-all">Teak / Wooden</button>
+      <button onclick="filterProducts('all')" class="filter-btn bg-brandNavy-900 text-white px-4 py-2 rounded-lg text-xs font-bold transition-all hover:bg-brandRed-600 shadow-md">All Products</button>
+      <button onclick="filterProducts('aluminium')" class="filter-btn bg-slate-200 hover:bg-brandRed-600 hover:text-white text-slate-700 px-4 py-2 rounded-lg text-xs font-bold transition-all shadow-md">Turkish Aluminium Composite</button>
+      <button onclick="filterProducts('steel')" class="filter-btn bg-slate-200 hover:bg-brandRed-600 hover:text-white text-slate-700 px-4 py-2 rounded-lg text-xs font-bold transition-all shadow-md">Steel / Security</button>
+      <button onclick="filterProducts('wood')" class="filter-btn bg-slate-200 hover:bg-brandRed-600 hover:text-white text-slate-700 px-4 py-2 rounded-lg text-xs font-bold transition-all shadow-md">Teak / Wooden</button>
     </div>
 
     <!-- Product Grid -->
@@ -175,26 +193,26 @@
   </section>
 
   <!-- Customer Ratings Section -->
-  <section id="reviews" class="py-12 bg-slate-50 border-t border-slate-200">
+  <section id="reviews" class="py-12 bg-brandWhite-50 border-t-4 border-brandRed-600">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-8">
-        <h2 class="text-2xl font-extrabold text-brandNavy-900 uppercase tracking-wide">Customer Ratings</h2>
-        <div class="w-12 h-1 bg-brandRed-600 mx-auto mt-2 rounded"></div>
-        <p class="text-xs text-slate-500 mt-2">Verified Customer Feedback from Harare, Bulawayo & Gweru</p>
+        <h2 class="text-3xl font-extrabold text-brandNavy-900 uppercase tracking-wide">Customer Ratings</h2>
+        <div class="w-16 h-1.5 bg-brandRed-600 mx-auto mt-3 rounded"></div>
+        <p class="text-xs text-slate-500 mt-3">Verified Customer Feedback from Harare, Bulawayo & Gweru</p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+        <div class="bg-white p-5 rounded-xl border-2 border-slate-200 shadow-md hover:shadow-lg transition-shadow border-l-4 border-l-brandRed-600">
           <div class="text-amber-400 text-xs mb-2">★★★★★</div>
           <p class="text-xs text-slate-600 italic">"Installed an 8-locking pin security door at my home in Harare. Outstanding quality!"</p>
           <span class="text-[11px] font-bold text-brandNavy-900 block mt-3">— T. Moyo (Harare)</span>
         </div>
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+        <div class="bg-white p-5 rounded-xl border-2 border-slate-200 shadow-md hover:shadow-lg transition-shadow border-l-4 border-l-brandNavy-900">
           <div class="text-amber-400 text-xs mb-2">★★★★★</div>
           <p class="text-xs text-slate-600 italic">"The Turkish aluminium composite door delivered to Gweru looks extremely modern and durable."</p>
           <span class="text-[11px] font-bold text-brandNavy-900 block mt-3">— C. Ndlovu (Gweru)</span>
         </div>
-        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm">
+        <div class="bg-white p-5 rounded-xl border-2 border-slate-200 shadow-md hover:shadow-lg transition-shadow border-l-4 border-l-brandRed-600">
           <div class="text-amber-400 text-xs mb-2">★★★★★</div>
           <p class="text-xs text-slate-600 italic">"Top quality teak wood door. Prompt assistance via WhatsApp!"</p>
           <span class="text-[11px] font-bold text-brandNavy-900 block mt-3">— K. Sibanda (Bulawayo)</span>
@@ -204,15 +222,15 @@
   </section>
 
   <!-- Footer with Social Links -->
-  <footer class="bg-brandNavy-950 text-white border-t border-slate-800 py-10">
+  <footer class="bg-brandNavy-950 text-white border-t-4 border-brandRed-600 py-10">
     <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-xs text-slate-400">
       
       <!-- Brand & Mission -->
       <div class="space-y-3">
         <div class="flex items-center gap-2">
-          <span class="text-lg font-black text-white">MAK<span class="text-brandRed-600">TECH</span> DOORS</span>
+          <span class="text-lg font-black text-white text-shadow">MAK<span class="text-brandRed-500">TECH</span> DOORS</span>
         </div>
-        <p class="text-slate-400 text-xs leading-relaxed">
+        <p class="text-slate-300 text-xs leading-relaxed">
           Security. Style. Durability.<br>
           High-security doors, Turkish aluminium composite doors, and custom door fittings.
         </p>
@@ -234,13 +252,13 @@
       <div class="space-y-3">
         <p class="font-bold text-white text-sm">Connect With Us</p>
         <div class="flex gap-3">
-          <a href="https://wa.me/263789009829" target="_blank" class="w-9 h-9 rounded-lg bg-brandNavy-900 hover:bg-emerald-600 text-white flex items-center justify-center transition-colors text-base">
+          <a href="https://wa.me/263789009829" target="_blank" class="w-9 h-9 rounded-lg bg-brandNavy-900 hover:bg-emerald-600 text-white flex items-center justify-center transition-colors text-base border-2 border-emerald-600">
             <i class="fa-brands fa-whatsapp"></i>
           </a>
-          <a href="https://facebook.com/maktechsolution" target="_blank" class="w-9 h-9 rounded-lg bg-brandNavy-900 hover:bg-blue-600 text-white flex items-center justify-center transition-colors text-base">
+          <a href="https://facebook.com/maktechsolution" target="_blank" class="w-9 h-9 rounded-lg bg-brandNavy-900 hover:bg-blue-600 text-white flex items-center justify-center transition-colors text-base border-2 border-blue-600">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
-          <a href="https://instagram.com/maktechsolutions_1" target="_blank" class="w-9 h-9 rounded-lg bg-brandNavy-900 hover:bg-pink-600 text-white flex items-center justify-center transition-colors text-base">
+          <a href="https://instagram.com/maktechsolutions_1" target="_blank" class="w-9 h-9 rounded-lg bg-brandNavy-900 hover:bg-pink-600 text-white flex items-center justify-center transition-colors text-base border-2 border-pink-600">
             <i class="fa-brands fa-instagram"></i>
           </a>
         </div>
@@ -255,7 +273,6 @@
 
   <script>
     const standardPrice = "$400 USD";
-    // Cool & professional standard description focused on high quality
     const standardDescription = "Engineered with high-grade Turkish composite materials for luxury aesthetics, heat insulation, and maximum entryway security.";
 
     const products = [
@@ -267,7 +284,7 @@
         description: standardDescription,
         price: standardPrice,
         rating: 5,
-        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80"
+        image: "shared%20image%20(1).jpg"
       },
       {
         id: 2,
@@ -277,7 +294,7 @@
         description: standardDescription,
         price: standardPrice,
         rating: 5,
-        image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=600&q=80"
+        image: "shared%20image%20(2).jpg"
       },
       {
         id: 3,
@@ -287,7 +304,7 @@
         description: standardDescription,
         price: standardPrice,
         rating: 5,
-        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80"
+        image: "shared%20image%20(3).jpg"
       },
       {
         id: 4,
@@ -297,7 +314,7 @@
         description: standardDescription,
         price: standardPrice,
         rating: 5,
-        image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80"
+        image: "shared%20image%20(6).jpg"
       },
       {
         id: 5,
@@ -307,25 +324,26 @@
         description: standardDescription,
         price: standardPrice,
         rating: 5,
-        image: "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=600&q=80"
+        image: "stable%20door"
       },
       {
         id: 6,
-        title: "Teak Wood Stable Door",
+        title: "Premium Stable Door",
         category: "wood",
         categoryLabel: "Wood",
         description: standardDescription,
         price: standardPrice,
         rating: 5,
-        image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&q=80"
+        image: "aluminium%20stable%20door"
       }
     ];
 
-    // Banner Slideshow
+    // Banner Slideshow with repository images
     const slideImages = [
-      "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=80",
-      "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=800&q=80",
-      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80"
+      "shared%20image%20(1).jpg",
+      "shared%20image%20(2).jpg",
+      "shared%20image%20(3).jpg",
+      "shared%20image%20(6).jpg"
     ];
     let currentSlide = 0;
 
@@ -340,27 +358,27 @@
     function renderProducts(items) {
       const grid = document.getElementById("product-grid");
       grid.innerHTML = items.map(product => `
-        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+        <div class="bg-white border-2 border-slate-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg hover:border-brandRed-600 transition-all flex flex-col justify-between">
           <div>
-            <div class="relative h-56 bg-slate-100">
+            <div class="relative h-56 bg-slate-100 border-b-2 border-slate-200">
               <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover" />
-              <span class="absolute top-3 right-3 bg-brandNavy-900 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+              <span class="absolute top-3 right-3 bg-brandNavy-900 text-white text-[10px] font-bold px-2 py-1 rounded uppercase border border-brandRed-600">
                 ${product.categoryLabel}
               </span>
             </div>
             <div class="p-4">
-              <div class="flex items-center gap-1 text-amber-400 text-xs mb-1">
+              <div class="flex items-center gap-1 text-amber-400 text-xs mb-2">
                 ${"★".repeat(product.rating)} <span class="text-slate-400 text-[10px] ml-1">(5.0)</span>
               </div>
-              <h3 class="text-sm font-bold text-brandNavy-900 mb-1">${product.title}</h3>
+              <h3 class="text-sm font-bold text-brandNavy-900 mb-2">${product.title}</h3>
               <p class="text-xs text-slate-500 leading-relaxed">${product.description}</p>
             </div>
           </div>
-          <div class="p-4 pt-0 flex justify-between items-center border-t border-slate-100 mt-4">
+          <div class="p-4 pt-0 flex justify-between items-center border-t-2 border-slate-100 mt-4">
             <span class="text-base font-black text-brandRed-600">${product.price}</span>
             <a href="https://wa.me/263789009829?text=Hi,%20I%20am%20interested%20in%20the%20${encodeURIComponent(product.title)}%20priced%20at%20${encodeURIComponent(product.price)}" 
                target="_blank" 
-               class="bg-brandNavy-900 hover:bg-brandRed-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors">
+               class="bg-brandNavy-900 hover:bg-brandRed-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors shadow-md">
                Inquire
             </a>
           </div>
