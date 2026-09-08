@@ -47,20 +47,6 @@
     }
     /* Modal styles */
     .modal-backdrop { background: rgba(0,0,0,0.5); }
-    
-    /* Logo overlay on slideshow */
-    .slideshow-logo {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(15, 36, 55, 0.85);
-      padding: 24px;
-      border-radius: 12px;
-      border: 2px solid rgba(200, 35, 51, 0.5);
-      backdrop-filter: blur(8px);
-      z-index: 10;
-    }
   </style>
 </head>
 <body class="bg-white text-slate-700 font-sans antialiased">
@@ -71,7 +57,7 @@
       <div class="flex items-center gap-2">
         <span class="text-slate-200 font-semibold tracking-wide text-[10px]">SECURITY . STYLE . DURABILITY</span>
         <span class="text-slate-600 hidden sm:inline text-xs">|</span>
-        <span class="text-slate-400 text-[11px] hidden sm:inline">Locally made in Zimbabwe • Supplying Harare, Bulawayo, Gweru & Nationwide</span>
+        <span class="text-slate-400 text-[11px] hidden sm:inline">Imported Turkish Doors in Standard Sizes with Frame Included • Supplying Harare, Bulawayo, Gweru & Nationwide</span>
       </div>
       
       <!-- Social Media Quick Links -->
@@ -91,12 +77,12 @@
 
   <!-- Header -->
   <header class="gradient-navy text-white sticky top-0 z-50 border-b border-slate-700 shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       
       <!-- Logo Container -->
       <a href="#" class="flex items-center gap-4 group min-w-0">
-        <div class="relative bg-white rounded-lg shadow-md group-hover:shadow-lg transition-shadow border border-slate-300 p-3 flex-shrink-0">
-          <img src="the%20LOGO" alt="Maktech Doors Logo" class="h-14 w-auto object-contain" style="filter: saturate(0.95) brightness(1);" />
+        <div class="relative bg-white rounded-lg shadow-md transition-shadow border border-slate-300 p-2 flex items-center justify-center overflow-hidden h-16 w-36 flex-shrink-0">
+          <img src="the%20LOGO" alt="Maktech Doors Logo" class="w-full h-full object-contain" />
         </div>
         <div class="min-w-0">
           <h1 class="text-lg font-bold tracking-wide text-white group-hover:text-slate-200 transition-colors text-shadow whitespace-nowrap" style="font-family: 'Montserrat', sans-serif;">
@@ -128,21 +114,19 @@
           Premium Turkish Steel & Aluminium Doors
         </h2>
         <p class="text-slate-300 text-sm md:text-base leading-relaxed">
-          Locally made in Zimbabwe using high-grade Turkish components and engineered for maximum weather resistance, reinforced core protection, and luxury entrance styling. Supplying Harare, Bulawayo, Gweru, and nationwide.
+          Direct imports from Turkey featuring standard dimensions and complete with high-grade door frames. Built for weather resistance, maximum security core protection, and entrance luxury styling. Supplying Harare, Bulawayo, Gweru, and nationwide.
         </p>
         <a href="#products" class="inline-block bg-brandRed-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-md">
           Browse Catalog
         </a>
       </div>
 
-      <!-- Banner Image with Logo Overlay -->
+      <!-- Banner Image Slideshow -->
       <div class="md:w-1/2 w-full">
-        <div class="relative w-full rounded-lg overflow-hidden border border-slate-400 shadow-lg bg-slate-100" style="aspect-ratio:16/9; max-height:420px;">
-          <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-cover object-center transition-all duration-700"/>
-          
-          <!-- Logo Overlay on Slideshow -->
-          <div class="slideshow-logo">
-            <img src="the%20LOGO" alt="Maktech Doors Logo" class="h-16 w-auto object-contain" style="filter: saturate(0.95) brightness(1);" />
+        <div class="relative w-full rounded-lg overflow-hidden border border-slate-400 shadow-lg bg-slate-900 cursor-pointer group" style="height:460px;" onclick="openSlideModal()">
+          <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-contain p-2 transition-all duration-700"/>
+          <div class="absolute bottom-3 right-3 bg-brandNavy-900/80 text-white text-xs px-3 py-1.5 rounded backdrop-blur border border-slate-600 flex items-center gap-1 group-hover:bg-brandRed-600 transition-colors">
+            <i class="fa-solid fa-expand"></i> Click to view full door
           </div>
         </div>
       </div>
@@ -156,7 +140,7 @@
         <h2 class="text-3xl font-bold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">About Maktech Doors</h2>
         <div class="w-12 h-0.5 bg-slate-300 mx-auto mt-4"></div>
         <p class="text-slate-600 text-sm mt-5 leading-relaxed">
-          Maktech Doors supplies high-security entrance doors, Turkish aluminium composite doors, aluminium stable doors, and custom door solutions tailored for modern residential and commercial property requirements — proudly manufactured locally in Zimbabwe.
+          Maktech Doors imports premium Turkish high-security entrance doors, aluminium composite doors, and stable doors. All doors arrive in standard sizes complete with matching door frames and advanced lock sets for residential and commercial properties across Zimbabwe.
         </p>
       </div>
 
@@ -167,7 +151,7 @@
             <i class="fa-solid fa-bullseye text-brandRed-600 text-sm"></i> Our Mission
           </h3>
           <p class="text-sm text-slate-600 leading-relaxed">
-            To deliver uncompromised security, modern Turkish architectural aesthetics, and lasting durability for homes across Zimbabwe.
+            To supply uncompromised security, authentic Turkish architectural aesthetics, and complete frame-inclusive entrance solutions nationwide.
           </p>
         </div>
 
@@ -177,7 +161,7 @@
             <i class="fa-solid fa-eye text-brandNavy-900 text-sm"></i> Our Vision
           </h3>
           <p class="text-sm text-slate-600 leading-relaxed">
-            To be Zimbabwe's premier provider of modern composite entrance doors and high-security entry solutions.
+            To be Zimbabwe's primary distributor of top-tier Turkish composite and high-security steel entrance doors.
           </p>
         </div>
 
@@ -199,6 +183,7 @@
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-10">
         <h2 class="text-3xl font-bold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">Door Catalog</h2>
+        <p class="text-xs text-slate-500 mt-2">Click any image to inspect the full top-to-bottom door profile and frame details</p>
         <div class="w-12 h-0.5 bg-slate-300 mx-auto mt-4"></div>
       </div>
 
@@ -228,17 +213,17 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
           <div class="text-amber-500 text-sm mb-2">★★★★★</div>
-          <p class="text-sm text-slate-600 italic">"Installed an 8-locking pin security door at my home in Harare. Outstanding quality!"</p>
+          <p class="text-sm text-slate-600 italic">"Installed an imported Turkish 8-locking pin door. Frame fitting was standard and perfect!"</p>
           <span class="text-xs font-semibold text-slate-700 block mt-3">— T. Moyo (Harare)</span>
         </div>
         <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
           <div class="text-amber-500 text-sm mb-2">★★★★★</div>
-          <p class="text-sm text-slate-600 italic">"Turkish aluminium composite door delivered to Gweru. Modern and durable."</p>
+          <p class="text-sm text-slate-600 italic">"Turkish aluminium composite door delivered to Gweru. Complete frame included, very durable."</p>
           <span class="text-xs font-semibold text-slate-700 block mt-3">— C. Ndlovu (Gweru)</span>
         </div>
         <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
           <div class="text-amber-500 text-sm mb-2">★★★★★</div>
-          <p class="text-sm text-slate-600 italic">"Top quality teak-look door. Prompt service via WhatsApp!"</p>
+          <p class="text-sm text-slate-600 italic">"Top quality imported door with sturdy security frame. Excellent service."</p>
           <span class="text-xs font-semibold text-slate-700 block mt-3">— K. Sibanda (Bulawayo)</span>
         </div>
       </div>
@@ -257,11 +242,11 @@
         <!-- FAQ Item 1 -->
         <div class="bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-sm transition-shadow">
           <button onclick="toggleFAQ(this)" class="w-full p-4 flex justify-between items-center font-semibold text-brandNavy-900 hover:bg-slate-50 transition-colors text-left">
-            <span>Do you supply and install doors nationwide?</span>
+            <span>Are these doors imported and do they include door frames?</span>
             <i class="fa-solid fa-chevron-down text-slate-400 text-sm"></i>
           </button>
           <div class="faq-content hidden p-4 border-t border-slate-200 bg-slate-50 text-slate-600 text-sm">
-            Yes, Maktech Solution provides delivery and professional installation services across Zimbabwe.
+            Yes, our doors are premium imports from Turkey, delivered in standard structural dimensions and complete with their matching heavy-duty door frames.
           </div>
         </div>
 
@@ -272,29 +257,18 @@
             <i class="fa-solid fa-chevron-down text-slate-400 text-sm"></i>
           </button>
           <div class="faq-content hidden p-4 border-t border-slate-200 bg-slate-50 text-slate-600 text-sm">
-            Our steel doors feature heavy-duty 8-locking-pin systems for maximum intrusion resistance and security.
+            Our imported Turkish steel doors feature multi-point heavy-duty 8-locking-pin systems for superior burglar resistance and protection.
           </div>
         </div>
 
         <!-- FAQ Item 3 -->
         <div class="bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-sm transition-shadow">
           <button onclick="toggleFAQ(this)" class="w-full p-4 flex justify-between items-center font-semibold text-brandNavy-900 hover:bg-slate-50 transition-colors text-left">
-            <span>Can I customize door colors and designs?</span>
+            <span>Do you supply nationwide across Zimbabwe?</span>
             <i class="fa-solid fa-chevron-down text-slate-400 text-sm"></i>
           </button>
           <div class="faq-content hidden p-4 border-t border-slate-200 bg-slate-50 text-slate-600 text-sm">
-            Yes, we offer custom design and color options for all doors to match your property aesthetic.
-          </div>
-        </div>
-
-        <!-- FAQ Item 4 -->
-        <div class="bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-sm transition-shadow">
-          <button onclick="toggleFAQ(this)" class="w-full p-4 flex justify-between items-center font-semibold text-brandNavy-900 hover:bg-slate-50 transition-colors text-left">
-            <span>What warranty do you offer?</span>
-            <i class="fa-solid fa-chevron-down text-slate-400 text-sm"></i>
-          </button>
-          <div class="faq-content hidden p-4 border-t border-slate-200 bg-slate-50 text-slate-600 text-sm">
-            All Maktech doors come with a comprehensive warranty covering manufacturing defects and hardware quality.
+            Yes, Maktech Doors supplies and delivers imported doors across Harare, Bulawayo, Gweru, Mutare, and nationwide.
           </div>
         </div>
       </div>
@@ -311,7 +285,7 @@
           <span class="text-lg font-bold text-white">MAK<span class="text-brandRed-600">TECH</span> DOORS</span>
         </div>
         <p class="text-slate-400 text-xs leading-relaxed">
-          High-security doors, Turkish aluminium composite doors, and custom door fittings — locally made in Zimbabwe.
+          Direct imports from Turkey. Premium security entrance doors and aluminium composite doors with standard frame fitment.
         </p>
         <p class="text-slate-500 text-xs">Supplying Harare, Bulawayo, Gweru & Nationwide.</p>
       </div>
@@ -354,7 +328,7 @@
   <!-- Product / UI Scripts -->
   <script>
     const standardPrice = "$400 USD";
-    const standardDescription = "Locally made in Zimbabwe using high-grade Turkish components; luxury aesthetics, heat insulation, and maximum security.";
+    const standardDescription = "Direct import from Turkey. Standard sizing, comes complete with its door frame, thermal insulation, and multi-point lock core.";
 
     const products = [
       {
@@ -435,6 +409,15 @@
     }
     setInterval(nextSlide, 5000);
 
+    function openSlideModal() {
+      const currentSrc = slideImages[currentSlide];
+      document.getElementById('modal-title').innerText = "Full Turkish Door & Frame View";
+      document.getElementById('modal-image').src = currentSrc;
+      document.getElementById('modal-desc').innerText = "Imported Turkish security door shown in full view with standard size door frame included.";
+      document.getElementById('modal-price').innerText = standardPrice;
+      document.getElementById('product-modal').classList.remove('hidden');
+    }
+
     // FAQ Toggle
     function toggleFAQ(button) {
       const content = button.nextElementSibling;
@@ -479,7 +462,7 @@
       const key = 'maktech_reviews_' + productId;
       const list = JSON.parse(localStorage.getItem(key) || '[]');
       const container = document.getElementById('reviews-list');
-      container.innerHTML = list.length ? list.map(r => `<div class=\"p-3 border-b border-slate-200\"><div class=\"text-xs text-slate-600\">${r.name} <span class=\"text-xs text-slate-400 ml-2\">${new Date(r.date).toLocaleString()}</span></div><div class=\"text-sm mt-1 text-slate-700\">${r.text}</div></div>`).join('') : '<div class="text-xs text-slate-500 p-3">No reviews yet.</div>';
+      container.innerHTML = list.length ? list.map(r => `<div class="p-3 border-b border-slate-200"><div class="text-xs text-slate-600">${r.name} <span class="text-xs text-slate-400 ml-2">${new Date(r.date).toLocaleString()}</span></div><div class="text-sm mt-1 text-slate-700">${r.text}</div></div>`).join('') : '<div class="text-xs text-slate-500 p-3">No reviews yet.</div>';
     }
 
     // Render Product Cards
@@ -488,10 +471,13 @@
       grid.innerHTML = items.map(product => `
         <div class="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
           <div>
-            <div class="relative h-48 bg-slate-100 border-b border-slate-200 overflow-hidden">
-              <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover object-top cursor-pointer" onclick="openProductModal(${product.id})" />
-              <span class="absolute top-3 right-3 bg-brandNavy-900 text-white text-xs font-semibold px-2 py-1 rounded">
+            <div class="relative h-64 bg-slate-900 border-b border-slate-200 overflow-hidden flex items-center justify-center p-2 cursor-pointer group" onclick="openProductModal(${product.id})">
+              <img src="${product.image}" alt="${product.title}" class="w-full h-full object-contain group-hover:scale-105 transition-transform" />
+              <span class="absolute top-3 right-3 bg-brandNavy-900/90 text-white text-xs font-semibold px-2 py-1 rounded border border-slate-700">
                 ${product.categoryLabel}
+              </span>
+              <span class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur">
+                Click for full view
               </span>
             </div>
             <div class="p-4">
@@ -537,9 +523,9 @@
         <button onclick="closeProductModal()" class="text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
       </div>
       <div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <img id="modal-image" src="shared%20image%20(1).jpg" alt="preview" class="w-full h-64 object-cover rounded" />
-          <p id="modal-desc" class="text-xs text-slate-600 mt-4"></p>
+        <div class="flex flex-col items-center bg-slate-900 p-2 rounded border border-slate-300">
+          <img id="modal-image" src="shared%20image%20(1).jpg" alt="preview" class="w-full h-80 object-contain rounded" />
+          <p id="modal-desc" class="text-xs text-slate-200 mt-4 text-center"></p>
         </div>
         <div>
           <div class="mb-4">
