@@ -39,25 +39,22 @@
   <style>
     body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
     h1,h2,h3 { font-family: 'Montserrat', system-ui, sans-serif; }
-    .gradient-navy {
-      background: linear-gradient(135deg, #0f2437 0%, #07161f 100%);
-    }
     .text-shadow {
-      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     /* Modal styles */
-    .modal-backdrop { background: rgba(0,0,0,0.5); }
+    .modal-backdrop { background: rgba(0,0,0,0.6); backdrop-filter: blur(2px); }
   </style>
 </head>
 <body class="bg-white text-slate-700 font-sans antialiased">
- 
+
   <!-- Top Bar with Tagline & Social Links -->
   <div class="bg-brandNavy-950 text-slate-300 text-xs py-2.5 px-4 border-b border-slate-700">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
       <div class="flex items-center gap-2">
         <span class="text-slate-200 font-semibold tracking-wide text-[10px]">SECURITY . STYLE . DURABILITY</span>
         <span class="text-slate-600 hidden sm:inline text-xs">|</span>
-        <span class="text-slate-400 text-[11px] hidden sm:inline">Custom Locally Made Aluminium Doors & Imported Turkish Steel Doors • Supplying Harare, Bulawayo, Gweru & Nationwide</span>
+        <span class="text-slate-400 text-[11px] hidden sm:inline">Custom Locally Made Aluminium Doors & Imported Turkish Steel Doors • Supplying Nationwide</span>
       </div>
       
       <!-- Social Media Quick Links -->
@@ -75,45 +72,46 @@
     </div>
   </div>
 
-  <!-- Header -->
-  <header class="gradient-navy text-white sticky top-0 z-50 border-b border-slate-700 shadow-lg">
+  <!-- Header (Clean White Styling) -->
+  <header class="bg-white text-slate-900 sticky top-0 z-50 border-b border-slate-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       
-      <!-- Logo Container (Option 1: Seamless Blend) -->
+      <!-- Logo Container -->
       <a href="#" class="flex items-center gap-3 group min-w-0">
         <div class="relative h-14 flex items-center justify-center overflow-hidden flex-shrink-0">
           <img src="the%20LOGO" alt="Maktech Doors Logo" class="h-full w-auto object-contain rounded-md" />
         </div>
         <div class="min-w-0">
-          <h1 class="text-lg font-bold tracking-wide text-white group-hover:text-slate-200 transition-colors text-shadow whitespace-nowrap" style="font-family: 'Montserrat', sans-serif;">
+          <h1 class="text-lg font-bold tracking-wide text-brandNavy-900 group-hover:text-slate-700 transition-colors whitespace-nowrap" style="font-family: 'Montserrat', sans-serif;">
             MAK<span class="text-brandRed-600">TECH</span> DOORS
           </h1>
-          <p class="text-[8px] text-slate-300 tracking-widest uppercase font-medium">Security . Style . Durability</p>
+          <p class="text-[8px] text-slate-500 tracking-widest uppercase font-medium">Security . Style . Durability</p>
         </div>
       </a>
 
       <!-- Navigation & Primary Action -->
-      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wide text-slate-300 ml-auto mr-8">
-        <a href="#about" class="hover:text-white transition-colors">About Us</a>
-        <a href="#products" class="hover:text-white transition-colors">Products</a>
-        <a href="#reviews" class="hover:text-white transition-colors">Ratings</a>
+      <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wide text-slate-700 ml-auto mr-8">
+        <a href="#about" class="hover:text-brandRed-600 transition-colors">About Us</a>
+        <a href="#products" class="hover:text-brandRed-600 transition-colors">Products</a>
+        <a href="#blog" class="hover:text-brandRed-600 transition-colors">Blog</a>
+        <a href="#reviews" class="hover:text-brandRed-600 transition-colors">Ratings</a>
       </nav>
 
-      <a href="https://wa.me/263789009829" target="_blank" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all flex items-center gap-2 shadow-md flex-shrink-0">
+      <a href="https://wa.me/263789009829" target="_blank" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all flex items-center gap-2 shadow-sm flex-shrink-0">
         <i class="fa-brands fa-whatsapp text-sm"></i>
         <span class="hidden sm:inline">WhatsApp Us</span>
       </a>
     </div>
   </header>
 
-  <!-- Hero Banner -->
-  <section class="relative bg-gradient-to-b from-brandNavy-950 via-brandNavy-900 to-white text-slate-900 overflow-hidden py-16 md:py-20 px-4">
+  <!-- Hero Banner (White Theme Below Header) -->
+  <section class="bg-slate-50 text-slate-900 border-b border-slate-200 overflow-hidden py-16 md:py-20 px-4">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
       <div class="md:w-1/2 space-y-6">
-        <h2 class="text-4xl md:text-5xl font-black leading-tight tracking-tight text-white" style="font-family: 'Montserrat', sans-serif;">
+        <h2 class="text-4xl md:text-5xl font-black leading-tight tracking-tight text-brandNavy-900" style="font-family: 'Montserrat', sans-serif;">
           Custom Aluminium & Imported Turkish Doors
         </h2>
-        <p class="text-slate-300 text-sm md:text-base leading-relaxed">
+        <p class="text-slate-600 text-sm md:text-base leading-relaxed">
           We offer custom locally made aluminium doors tailored to your exact specifications, alongside imported Turkish high-security doors complete with standard frames. Built for weather resistance and luxury entrance styling. Supplying Harare, Bulawayo, Gweru, and nationwide.
         </p>
         <a href="#products" class="inline-block bg-brandRed-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-md">
@@ -121,11 +119,11 @@
         </a>
       </div>
 
-      <!-- Banner Image Slideshow -->
+      <!-- Banner Image Slideshow (Light Frame Theme) -->
       <div class="md:w-1/2 w-full">
-        <div class="relative w-full rounded-lg overflow-hidden border border-slate-400 shadow-lg bg-slate-900 cursor-pointer group" style="height:460px;" onclick="openSlideModal()">
+        <div class="relative w-full rounded-lg overflow-hidden border border-slate-200 shadow-md bg-white cursor-pointer group" style="height:460px;" onclick="openSlideModal()">
           <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-contain p-2 transition-all duration-700"/>
-          <div class="absolute bottom-3 right-3 bg-brandNavy-900/80 text-white text-xs px-3 py-1.5 rounded backdrop-blur border border-slate-600 flex items-center gap-1 group-hover:bg-brandRed-600 transition-colors">
+          <div class="absolute bottom-3 right-3 bg-brandNavy-900 text-white text-xs px-3 py-1.5 rounded border border-slate-700 flex items-center gap-1 group-hover:bg-brandRed-600 transition-colors shadow">
             <i class="fa-solid fa-expand"></i> Click to view full door
           </div>
         </div>
@@ -201,8 +199,53 @@
     </div>
   </section>
 
+  <!-- Blog Section -->
+  <section id="blog" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">Latest Articles & Advice</h2>
+        <p class="text-xs text-slate-500 mt-2">Expert tips on security, door maintenance, and home aesthetics in Zimbabwe</p>
+        <div class="w-12 h-0.5 bg-slate-300 mx-auto mt-4"></div>
+      </div>
+
+      <!-- Blog Category Filter -->
+      <div class="flex flex-wrap gap-3 justify-center mb-10">
+        <button onclick="filterBlog('all')" class="blog-filter-btn bg-brandNavy-900 text-white px-4 py-2 rounded text-xs font-semibold transition-all shadow-sm">All Articles</button>
+        <button onclick="filterBlog('security')" class="blog-filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Security</button>
+        <button onclick="filterBlog('maintenance')" class="blog-filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Maintenance</button>
+        <button onclick="filterBlog('design')" class="blog-filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Design & Style</button>
+      </div>
+
+      <!-- Blog Posts Grid -->
+      <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Dynamic Blog Cards Rendered Here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Article Modal -->
+  <div id="blog-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop p-4">
+    <div class="bg-white rounded-lg max-w-3xl w-full shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      <div class="p-5 flex justify-between items-center border-b border-slate-200">
+        <h3 id="blog-modal-title" class="text-xl font-bold text-brandNavy-900" style="font-family: 'Montserrat', sans-serif;"></h3>
+        <button onclick="closeBlogModal()" class="text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4">
+        <div class="flex items-center gap-4 text-xs text-slate-500 border-b border-slate-100 pb-3">
+          <span id="blog-modal-date"><i class="fa-regular fa-calendar mr-1"></i></span>
+          <span id="blog-modal-category" class="bg-brandNavy-900 text-white px-2 py-0.5 rounded text-[10px] font-semibold uppercase"></span>
+        </div>
+        <img id="blog-modal-image" src="" alt="Blog Article" class="w-full h-64 object-cover rounded-lg border border-slate-200" />
+        <div id="blog-modal-content" class="text-sm text-slate-600 leading-relaxed space-y-3"></div>
+      </div>
+      <div class="p-4 border-t border-slate-200 bg-slate-50 flex justify-end">
+        <button onclick="closeBlogModal()" class="bg-brandNavy-900 text-white text-xs font-bold px-4 py-2 rounded hover:bg-brandNavy-800 transition-colors">Close Article</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Customer Ratings Section -->
-  <section id="reviews" class="py-16 bg-white">
+  <section id="reviews" class="py-16 bg-brandWhite-100">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-10">
         <h2 class="text-3xl font-bold text-brandNavy-900 uppercase tracking-wide">Customer Ratings</h2>
@@ -231,7 +274,7 @@
   </section>
 
   <!-- FAQ Section -->
-  <section class="py-16 bg-brandWhite-100">
+  <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4">
       <div class="text-center mb-10">
         <h2 class="text-3xl font-bold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">Frequently Asked Questions</h2>
@@ -275,7 +318,7 @@
     </div>
   </section>
 
-  <!-- Footer with Social Links -->
+  <!-- Footer with Address & Social Links -->
   <footer class="bg-brandNavy-950 text-slate-300 border-t border-slate-700 py-12">
     <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 text-sm mb-8">
       
@@ -290,15 +333,16 @@
         <p class="text-slate-500 text-xs">Supplying Harare, Bulawayo, Gweru & Nationwide.</p>
       </div>
 
-      <!-- Direct Contact -->
+      <!-- Direct Contact Column with Address -->
       <div class="space-y-3">
-        <p class="font-semibold text-white text-sm">Contact</p>
+        <p class="font-semibold text-white text-sm">Contact & Location</p>
         <p class="flex items-center gap-2 text-xs">
           <i class="fa-brands fa-whatsapp text-emerald-500"></i> 
           <a href="https://wa.me/263789009829" class="hover:text-white transition-colors">+263 789 009 829</a>
         </p>
-        <p class="flex items-center gap-2 text-xs">
-          <i class="fa-solid fa-location-dot text-slate-400"></i> Harare, Zimbabwe
+        <p class="flex items-start gap-2 text-xs text-slate-300">
+          <i class="fa-solid fa-location-dot text-brandRed-600 mt-0.5"></i>
+          <span>58 Purley Way, Westgate, Harare, Zimbabwe</span>
         </p>
       </div>
 
@@ -325,7 +369,7 @@
     </div>
   </footer>
 
-  <!-- Product / UI Scripts -->
+  <!-- Product & Blog Scripts -->
   <script>
     const standardPrice = "$400 USD";
     const importedSteelDesc = "Direct import from Turkey. Standard sizing, complete with heavy-duty door frame, thermal insulation, and multi-point lock system.";
@@ -510,12 +554,113 @@
       }
     }
 
+    // --- BLOG SECTION LOGIC ---
+    const blogPosts = [
+      {
+        id: 1,
+        title: "Why 8-Locking Pin Doors Are Essential for Modern Home Security",
+        category: "security",
+        categoryLabel: "Security",
+        date: "September 5, 2026",
+        excerpt: "Discover how Turkish multi-point locking systems offer superior resistance against forced entry compared to single standard deadbolts.",
+        image: "shared%20image%20(2).jpg",
+        content: `
+          <p>When securing your property, the strength of your main entry point is your first line of defense. Standard single-latch doors concentrate all holding force on one isolated point, making them vulnerable to heavy impact.</p>
+          <p><b>Multi-Point Security Systems:</b> Turkish high-security steel doors utilize steel locking bolts that extend simultaneously into the heavy-duty door frame at 8 distinct points along the top, bottom, and side edges. This evenly distributes load pressure and renders mechanical breaching techniques ineffective.</p>
+          <p>Combined with heavy-gauge reinforced steel frames, these high-security installations ensure peace of mind for both residential homes and commercial premises across Harare and nationwide.</p>
+        `
+      },
+      {
+        id: 2,
+        title: "Aluminium vs. Steel Doors: Which One Suits Your Property?",
+        category: "design",
+        categoryLabel: "Design & Style",
+        date: "August 28, 2026",
+        excerpt: "A practical guide comparing custom locally fabricated aluminium doors with heavy-duty imported Turkish steel doors.",
+        image: "shared%20image%20(1).jpg",
+        content: `
+          <p>Selecting the right door material comes down to structural requirements, aesthetic preferences, and environmental conditions.</p>
+          <p><b>Custom Aluminium Doors:</b> Locally manufactured in Zimbabwe to exact dimensional specs, custom aluminium doors offer outstanding resistance to rust, weather corrosion, and warping. They allow for flexible design layouts including large glass panels and stable-door configurations.</p>
+          <p><b>Imported Turkish Steel Doors:</b> Engineered primarily for structural security and thermal insulation, these standard-dimension steel doors feature heavy multi-pin deadbolts and pre-fitted steel casing, making them an ideal main entrance solution.</p>
+        `
+      },
+      {
+        id: 3,
+        title: "Maintenance Tips for Smooth-Operating Composite & Aluminium Gates",
+        category: "maintenance",
+        categoryLabel: "Maintenance",
+        date: "August 14, 2026",
+        excerpt: "Keep your sliding gates, hinges, and lock cylinders working flawlessly with these simple care steps.",
+        image: "shared%20image%20(3).jpg",
+        content: `
+          <p>Regular maintenance ensures long-term smooth operation and prevents premature wear on hardware components.</p>
+          <ul class="list-disc ml-5 space-y-1">
+            <li><b>Track Cleaning:</b> Clear dirt, stones, and debris from gate tracks weekly to avoid strain on rollers and electric motors.</li>
+            <li><b>Lock Lubrication:</b> Apply silicone-based lubricant or graphite powder to lock cylinders every 6 months. Avoid grease, which attracts dust and grit.</li>
+            <li><b>Surface Care:</b> Wipe down powder-coated aluminium frames with mild detergent and water to maintain finish gloss and protection.</li>
+          </ul>
+        `
+      }
+    ];
+
+    function renderBlog(posts) {
+      const container = document.getElementById("blog-grid");
+      if (!container) return;
+      container.innerHTML = posts.map(post => `
+        <article class="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="relative h-48 bg-slate-900 border-b border-slate-200 overflow-hidden cursor-pointer group" onclick="openBlogModal(${post.id})">
+              <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <span class="absolute top-3 right-3 bg-brandNavy-900/90 text-white text-[10px] uppercase font-semibold px-2 py-1 rounded border border-slate-700">
+                ${post.categoryLabel}
+              </span>
+            </div>
+            <div class="p-5">
+              <span class="text-xs text-slate-400 block mb-2"><i class="fa-regular fa-calendar mr-1"></i>${post.date}</span>
+              <h3 class="text-base font-bold text-brandNavy-900 mb-2 hover:text-brandRed-600 transition-colors cursor-pointer" onclick="openBlogModal(${post.id})">${post.title}</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">${post.excerpt}</p>
+            </div>
+          </div>
+          <div class="p-5 border-t border-slate-100 flex justify-between items-center">
+            <button onclick="openBlogModal(${post.id})" class="text-brandRed-600 hover:text-red-700 text-xs font-bold flex items-center gap-1 transition-colors">
+              Read Article <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function filterBlog(category) {
+      if (category === 'all') {
+        renderBlog(blogPosts);
+      } else {
+        renderBlog(blogPosts.filter(post => post.category === category));
+      }
+    }
+
+    function openBlogModal(postId) {
+      const post = blogPosts.find(p => p.id === postId);
+      if (!post) return;
+      document.getElementById('blog-modal-title').innerText = post.title;
+      document.getElementById('blog-modal-category').innerText = post.categoryLabel;
+      document.getElementById('blog-modal-date').innerHTML = `<i class="fa-regular fa-calendar mr-1"></i>${post.date}`;
+      document.getElementById('blog-modal-image').src = post.image;
+      document.getElementById('blog-modal-content').innerHTML = post.content;
+      document.getElementById('blog-modal').classList.remove('hidden');
+    }
+
+    function closeBlogModal() {
+      document.getElementById('blog-modal').classList.add('hidden');
+    }
+
+    // Initializations
     renderProducts(products);
+    renderBlog(blogPosts);
   </script>
 
-  <!-- Product Modal -->
-  <div id="product-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop">
-    <div class="bg-white rounded-lg max-w-3xl w-full mx-4 shadow-xl overflow-hidden">
+  <!-- Product Preview Modal -->
+  <div id="product-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop p-4">
+    <div class="bg-white rounded-lg max-w-3xl w-full shadow-2xl overflow-hidden">
       <div class="p-5 flex justify-between items-start border-b border-slate-200">
         <div>
           <h3 id="modal-title" class="text-lg font-bold text-brandNavy-900"></h3>
@@ -551,8 +696,14 @@
     let currentModalProductId = null;
     const openProductModalOrig = openProductModal;
     function openProductModal(productId) { currentModalProductId = productId; openProductModalOrig(productId); }
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProductModal(); });
+    document.addEventListener('keydown', (e) => { 
+      if (e.key === 'Escape') {
+        closeProductModal();
+        closeBlogModal();
+      } 
+    });
     document.getElementById('product-modal')?.addEventListener('click', (e) => { if (e.target.id === 'product-modal') closeProductModal(); });
+    document.getElementById('blog-modal')?.addEventListener('click', (e) => { if (e.target.id === 'blog-modal') closeBlogModal(); });
   </script>
 
 </body>
