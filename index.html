@@ -44,6 +44,24 @@
     }
     /* Modal styles */
     .modal-backdrop { background: rgba(0,0,0,0.6); backdrop-filter: blur(2px); }
+    .price-discount {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .original-price {
+      text-decoration: line-through;
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+    .sale-badge {
+      background-color: #dc2626;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body class="bg-white text-slate-700 font-sans antialiased">
@@ -371,7 +389,6 @@
 
   <!-- Product & Blog Scripts -->
   <script>
-    const standardPrice = "$350 USD";
     const importedSteelDesc = "Direct import from Turkey. Standard sizing, complete with heavy-duty door frame, thermal insulation, and multi-point lock system.";
     const localAluminiumDesc = "Locally made and customized in Zimbabwe to your specific measurements and design requirements; durable and weather-resistant.";
 
@@ -382,7 +399,9 @@
         category: "aluminium",
         categoryLabel: "Aluminium",
         description: importedSteelDesc,
-        price: standardPrice,
+        originalPrice: "$400 USD",
+        salePrice: "$400 USD",
+        onSale: false,
         rating: 5,
         image: "shared%20image%20(1).jpg"
       },
@@ -392,7 +411,9 @@
         category: "steel",
         categoryLabel: "Steel",
         description: importedSteelDesc,
-        price: standardPrice,
+        originalPrice: "$400 USD",
+        salePrice: "$350 USD",
+        onSale: true,
         rating: 5,
         image: "shared%20image%20(2).jpg"
       },
@@ -402,7 +423,9 @@
         category: "aluminium",
         categoryLabel: "Aluminium",
         description: localAluminiumDesc,
-        price: standardPrice,
+        originalPrice: "$400 USD",
+        salePrice: "$400 USD",
+        onSale: false,
         rating: 5,
         image: "shared%20image%20(3).jpg"
       },
@@ -412,7 +435,9 @@
         category: "steel",
         categoryLabel: "Steel",
         description: importedSteelDesc,
-        price: standardPrice,
+        originalPrice: "$400 USD",
+        salePrice: "$350 USD",
+        onSale: true,
         rating: 5,
         image: "shared%20image%20(6).jpg"
       },
@@ -422,7 +447,9 @@
         category: "aluminium",
         categoryLabel: "Aluminium",
         description: localAluminiumDesc,
-        price: standardPrice,
+        originalPrice: "$400 USD",
+        salePrice: "$400 USD",
+        onSale: false,
         rating: 5,
         image: "stable%20door"
       },
@@ -432,7 +459,9 @@
         category: "aluminium",
         categoryLabel: "Aluminium",
         description: localAluminiumDesc,
-        price: standardPrice,
+        originalPrice: "$400 USD",
+        salePrice: "$400 USD",
+        onSale: false,
         rating: 5,
         image: "aluminium%20stable%20door"
       }
@@ -459,7 +488,7 @@
       document.getElementById('modal-title').innerText = "Full Door View";
       document.getElementById('modal-image').src = currentSrc;
       document.getElementById('modal-desc').innerText = "Full top-to-bottom view showing full frame and panel detail.";
-      document.getElementById('modal-price').innerText = standardPrice;
+      document.getElementById('modal-price').innerText = "$400 USD";
       document.getElementById('product-modal').classList.remove('hidden');
     }
 
@@ -480,7 +509,14 @@
       document.getElementById('modal-title').innerText = product.title;
       document.getElementById('modal-image').src = product.image;
       document.getElementById('modal-desc').innerText = product.description;
-      document.getElementById('modal-price').innerText = product.price;
+      
+      const priceElement = document.getElementById('modal-price');
+      if (product.onSale) {
+        priceElement.innerHTML = `<span class="original-price">${product.originalPrice}</span> <span class="sale-badge">SALE</span> <span class="text-brandRed-600 font-bold">${product.salePrice}</span>`;
+      } else {
+        priceElement.innerText = product.salePrice;
+      }
+      
       loadReviews(productId);
       modal.classList.remove('hidden');
     }
@@ -521,6 +557,7 @@
               <span class="absolute top-3 right-3 bg-brandNavy-900/90 text-white text-xs font-semibold px-2 py-1 rounded border border-slate-700">
                 ${product.categoryLabel}
               </span>
+              ${product.onSale ? '<span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">SALE</span>' : ''}
               <span class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur">
                 Click for full view
               </span>
@@ -534,8 +571,15 @@
             </div>
           </div>
           <div class="p-4 flex justify-between items-center border-t border-slate-100">
-            <span class="text-base font-bold text-slate-800">${product.price}</span>
-            <a href="https://wa.me/263789009829?text=Hi,%20I%20am%20interested%20in%20the%20${encodeURIComponent(product.title)}%20priced%20at%20${encodeURIComponent(product.price)}" 
+            <div class="price-discount">
+              ${product.onSale ? `
+                <span class="original-price">${product.originalPrice}</span>
+                <span class="text-brandRed-600 font-bold">${product.salePrice}</span>
+              ` : `
+                <span class="text-base font-bold text-slate-800">${product.salePrice}</span>
+              `}
+            </div>
+            <a href="https://wa.me/263789009829?text=Hi,%20I%20am%20interested%20in%20the%20${encodeURIComponent(product.title)}%20priced%20at%20${encodeURIComponent(product.salePrice)}" 
                target="_blank" 
                class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-3 py-1.5 rounded transition-all shadow-sm">
                Inquire
