@@ -97,7 +97,7 @@
         <a href="#reviews" class="hover:text-brandRed-600 transition-colors">Ratings</a>
       </nav>
 
-      <a href="https://wa.me/263789009829" target="_blank" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all flex items-center gap-2 shadow-sm flex-shrink-0">
+      <a href="https://wa.me/263789009829" target="_blank" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all flex items-center gap-2 shadow-sm">
         <i class="fa-brands fa-whatsapp text-sm"></i>
         <span class="hidden sm:inline">WhatsApp Us</span>
       </a>
@@ -112,7 +112,7 @@
           Custom Aluminium & Imported Turkish Doors
         </h2>
         <p class="text-slate-600 text-sm md:text-base leading-relaxed">
-          We offer custom locally made aluminium doors tailored to your exact specifications, alongside imported Turkish high-security doors complete with standard frames. Built for weather resistance and luxury entrance styling. Supplying Harare, Bulawayo, Gweru, and nationwide.
+          We offer custom locally made aluminium doors tailored to your exact specifications, alongside imported Turkish high-security doors complete with standard frames. Built for weather resistance, security, and long-term durability.
         </p>
         <a href="#products" class="inline-block bg-brandRed-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-md">
           Browse Catalog
@@ -123,7 +123,7 @@
       <div class="md:w-1/2 w-full">
         <div class="relative w-full rounded-lg overflow-hidden border border-slate-200 shadow-md bg-white cursor-pointer group" style="height:460px;" onclick="openSlideModal()">
           <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-contain p-2 transition-all duration-700"/>
-          <div class="absolute bottom-3 right-3 bg-brandNavy-900 text-white text-xs px-3 py-1.5 rounded border border-slate-700 flex items-center gap-1 group-hover:bg-brandRed-600 transition-colors shadow">
+          <div class="absolute bottom-3 right-3 bg-brandNavy-900 text-white text-xs px-3 py-1.5 rounded border border-slate-700 flex items-center gap-1 group-hover:bg-brandRed-600 transition-colors">
             <i class="fa-solid fa-expand"></i> Click to view full door
           </div>
         </div>
@@ -138,7 +138,7 @@
         <h2 class="text-3xl font-bold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">About Maktech Doors</h2>
         <div class="w-12 h-0.5 bg-slate-300 mx-auto mt-4"></div>
         <p class="text-slate-600 text-sm mt-5 leading-relaxed">
-          Maktech Doors specializes in custom locally manufactured aluminium entrance doors and stable doors tailored in Zimbabwe, alongside premium imported Turkish high-security steel doors complete with matching frames for residential and commercial properties.
+          Maktech Doors specializes in custom locally manufactured aluminium entrance doors and stable doors tailored in Zimbabwe, alongside premium imported Turkish high-security steel doors complete with matching frames.
         </p>
       </div>
 
@@ -213,7 +213,7 @@
         <button onclick="filterBlog('all')" class="blog-filter-btn bg-brandNavy-900 text-white px-4 py-2 rounded text-xs font-semibold transition-all shadow-sm">All Articles</button>
         <button onclick="filterBlog('security')" class="blog-filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Security</button>
         <button onclick="filterBlog('maintenance')" class="blog-filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Maintenance</button>
-        <button onclick="filterBlog('design')" class="blog-filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Design & Style</button>
+        <button onclick="filterBlog('design')" class="blog-filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Design</button>
       </div>
 
       <!-- Blog Posts Grid -->
@@ -371,7 +371,7 @@
 
   <!-- Product & Blog Scripts -->
   <script>
-    const standardPrice = "$400 USD";
+    const standardPrice = "$350 USD";
     const importedSteelDesc = "Direct import from Turkey. Standard sizing, complete with heavy-duty door frame, thermal insulation, and multi-point lock system.";
     const localAluminiumDesc = "Locally made and customized in Zimbabwe to your specific measurements and design requirements; durable and weather-resistant.";
 
@@ -507,7 +507,7 @@
       const key = 'maktech_reviews_' + productId;
       const list = JSON.parse(localStorage.getItem(key) || '[]');
       const container = document.getElementById('reviews-list');
-      container.innerHTML = list.length ? list.map(r => `<div class="p-3 border-b border-slate-200"><div class="text-xs text-slate-600">${r.name} <span class="text-xs text-slate-400 ml-2">${new Date(r.date).toLocaleString()}</span></div><div class="text-sm mt-1 text-slate-700">${r.text}</div></div>`).join('') : '<div class="text-xs text-slate-500 p-3">No reviews yet.</div>';
+      container.innerHTML = list.length ? list.map(r => `<div class="p-3 border-b border-slate-200"><div class="text-xs text-slate-600">${r.name} <span class="text-xs text-slate-400 ml-2">${new Date(r.date).toLocaleDateString()}</span></div><p class="text-xs text-slate-700 mt-1">${r.text}</p></div>`).join('') : '<p class="text-xs text-slate-500">No reviews yet.</p>';
     }
 
     // Render Product Cards
@@ -565,8 +565,8 @@
         excerpt: "Discover how Turkish multi-point locking systems offer superior resistance against forced entry compared to single standard deadbolts.",
         image: "shared%20image%20(2).jpg",
         content: `
-          <p>When securing your property, the strength of your main entry point is your first line of defense. Standard single-latch doors concentrate all holding force on one isolated point, making them vulnerable to heavy impact.</p>
-          <p><b>Multi-Point Security Systems:</b> Turkish high-security steel doors utilize steel locking bolts that extend simultaneously into the heavy-duty door frame at 8 distinct points along the top, bottom, and side edges. This evenly distributes load pressure and renders mechanical breaching techniques ineffective.</p>
+          <p>When securing your property, the strength of your main entry point is your first line of defense. Standard single-latch doors concentrate all holding force on one isolated point, making them more vulnerable under forced entry attempts.</p>
+          <p><b>Multi-Point Security Systems:</b> Turkish high-security steel doors utilize steel locking bolts that extend simultaneously into the heavy-duty door frame at 8 distinct points along the edge, creating a much stronger barrier against prying, impact, and leverage attacks.</p>
           <p>Combined with heavy-gauge reinforced steel frames, these high-security installations ensure peace of mind for both residential homes and commercial premises across Harare and nationwide.</p>
         `
       },
@@ -580,8 +580,8 @@
         image: "shared%20image%20(1).jpg",
         content: `
           <p>Selecting the right door material comes down to structural requirements, aesthetic preferences, and environmental conditions.</p>
-          <p><b>Custom Aluminium Doors:</b> Locally manufactured in Zimbabwe to exact dimensional specs, custom aluminium doors offer outstanding resistance to rust, weather corrosion, and warping. They allow for flexible design layouts including large glass panels and stable-door configurations.</p>
-          <p><b>Imported Turkish Steel Doors:</b> Engineered primarily for structural security and thermal insulation, these standard-dimension steel doors feature heavy multi-pin deadbolts and pre-fitted steel casing, making them an ideal main entrance solution.</p>
+          <p><b>Custom Aluminium Doors:</b> Locally manufactured in Zimbabwe to exact dimensional specs, custom aluminium doors offer outstanding resistance to rust, weather corrosion, and warping while giving homeowners flexible design choices.</p>
+          <p><b>Imported Turkish Steel Doors:</b> Engineered primarily for structural security and thermal insulation, these standard-dimension steel doors feature heavy multi-pin deadbolts and premium locking hardware designed for enhanced protection.</p>
         `
       },
       {
