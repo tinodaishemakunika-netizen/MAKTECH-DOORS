@@ -4,11 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maktech Doors | Security, Style, Durability</title>
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- FontAwesome CDN for Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Professional fonts: Montserrat for headings, Inter for body -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
@@ -19,18 +16,9 @@
             heading: ['Montserrat', 'ui-sans-serif', 'system-ui']
           },
           colors: {
-            brandNavy: {
-              800: '#1a3a52',
-              900: '#0f2437',
-              950: '#07161f',
-            },
-            brandRed: {
-              600: '#C82333',
-            },
-            brandWhite: {
-              50: '#fafbfc',
-              100: '#f5f7f9',
-            }
+            brandNavy: { 800: '#1a3a52', 900: '#0f2437', 950: '#07161f' },
+            brandRed: { 600: '#C82333' },
+            brandWhite: { 50: '#fafbfc', 100: '#f5f7f9' }
           }
         }
       }
@@ -39,34 +27,16 @@
   <style>
     body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
     h1,h2,h3 { font-family: 'Montserrat', system-ui, sans-serif; }
-    .text-shadow {
-      text-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    /* Modal styles */
+    .text-shadow { text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
     .modal-backdrop { background: rgba(0,0,0,0.6); backdrop-filter: blur(2px); }
-    .price-discount {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .original-price {
-      text-decoration: line-through;
-      color: #94a3b8;
-      font-size: 0.875rem;
-    }
-    .sale-badge {
-      background-color: #dc2626;
-      color: white;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: bold;
-    }
+    .price-discount { display: flex; align-items: center; gap: 8px; }
+    .original-price { text-decoration: line-through; color: #94a3b8; font-size: 0.875rem; }
+    .sale-badge { background-color: #dc2626; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+    .garage-card:hover img { transform: scale(1.03); }
   </style>
 </head>
 <body class="bg-white text-slate-700 font-sans antialiased">
 
-  <!-- Top Bar with Tagline & Social Links -->
   <div class="bg-brandNavy-950 text-slate-300 text-xs py-2.5 px-4 border-b border-slate-700">
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
       <div class="flex items-center gap-2">
@@ -74,8 +44,6 @@
         <span class="text-slate-600 hidden sm:inline text-xs">|</span>
         <span class="text-slate-400 text-[11px] hidden sm:inline">Custom Locally Made Aluminium Doors & Imported Turkish Steel Doors • Supplying Nationwide</span>
       </div>
-      
-      <!-- Social Media Quick Links -->
       <div class="flex items-center gap-4 text-slate-300">
         <a href="https://wa.me/263789009829" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-1 text-[11px]">
           <i class="fa-brands fa-whatsapp text-emerald-500"></i> +263 789 009 829
@@ -90,11 +58,8 @@
     </div>
   </div>
 
-  <!-- Header (Clean White Styling) -->
   <header class="bg-white text-slate-900 sticky top-0 z-50 border-b border-slate-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
-      
-      <!-- Logo Container -->
       <a href="#" class="flex items-center gap-3 group min-w-0">
         <div class="relative h-14 flex items-center justify-center overflow-hidden flex-shrink-0">
           <img src="the%20LOGO" alt="Maktech Doors Logo" class="h-full w-auto object-contain rounded-md" />
@@ -107,23 +72,21 @@
         </div>
       </a>
 
-      <!-- Navigation & Primary Action -->
       <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wide text-slate-700 ml-auto mr-8">
         <a href="#about" class="hover:text-brandRed-600 transition-colors">About Us</a>
         <a href="#products" class="hover:text-brandRed-600 transition-colors">Products</a>
+        <a href="#gallery" class="hover:text-brandRed-600 transition-colors">Gallery</a>
         <a href="#blog" class="hover:text-brandRed-600 transition-colors">Blog</a>
         <a href="#reviews" class="hover:text-brandRed-600 transition-colors">Ratings</a>
       </nav>
 
-      <a href="https://wa.me/263789009829" target="_blank" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all flex items-center gap-2 shadow-sm"
-        >
+      <a href="https://wa.me/263789009829" target="_blank" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all flex items-center gap-2 shadow-sm">
         <i class="fa-brands fa-whatsapp text-sm"></i>
         <span class="hidden sm:inline">WhatsApp Us</span>
       </a>
     </div>
   </header>
 
-  <!-- Hero Banner (White Theme Below Header) -->
   <section class="bg-slate-50 text-slate-900 border-b border-slate-200 overflow-hidden py-16 md:py-20 px-4">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
       <div class="md:w-1/2 space-y-6">
@@ -138,7 +101,6 @@
         </a>
       </div>
 
-      <!-- Banner Image Slideshow (Light Frame Theme) -->
       <div class="md:w-1/2 w-full">
         <div class="relative w-full rounded-lg overflow-hidden border border-slate-200 shadow-md bg-white cursor-pointer group" style="height:460px;" onclick="openSlideModal()">
           <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-contain p-2 transition-all duration-700"/>
@@ -150,7 +112,6 @@
     </div>
   </section>
 
-  <!-- About Us, Our Mission & Our Vision -->
   <section id="about" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center max-w-3xl mx-auto mb-12">
@@ -162,7 +123,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Our Mission -->
         <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 hover:shadow-md transition-shadow">
           <h3 class="text-base font-bold text-brandNavy-900 mb-3 flex items-center gap-2">
             <i class="fa-solid fa-bullseye text-brandRed-600 text-sm"></i> Our Mission
@@ -172,7 +132,6 @@
           </p>
         </div>
 
-        <!-- Our Vision -->
         <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 hover:shadow-md transition-shadow">
           <h3 class="text-base font-bold text-brandNavy-900 mb-3 flex items-center gap-2">
             <i class="fa-solid fa-eye text-brandNavy-900 text-sm"></i> Our Vision
@@ -182,7 +141,6 @@
           </p>
         </div>
 
-        <!-- Locations -->
         <div class="bg-slate-50 p-6 rounded-lg border border-slate-200 hover:shadow-md transition-shadow">
           <h3 class="text-base font-bold text-brandNavy-900 mb-3 flex items-center gap-2">
             <i class="fa-solid fa-map-pin text-brandRed-600 text-sm"></i> Supplying Nationwide
@@ -195,7 +153,6 @@
     </div>
   </section>
 
-  <!-- Product Catalog -->
   <section id="products" class="py-16 bg-brandWhite-100">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-10">
@@ -204,21 +161,64 @@
         <div class="w-12 h-0.5 bg-slate-300 mx-auto mt-4"></div>
       </div>
 
-      <!-- Filter Buttons -->
       <div class="flex flex-wrap gap-3 justify-center mb-10">
         <button onclick="filterProducts('all')" class="filter-btn bg-brandNavy-900 text-white px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-brandNavy-800 shadow-sm">All Products</button>
         <button onclick="filterProducts('aluminium')" class="filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Aluminium</button>
         <button onclick="filterProducts('steel')" class="filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Steel</button>
       </div>
 
-      <!-- Product Grid -->
-      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Dynamic Products Grid -->
+      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    </div>
+  </section>
+
+  <section id="gallery" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">Garage Door Gallery</h2>
+        <p class="text-xs text-slate-500 mt-2">Aluminium composite garage doors with automated systems and remote control convenience</p>
+        <div class="w-12 h-0.5 bg-slate-300 mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <article class="garage-card bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" alt="Aluminium composite garage door" class="w-full h-80 object-cover transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <span class="inline-block text-[10px] uppercase font-bold tracking-wide bg-brandNavy-900 text-white px-2 py-1 rounded">Aluminium Composite</span>
+            <h3 class="mt-4 text-xl font-bold text-brandNavy-900">Modern Aluminium Garage Door</h3>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+              Sleek, durable garage door design with insulated aluminium composite panels for long-lasting performance, weather protection, and a premium finish.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li><i class="fa-solid fa-check text-brandRed-600 mr-2"></i>Remote control operation</li>
+              <li><i class="fa-solid fa-check text-brandRed-600 mr-2"></i>Automatic opening system</li>
+              <li><i class="fa-solid fa-check text-brandRed-600 mr-2"></i>Low maintenance and secure locking</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="garage-card bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all">
+          <div class="overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80" alt="Automated garage door remote system" class="w-full h-80 object-cover transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <span class="inline-block text-[10px] uppercase font-bold tracking-wide bg-brandRed-600 text-white px-2 py-1 rounded">Automation</span>
+            <h3 class="mt-4 text-xl font-bold text-brandNavy-900">Remote Controlled Garage Access</h3>
+            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+              Smooth automation with remote control compatibility, motorized operation, and smart convenience for modern homes and commercial properties.
+            </p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-700">
+              <li><i class="fa-solid fa-check text-brandRed-600 mr-2"></i>Motor-driven opener system</li>
+              <li><i class="fa-solid fa-check text-brandRed-600 mr-2"></i>Keyless remote and wall button access</li>
+              <li><i class="fa-solid fa-check text-brandRed-600 mr-2"></i>Quiet, secure, and reliable performance</li>
+            </ul>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Blog Section -->
   <section id="blog" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-10">
@@ -227,7 +227,6 @@
         <div class="w-12 h-0.5 bg-slate-300 mx-auto mt-4"></div>
       </div>
 
-      <!-- Blog Category Filter -->
       <div class="flex flex-wrap gap-3 justify-center mb-10">
         <button onclick="filterBlog('all')" class="blog-filter-btn bg-brandNavy-900 text-white px-4 py-2 rounded text-xs font-semibold transition-all shadow-sm">All Articles</button>
         <button onclick="filterBlog('security')" class="blog-filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Security</button>
@@ -235,14 +234,10 @@
         <button onclick="filterBlog('design')" class="blog-filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Design</button>
       </div>
 
-      <!-- Blog Posts Grid -->
-      <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Dynamic Blog Cards Rendered Here -->
-      </div>
+      <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
     </div>
   </section>
 
-  <!-- Blog Article Modal -->
   <div id="blog-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop p-4">
     <div class="bg-white rounded-lg max-w-3xl w-full shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
       <div class="p-5 flex justify-between items-center border-b border-slate-200">
@@ -263,7 +258,6 @@
     </div>
   </div>
 
-  <!-- Customer Ratings Section -->
   <section id="reviews" class="py-16 bg-brandWhite-100">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-10">
@@ -292,7 +286,6 @@
     </div>
   </section>
 
-  <!-- FAQ Section -->
   <section class="py-16 bg-white">
     <div class="max-w-4xl mx-auto px-4">
       <div class="text-center mb-10">
@@ -301,7 +294,6 @@
       </div>
 
       <div class="space-y-3">
-        <!-- FAQ Item 1 -->
         <div class="bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-sm transition-shadow">
           <button onclick="toggleFAQ(this)" class="w-full p-4 flex justify-between items-center font-semibold text-brandNavy-900 hover:bg-slate-50 transition-colors text-left">
             <span>Which doors are locally made and customized?</span>
@@ -312,7 +304,6 @@
           </div>
         </div>
 
-        <!-- FAQ Item 2 -->
         <div class="bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-sm transition-shadow">
           <button onclick="toggleFAQ(this)" class="w-full p-4 flex justify-between items-center font-semibold text-brandNavy-900 hover:bg-slate-50 transition-colors text-left">
             <span>Are the steel doors imported from Turkey?</span>
@@ -323,7 +314,6 @@
           </div>
         </div>
 
-        <!-- FAQ Item 3 -->
         <div class="bg-white border border-slate-200 rounded-lg overflow-hidden hover:shadow-sm transition-shadow">
           <button onclick="toggleFAQ(this)" class="w-full p-4 flex justify-between items-center font-semibold text-brandNavy-900 hover:bg-slate-50 transition-colors text-left">
             <span>Do you supply nationwide across Zimbabwe?</span>
@@ -337,11 +327,8 @@
     </div>
   </section>
 
-  <!-- Footer with Address & Social Links -->
   <footer class="bg-brandNavy-950 text-slate-300 border-t border-slate-700 py-12">
     <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 text-sm mb-8">
-      
-      <!-- Brand & Mission -->
       <div class="space-y-3">
         <div class="flex items-center gap-2">
           <span class="text-lg font-bold text-white">MAK<span class="text-brandRed-600">TECH</span> DOORS</span>
@@ -352,11 +339,10 @@
         <p class="text-slate-500 text-xs">Supplying Harare, Bulawayo, Gweru & Nationwide.</p>
       </div>
 
-      <!-- Direct Contact Column with Address -->
       <div class="space-y-3">
         <p class="font-semibold text-white text-sm">Contact & Location</p>
         <p class="flex items-center gap-2 text-xs">
-          <i class="fa-brands fa-whatsapp text-emerald-500"></i> 
+          <i class="fa-brands fa-whatsapp text-emerald-500"></i>
           <a href="https://wa.me/263789009829" class="hover:text-white transition-colors">+263 789 009 829</a>
         </p>
         <p class="flex items-start gap-2 text-xs text-slate-300">
@@ -365,7 +351,6 @@
         </p>
       </div>
 
-      <!-- Social Media -->
       <div class="space-y-3">
         <p class="font-semibold text-white text-sm">Connect</p>
         <div class="flex gap-3">
@@ -380,7 +365,6 @@
           </a>
         </div>
       </div>
-
     </div>
 
     <div class="max-w-7xl mx-auto px-4 pt-6 border-t border-slate-700 text-center text-slate-500 text-xs">
@@ -388,93 +372,20 @@
     </div>
   </footer>
 
-  <!-- Product & Blog Scripts -->
   <script>
     const importedSteelDesc = "Direct import from Turkey. Standard sizing, complete with heavy-duty door frame, thermal insulation, and multi-point lock system.";
     const localAluminiumDesc = "Locally made and customized in Zimbabwe to your specific measurements and design requirements; durable and weather-resistant.";
 
     const products = [
-      {
-        id: 1,
-        title: "Turkish Aluminium Composite Door",
-        category: "aluminium",
-        categoryLabel: "Aluminium",
-        description: importedSteelDesc,
-        originalPrice: "$400 USD",
-        salePrice: "$400 USD",
-        onSale: false,
-        rating: 5,
-        image: "shared%20image%20(1).jpg"
-      },
-      {
-        id: 2,
-        title: "8-Locking Pin Security Door",
-        category: "steel",
-        categoryLabel: "Steel",
-        description: importedSteelDesc,
-        originalPrice: "$400 USD",
-        salePrice: "$350 USD",
-        onSale: true,
-        rating: 5,
-        image: "shared%20image%20(2).jpg"
-      },
-      {
-        id: 3,
-        title: "Custom Modern Entrance Door",
-        category: "aluminium",
-        categoryLabel: "Aluminium",
-        description: localAluminiumDesc,
-        originalPrice: "$400 USD",
-        salePrice: "$400 USD",
-        onSale: false,
-        rating: 5,
-        image: "shared%20image%20(3).jpg"
-      },
-      {
-        id: 4,
-        title: "Heavy Duty Security Panel Door",
-        category: "steel",
-        categoryLabel: "Steel",
-        description: importedSteelDesc,
-        originalPrice: "$400 USD",
-        salePrice: "$350 USD",
-        onSale: true,
-        rating: 5,
-        image: "shared%20image%20(6).jpg"
-      },
-      {
-        id: 5,
-        title: "Teak-effect Aluminium Entrance Door",
-        category: "aluminium",
-        categoryLabel: "Aluminium",
-        description: localAluminiumDesc,
-        originalPrice: "$400 USD",
-        salePrice: "$400 USD",
-        onSale: false,
-        rating: 5,
-        image: "stable%20door"
-      },
-      {
-        id: 6,
-        title: "Premium Stable Aluminium Door",
-        category: "aluminium",
-        categoryLabel: "Aluminium",
-        description: localAluminiumDesc,
-        originalPrice: "$400 USD",
-        salePrice: "$400 USD",
-        onSale: false,
-        rating: 5,
-        image: "aluminium%20stable%20door"
-      }
+      { id: 1, title: "Turkish Aluminium Composite Door", category: "aluminium", categoryLabel: "Aluminium", description: importedSteelDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "shared%20image%20(1).jpg" },
+      { id: 2, title: "8-Locking Pin Security Door", category: "steel", categoryLabel: "Steel", description: importedSteelDesc, originalPrice: "$400 USD", salePrice: "$350 USD", onSale: true, rating: 5, image: "shared%20image%20(2).jpg" },
+      { id: 3, title: "Custom Modern Entrance Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "shared%20image%20(3).jpg" },
+      { id: 4, title: "Heavy Duty Security Panel Door", category: "steel", categoryLabel: "Steel", description: importedSteelDesc, originalPrice: "$400 USD", salePrice: "$350 USD", onSale: true, rating: 5, image: "shared%20image%20(6).jpg" },
+      { id: 5, title: "Teak-effect Aluminium Entrance Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "stable%20door" },
+      { id: 6, title: "Premium Stable Aluminium Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "aluminium%20stable%20door" }
     ];
 
-    // Banner Slideshow
-    const slideImages = [
-      "shared%20image%20(1).jpg",
-      "shared%20image%20(2).jpg",
-      "shared%20image%20(3).jpg",
-      "shared%20image%20(6).jpg"
-    ];
+    const slideImages = ["shared%20image%20(1).jpg", "shared%20image%20(2).jpg", "shared%20image%20(3).jpg", "shared%20image%20(6).jpg"];
     let currentSlide = 0;
 
     function nextSlide() {
@@ -493,7 +404,6 @@
       document.getElementById('product-modal').classList.remove('hidden');
     }
 
-    // FAQ Toggle
     function toggleFAQ(button) {
       const content = button.nextElementSibling;
       content.classList.toggle('hidden');
@@ -502,7 +412,6 @@
       icon.classList.toggle('fa-chevron-up');
     }
 
-    // Modal for product preview
     function openProductModal(productId) {
       const product = products.find(p => p.id === productId);
       if (!product) return;
@@ -510,14 +419,12 @@
       document.getElementById('modal-title').innerText = product.title;
       document.getElementById('modal-image').src = product.image;
       document.getElementById('modal-desc').innerText = product.description;
-      
       const priceElement = document.getElementById('modal-price');
       if (product.onSale) {
         priceElement.innerHTML = `<span class="original-price">${product.originalPrice}</span> <span class="sale-badge">SALE</span> <span class="text-brandRed-600 font-bold">${product.salePrice}</span>`;
       } else {
         priceElement.innerText = product.salePrice;
       }
-      
       loadReviews(productId);
       modal.classList.remove('hidden');
     }
@@ -526,7 +433,6 @@
       document.getElementById('product-modal').classList.add('hidden');
     }
 
-    // LocalStorage reviews
     function submitReview(productId) {
       const name = document.getElementById('reviewer-name').value || 'Anonymous';
       const text = document.getElementById('review-text').value;
@@ -547,7 +453,6 @@
       container.innerHTML = list.length ? list.map(r => `<div class="p-3 border-b border-slate-200"><div class="text-xs text-slate-600">${r.name} <span class="text-xs text-slate-400 ml-2">${new Date(r.date).toLocaleDateString()}</span></div><p class="text-xs text-slate-700 mt-1">${r.text}</p></div>`).join('') : '<p class="text-xs text-slate-500">No reviews yet. Be the first to share your experience.</p>';
     }
 
-    // Render Product Cards
     function renderProducts(items) {
       const grid = document.getElementById("product-grid");
       grid.innerHTML = items.map(product => `
@@ -555,52 +460,30 @@
           <div>
             <div class="relative h-64 bg-slate-900 border-b border-slate-200 overflow-hidden flex items-center justify-center p-2 cursor-pointer group" onclick="openProductModal(${product.id})">
               <img src="${product.image}" alt="${product.title}" class="w-full h-full object-contain group-hover:scale-105 transition-transform" />
-              <span class="absolute top-3 right-3 bg-brandNavy-900/90 text-white text-xs font-semibold px-2 py-1 rounded border border-slate-700">
-                ${product.categoryLabel}
-              </span>
+              <span class="absolute top-3 right-3 bg-brandNavy-900/90 text-white text-xs font-semibold px-2 py-1 rounded border border-slate-700">${product.categoryLabel}</span>
               ${product.onSale ? '<span class="absolute top-3 left-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">SALE</span>' : ''}
-              <span class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur">
-                Click for full view
-              </span>
+              <span class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur">Click for full view</span>
             </div>
             <div class="p-4">
-              <div class="flex items-center gap-1 text-amber-500 text-xs mb-2">
-                ${"★".repeat(product.rating)}
-              </div>
+              <div class="flex items-center gap-1 text-amber-500 text-xs mb-2">${"★".repeat(product.rating)}</div>
               <h3 class="text-sm font-semibold text-brandNavy-900 mb-2">${product.title}</h3>
               <p class="text-xs text-slate-600 leading-relaxed">${product.description}</p>
             </div>
           </div>
           <div class="p-4 flex justify-between items-center border-t border-slate-100">
             <div class="price-discount">
-              ${product.onSale ? `
-                <span class="original-price">${product.originalPrice}</span>
-                <span class="text-brandRed-600 font-bold">${product.salePrice}</span>
-              ` : `
-                <span class="text-base font-bold text-slate-800">${product.salePrice}</span>
-              `}
+              ${product.onSale ? `<span class="original-price">${product.originalPrice}</span><span class="text-brandRed-600 font-bold">${product.salePrice}</span>` : `<span class="text-base font-bold text-slate-800">${product.salePrice}</span>`}
             </div>
-            <a href="https://wa.me/263789009829?text=Hi,%20I%20am%20interested%20in%20the%20${encodeURIComponent(product.title)}%20priced%20at%20${encodeURIComponent(product.salePrice)}" 
-               target="_blank" 
-               class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-3 py-1.5 rounded transition-all shadow-sm">
-               Inquire
-            </a>
+            <a href="https://wa.me/263789009829?text=Hi,%20I%20am%20interested%20in%20the%20${encodeURIComponent(product.title)}%20priced%20at%20${encodeURIComponent(product.salePrice)}" target="_blank" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-3 py-1.5 rounded transition-all shadow-sm">Inquire</a>
           </div>
         </div>
       `).join('');
     }
 
     function filterProducts(category) {
-      if (category === 'all') {
-        renderProducts(products);
-      } else {
-        const filtered = products.filter(p => p.category === category);
-        renderProducts(filtered);
-      }
+      if (category === 'all') renderProducts(products);
+      else renderProducts(products.filter(p => p.category === category));
     }
-
-    // --- BLOG SECTION LOGIC ---
-    const lockingSystemImage = "shared%20image%20(2).jpg";
 
     const blogPosts = [
       {
@@ -610,7 +493,7 @@
         categoryLabel: "Security",
         date: "September 5, 2026",
         excerpt: "Discover how Turkish multi-point locking systems offer superior resistance against forced entry compared to single standard deadbolts.",
-        image: lockingSystemImage,
+        image: "shared%20image%20(2).jpg",
         content: `
           <p>When securing your property, the strength of your main entry point is your first line of defense. Standard single-latch doors concentrate all holding force on one isolated point, making them far easier to breach under pressure.</p>
           <p><b>Multi-Point Security Systems:</b> Turkish high-security steel doors use steel locking bolts that extend simultaneously into the heavy-duty door frame at 8 distinct points along the edge of the door. This spreads the force across the whole frame, substantially increasing resistance against forced entry.</p>
@@ -660,9 +543,7 @@
           <div>
             <div class="relative h-48 bg-slate-900 border-b border-slate-200 overflow-hidden cursor-pointer group" onclick="openBlogModal(${post.id})">
               <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              <span class="absolute top-3 right-3 bg-brandNavy-900/90 text-white text-[10px] uppercase font-semibold px-2 py-1 rounded border border-slate-700">
-                ${post.categoryLabel}
-              </span>
+              <span class="absolute top-3 right-3 bg-brandNavy-900/90 text-white text-[10px] uppercase font-semibold px-2 py-1 rounded border border-slate-700">${post.categoryLabel}</span>
             </div>
             <div class="p-5">
               <span class="text-xs text-slate-400 block mb-2"><i class="fa-regular fa-calendar mr-1"></i>${post.date}</span>
@@ -671,20 +552,15 @@
             </div>
           </div>
           <div class="p-5 border-t border-slate-100 flex justify-between items-center">
-            <button onclick="openBlogModal(${post.id})" class="text-brandRed-600 hover:text-red-700 text-xs font-bold flex items-center gap-1 transition-colors">
-              Read Article <i class="fa-solid fa-arrow-right text-[10px]"></i>
-            </button>
+            <button onclick="openBlogModal(${post.id})" class="text-brandRed-600 hover:text-red-700 text-xs font-bold flex items-center gap-1 transition-colors">Read Article <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
           </div>
         </article>
       `).join('');
     }
 
     function filterBlog(category) {
-      if (category === 'all') {
-        renderBlog(blogPosts);
-      } else {
-        renderBlog(blogPosts.filter(post => post.category === category));
-      }
+      if (category === 'all') renderBlog(blogPosts);
+      else renderBlog(blogPosts.filter(post => post.category === category));
     }
 
     function openBlogModal(postId) {
@@ -702,12 +578,10 @@
       document.getElementById('blog-modal').classList.add('hidden');
     }
 
-    // Initializations
     renderProducts(products);
     renderBlog(blogPosts);
   </script>
 
-  <!-- Product Preview Modal -->
   <div id="product-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop p-4">
     <div class="bg-white rounded-lg max-w-3xl w-full shadow-2xl overflow-hidden">
       <div class="p-5 flex justify-between items-start border-b border-slate-200">
@@ -745,11 +619,11 @@
     let currentModalProductId = null;
     const openProductModalOrig = openProductModal;
     function openProductModal(productId) { currentModalProductId = productId; openProductModalOrig(productId); }
-    document.addEventListener('keydown', (e) => { 
+    document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeProductModal();
         closeBlogModal();
-      } 
+      }
     });
     document.getElementById('product-modal')?.addEventListener('click', (e) => { if (e.target.id === 'product-modal') closeProductModal(); });
     document.getElementById('blog-modal')?.addEventListener('click', (e) => { if (e.target.id === 'blog-modal') closeBlogModal(); });
