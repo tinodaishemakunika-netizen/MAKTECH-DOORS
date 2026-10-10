@@ -32,7 +32,6 @@
     .price-discount { display: flex; align-items: center; gap: 8px; }
     .original-price { text-decoration: line-through; color: #94a3b8; font-size: 0.875rem; }
     .sale-badge { background-color: #dc2626; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
-    .garage-card:hover img { transform: scale(1.03); }
   </style>
 </head>
 <body class="bg-white text-slate-700 font-sans antialiased">
@@ -75,7 +74,6 @@
       <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wide text-slate-700 ml-auto mr-8">
         <a href="#about" class="hover:text-brandRed-600 transition-colors">About Us</a>
         <a href="#products" class="hover:text-brandRed-600 transition-colors">Products</a>
-        <a href="#gallery" class="hover:text-brandRed-600 transition-colors">Gallery</a>
         <a href="#blog" class="hover:text-brandRed-600 transition-colors">Blog</a>
         <a href="#reviews" class="hover:text-brandRed-600 transition-colors">Ratings</a>
       </nav>
@@ -165,57 +163,10 @@
         <button onclick="filterProducts('all')" class="filter-btn bg-brandNavy-900 text-white px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-brandNavy-800 shadow-sm">All Products</button>
         <button onclick="filterProducts('aluminium')" class="filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Aluminium</button>
         <button onclick="filterProducts('steel')" class="filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Steel</button>
+        <button onclick="filterProducts('garage')" class="filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Garage Doors</button>
       </div>
 
       <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
-    </div>
-  </section>
-
-  <section id="gallery" class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-10">
-        <h2 class="text-3xl font-bold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">Garage Door Gallery</h2>
-        <p class="text-xs text-slate-500 mt-2">Aluminium composite garage doors fitted with automated opener systems and remote control convenience</p>
-        <div class="w-12 h-0.5 bg-slate-300 mx-auto mt-4"></div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <article class="garage-card bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" alt="Modern aluminium composite garage door with remote control" class="w-full h-80 object-cover transition-transform duration-500" />
-          </div>
-          <div class="p-6">
-            <span class="inline-block text-[10px] uppercase font-bold tracking-wide bg-brandNavy-900 text-white px-2 py-1 rounded">Modern Aluminium Composite</span>
-            <h3 class="mt-4 text-xl font-bold text-brandNavy-900">Aluminium Composite Garage Door</h3>
-            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-              A clean, contemporary garage door design for homes that want strong security, insulation, and an elegant exterior finish without bulky panels.
-            </p>
-            <ul class="mt-4 space-y-2 text-sm text-slate-700">
-              <li><i class="fa-solid fa-check text-brandRed-600 mr-2"></i>Insulated aluminium composite panels</li>
-              <li><i class="fa-solid fa-check text-brandRed-600 mr-2"></i>Motorized automatic opening system</li>
-              <li><i class="fa-solid fa-check text-brandRed-600 mr-2"></i>Remote control convenience and secure locking</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="garage-card bg-slate-50 border border-slate-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all">
-          <div class="overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80" alt="Windowed garage door with smart remote control automation" class="w-full h-80 object-cover transition-transform duration-500" />
-          </div>
-          <div class="p-6">
-            <span class="inline-block text-[10px] uppercase font-bold tracking-wide bg-brandRed-600 text-white px-2 py-1 rounded">Automatic System</span>
-            <h3 class="mt-4 text-xl font-bold text-brandNavy-900">Remote Controlled Windowed Garage Door</h3>
-            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-              Designed for modern homes and secure compounds, this garage door combines glass-panel styling, insulation, and a reliable automated remote control system.
-            </p>
-            <ul class="mt-4 space-y-2 text-sm text-slate-700">
-              <li><i class="fa-solid fa-check text-brandRed-600 mr-2"></i>Smart motor with remote access</li>
-              <li><i class="fa-solid fa-check text-brandRed-600 mr-2"></i>Glass-look panel detail for aesthetic appeal</li>
-              <li><i class="fa-solid fa-check text-brandRed-600 mr-2"></i>Weather-resistant and low maintenance</li>
-            </ul>
-          </div>
-        </article>
-      </div>
     </div>
   </section>
 
@@ -375,6 +326,7 @@
   <script>
     const importedSteelDesc = "Direct import from Turkey. Standard sizing, complete with heavy-duty door frame, thermal insulation, and multi-point lock system.";
     const localAluminiumDesc = "Locally made and customized in Zimbabwe to your specific measurements and design requirements; durable and weather-resistant.";
+    const garageDesc = "Aluminium composite garage door with automated motor-driven opener system and remote control convenience.";
 
     const products = [
       { id: 1, title: "Turkish Aluminium Composite Door", category: "aluminium", categoryLabel: "Aluminium", description: importedSteelDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "shared%20image%20(1).jpg" },
@@ -382,7 +334,9 @@
       { id: 3, title: "Custom Modern Entrance Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "shared%20image%20(3).jpg" },
       { id: 4, title: "Heavy Duty Security Panel Door", category: "steel", categoryLabel: "Steel", description: importedSteelDesc, originalPrice: "$400 USD", salePrice: "$350 USD", onSale: true, rating: 5, image: "shared%20image%20(6).jpg" },
       { id: 5, title: "Teak-effect Aluminium Entrance Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "stable%20door" },
-      { id: 6, title: "Premium Stable Aluminium Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "aluminium%20stable%20door" }
+      { id: 6, title: "Premium Stable Aluminium Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "aluminium%20stable%20door" },
+      { id: 7, title: "Aluminium Composite Garage Door - Modern", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$550 USD", salePrice: "$500 USD", onSale: true, rating: 5, image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" },
+      { id: 8, title: "Aluminium Composite Garage Door - Windowed", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$600 USD", salePrice: "$550 USD", onSale: true, rating: 5, image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80" }
     ];
 
     const slideImages = ["shared%20image%20(1).jpg", "shared%20image%20(2).jpg", "shared%20image%20(3).jpg", "shared%20image%20(6).jpg"];
@@ -518,19 +472,42 @@
       },
       {
         id: 3,
-        title: "Maintenance Tips for Smooth-Operating Composite & Aluminium Gates",
+        title: "Garage Door Maintenance: Keeping Your Automatic System Running Smoothly",
         category: "maintenance",
         categoryLabel: "Maintenance",
-        date: "August 14, 2026",
-        excerpt: "Keep your sliding gates, hinges, and lock cylinders working flawlessly with these simple care steps.",
-        image: "shared%20image%20(3).jpg",
+        date: "September 10, 2026",
+        excerpt: "Simple care steps to ensure your automated garage door opener and composite panels remain in perfect working order.",
+        image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80",
         content: `
-          <p>Regular maintenance ensures long-term smooth operation and prevents premature wear on hardware components.</p>
-          <ul class="list-disc ml-5 space-y-1">
-            <li><b>Track Cleaning:</b> Clear dirt, stones, and debris from gate tracks weekly to avoid strain on rollers and electric motors.</li>
-            <li><b>Lock Lubrication:</b> Apply silicone-based lubricant or graphite powder to lock cylinders every 6 months. Avoid grease, which attracts dust and grit.</li>
-            <li><b>Surface Care:</b> Wipe down powder-coated aluminium frames with mild detergent and water to maintain finish gloss and protection.</li>
+          <p>Regular maintenance of your garage door system ensures long-term reliable performance and prevents costly repairs down the line.</p>
+          <ul class="list-disc ml-5 space-y-2">
+            <li><b>Monthly Track Inspection:</b> Check garage door tracks for dirt, debris, and alignment issues. Clean with a dry cloth and ensure tracks are properly aligned.</li>
+            <li><b>Lubricate Moving Parts:</b> Apply silicone-based lubricant to springs, hinges, and rollers every 3 months. Avoid grease-based products that attract dust.</li>
+            <li><b>Test Safety Features:</b> Test the auto-reverse function by placing an object in the door's path. The door should reverse immediately upon contact.</li>
+            <li><b>Panel Cleaning:</b> Wipe down composite aluminium panels with mild detergent and water to maintain the finish and prevent weathering.</li>
+            <li><b>Remote Battery Check:</b> Replace remote control batteries annually and keep spares on hand for convenience.</li>
           </ul>
+          <p><b>When to Call a Professional:</b> If you notice unusual sounds, slow operation, or misalignment, contact a qualified technician rather than attempting repairs yourself.</p>
+        `
+      },
+      {
+        id: 4,
+        title: "How to Clean and Care for Aluminium Composite Garage Doors",
+        category: "maintenance",
+        categoryLabel: "Maintenance",
+        date: "August 20, 2026",
+        excerpt: "Keep your garage door looking pristine with these simple cleaning and weatherproofing techniques.",
+        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80",
+        content: `
+          <p>Aluminium composite garage doors are designed to be low-maintenance, but periodic cleaning extends their lifespan and keeps them looking beautiful.</p>
+          <h4 class="font-bold mt-4">Routine Cleaning Steps:</h4>
+          <ul class="list-disc ml-5 space-y-2">
+            <li><b>Weekly Wipe-Down:</b> Use a soft cloth with mild soap and water to remove dust and light dirt from panels and frames.</li>
+            <li><b>Monthly Deep Clean:</b> For stubborn stains, apply a mixture of water and white vinegar. Scrub gently with a soft-bristled brush.</li>
+            <li><b>Avoid Harsh Chemicals:</b> Never use abrasive cleaners, scouring pads, or acidic solutions that can damage the composite finish.</li>
+            <li><b>Weatherproofing:</b> Apply a protective wax or sealant designed for aluminium every 6-12 months to enhance water resistance.</li>
+          </ul>
+          <p><b>Winter Care:</b> In cold climates, clear snow and ice buildup promptly. Use plastic scrapers only—never metal tools that can scratch the surface.</p>
         `
       }
     ];
