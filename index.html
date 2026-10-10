@@ -115,7 +115,8 @@
         <a href="#reviews" class="hover:text-brandRed-600 transition-colors">Ratings</a>
       </nav>
 
-      <a href="https://wa.me/263789009829" target="_blank" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all flex items-center gap-2 shadow-sm">
+      <a href="https://wa.me/263789009829" target="_blank" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all flex items-center gap-2 shadow-sm"
+        >
         <i class="fa-brands fa-whatsapp text-sm"></i>
         <span class="hidden sm:inline">WhatsApp Us</span>
       </a>
@@ -130,7 +131,7 @@
           Custom Aluminium & Imported Turkish Doors
         </h2>
         <p class="text-slate-600 text-sm md:text-base leading-relaxed">
-          We offer custom locally made aluminium doors tailored to your exact specifications, alongside imported Turkish high-security doors complete with standard frames. Built for weather resistance, security, and long-term durability.
+          We offer custom locally made aluminium doors tailored to your exact specifications, alongside imported Turkish high-security doors complete with standard frames. Built for weather resistance, peace of mind, and modern curb appeal.
         </p>
         <a href="#products" class="inline-block bg-brandRed-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-md">
           Browse Catalog
@@ -156,7 +157,7 @@
         <h2 class="text-3xl font-bold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">About Maktech Doors</h2>
         <div class="w-12 h-0.5 bg-slate-300 mx-auto mt-4"></div>
         <p class="text-slate-600 text-sm mt-5 leading-relaxed">
-          Maktech Doors specializes in custom locally manufactured aluminium entrance doors and stable doors tailored in Zimbabwe, alongside premium imported Turkish high-security steel doors complete with matching frames.
+          Maktech Doors specializes in custom locally manufactured aluminium entrance doors and stable doors tailored in Zimbabwe, alongside premium imported Turkish high-security steel doors complete with standard frames for confident protection.
         </p>
       </div>
 
@@ -253,7 +254,7 @@
           <span id="blog-modal-date"><i class="fa-regular fa-calendar mr-1"></i></span>
           <span id="blog-modal-category" class="bg-brandNavy-900 text-white px-2 py-0.5 rounded text-[10px] font-semibold uppercase"></span>
         </div>
-        <img id="blog-modal-image" src="" alt="Blog Article" class="w-full h-64 object-cover rounded-lg border border-slate-200" />
+        <img id="blog-modal-image" src="" alt="Blog Article" class="w-full h-64 object-contain rounded-lg border border-slate-200 bg-slate-50" />
         <div id="blog-modal-content" class="text-sm text-slate-600 leading-relaxed space-y-3"></div>
       </div>
       <div class="p-4 border-t border-slate-200 bg-slate-50 flex justify-end">
@@ -543,7 +544,7 @@
       const key = 'maktech_reviews_' + productId;
       const list = JSON.parse(localStorage.getItem(key) || '[]');
       const container = document.getElementById('reviews-list');
-      container.innerHTML = list.length ? list.map(r => `<div class="p-3 border-b border-slate-200"><div class="text-xs text-slate-600">${r.name} <span class="text-xs text-slate-400 ml-2">${new Date(r.date).toLocaleDateString()}</span></div><p class="text-xs text-slate-700 mt-1">${r.text}</p></div>`).join('') : '<p class="text-xs text-slate-500">No reviews yet.</p>';
+      container.innerHTML = list.length ? list.map(r => `<div class="p-3 border-b border-slate-200"><div class="text-xs text-slate-600">${r.name} <span class="text-xs text-slate-400 ml-2">${new Date(r.date).toLocaleDateString()}</span></div><p class="text-xs text-slate-700 mt-1">${r.text}</p></div>`).join('') : '<p class="text-xs text-slate-500">No reviews yet. Be the first to share your experience.</p>';
     }
 
     // Render Product Cards
@@ -599,6 +600,8 @@
     }
 
     // --- BLOG SECTION LOGIC ---
+    const lockingSystemImage = "shared%20image%20(2).jpg";
+
     const blogPosts = [
       {
         id: 1,
@@ -607,11 +610,12 @@
         categoryLabel: "Security",
         date: "September 5, 2026",
         excerpt: "Discover how Turkish multi-point locking systems offer superior resistance against forced entry compared to single standard deadbolts.",
-        image: "shared%20image%20(2).jpg",
+        image: lockingSystemImage,
         content: `
-          <p>When securing your property, the strength of your main entry point is your first line of defense. Standard single-latch doors concentrate all holding force on one isolated point, making them more vulnerable under forced entry attempts.</p>
-          <p><b>Multi-Point Security Systems:</b> Turkish high-security steel doors utilize steel locking bolts that extend simultaneously into the heavy-duty door frame at 8 distinct points along the edge, creating a much stronger barrier against prying, impact, and leverage attacks.</p>
-          <p>Combined with heavy-gauge reinforced steel frames, these high-security installations ensure peace of mind for both residential homes and commercial premises across Harare and nationwide.</p>
+          <p>When securing your property, the strength of your main entry point is your first line of defense. Standard single-latch doors concentrate all holding force on one isolated point, making them far easier to breach under pressure.</p>
+          <p><b>Multi-Point Security Systems:</b> Turkish high-security steel doors use steel locking bolts that extend simultaneously into the heavy-duty door frame at 8 distinct points along the edge of the door. This spreads the force across the whole frame, substantially increasing resistance against forced entry.</p>
+          <p><b>Enhanced Structural Integrity:</b> By locking at several points, the door becomes far more stable and difficult to twist, pry, or hammer open. Combined with a reinforced steel frame, these locking systems provide a stronger barrier than conventional single-lock installations.</p>
+          <p><b>Ideal for Homes and Commercial Spaces:</b> Whether you are protecting a family home, office, or rental property, 8-point locking systems deliver confidence and peace of mind that standard security doors simply cannot match.</p>
         `
       },
       {
@@ -624,8 +628,9 @@
         image: "shared%20image%20(1).jpg",
         content: `
           <p>Selecting the right door material comes down to structural requirements, aesthetic preferences, and environmental conditions.</p>
-          <p><b>Custom Aluminium Doors:</b> Locally manufactured in Zimbabwe to exact dimensional specs, custom aluminium doors offer outstanding resistance to rust, weather corrosion, and warping while giving homeowners flexible design choices.</p>
-          <p><b>Imported Turkish Steel Doors:</b> Engineered primarily for structural security and thermal insulation, these standard-dimension steel doors feature heavy multi-pin deadbolts and premium locking hardware designed for enhanced protection.</p>
+          <p><b>Custom Aluminium Doors:</b> Locally manufactured in Zimbabwe to exact dimensional specs, custom aluminium doors offer outstanding resistance to rust, weather corrosion, and warping while maintaining a sleek modern finish.</p>
+          <p><b>Imported Turkish Steel Doors:</b> Engineered primarily for structural security and thermal insulation, these standard-dimension steel doors feature heavy multi-pin deadbolts and robust frames designed for maximum protection.</p>
+          <p>For homeowners looking for both style and security, many opt for a mix of premium steel security entry doors and locally customized aluminium designs for different areas of the property.</p>
         `
       },
       {
