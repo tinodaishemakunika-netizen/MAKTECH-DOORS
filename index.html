@@ -27,7 +27,8 @@
   <style>
     body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
     h1,h2,h3 { font-family: 'Montserrat', system-ui, sans-serif; }
-    .text-shadow { text-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .text-shadow { text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+    .hero-overlay { background: rgba(7, 22, 31, 0.75); }
     .modal-backdrop { background: rgba(0,0,0,0.6); backdrop-filter: blur(2px); }
     .price-discount { display: flex; align-items: center; gap: 8px; }
     .original-price { text-decoration: line-through; color: #94a3b8; font-size: 0.875rem; }
@@ -85,24 +86,32 @@
     </div>
   </header>
 
-  <section class="bg-slate-50 text-slate-900 border-b border-slate-200 overflow-hidden py-16 md:py-20 px-4">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
+  <!-- Hero Section with Background Image & Slideshow Preview -->
+  <section class="relative text-white border-b border-slate-700 overflow-hidden py-20 md:py-28 px-4 bg-cover bg-center" style="background-image: url('home%20page%20image');">
+    <div class="absolute inset-0 hero-overlay"></div>
+    <div class="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
       <div class="md:w-1/2 space-y-6">
-        <h2 class="text-4xl md:text-5xl font-black leading-tight tracking-tight text-brandNavy-900" style="font-family: 'Montserrat', sans-serif;">
+        <span class="bg-brandRed-600 text-white text-[11px] font-bold px-3 py-1 rounded uppercase tracking-widest">Zimbabwe's Trusted Supplier</span>
+        <h2 class="text-4xl md:text-5xl font-black leading-tight tracking-tight text-white text-shadow" style="font-family: 'Montserrat', sans-serif;">
           Custom Aluminium & Imported Turkish Doors
         </h2>
-        <p class="text-slate-600 text-sm md:text-base leading-relaxed">
+        <p class="text-slate-200 text-sm md:text-base leading-relaxed text-shadow">
           We offer custom locally made aluminium doors tailored to your exact specifications, alongside imported Turkish high-security doors complete with standard frames. Built for weather resistance, peace of mind, and modern curb appeal.
         </p>
-        <a href="#products" class="inline-block bg-brandRed-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-md">
-          Browse Catalog
-        </a>
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#products" class="inline-block bg-brandRed-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-md">
+            Browse Catalog
+          </a>
+          <button onclick="openGeneralInquiry()" class="inline-block bg-white hover:bg-slate-100 text-brandNavy-900 font-bold px-6 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-md">
+            Inquire Now
+          </button>
+        </div>
       </div>
 
       <div class="md:w-1/2 w-full">
-        <div class="relative w-full rounded-lg overflow-hidden border border-slate-200 shadow-md bg-white cursor-pointer group" style="height:460px;" onclick="openSlideModal()">
+        <div class="relative w-full rounded-lg overflow-hidden border border-slate-600 shadow-2xl bg-brandNavy-950/80 cursor-pointer group backdrop-blur" style="height:440px;" onclick="openSlideModal()">
           <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-contain p-2 transition-all duration-700"/>
-          <div class="absolute bottom-3 right-3 bg-brandNavy-900 text-white text-xs px-3 py-1.5 rounded border border-slate-700 flex items-center gap-1 group-hover:bg-brandRed-600 transition-colors">
+          <div class="absolute bottom-3 right-3 bg-brandNavy-900 text-white text-xs px-3 py-1.5 rounded border border-slate-700 flex items-center gap-1 group-hover:bg-brandRed-600 transition-colors shadow">
             <i class="fa-solid fa-expand"></i> Click to view full door
           </div>
         </div>
@@ -189,6 +198,7 @@
     </div>
   </section>
 
+  <!-- Article Inspection Modal -->
   <div id="blog-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop p-4">
     <div class="bg-white rounded-lg max-w-3xl w-full shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
       <div class="p-5 flex justify-between items-center border-b border-slate-200">
@@ -206,6 +216,66 @@
       <div class="p-4 border-t border-slate-200 bg-slate-50 flex justify-end">
         <button onclick="closeBlogModal()" class="bg-brandNavy-900 text-white text-xs font-bold px-4 py-2 rounded hover:bg-brandNavy-800 transition-colors">Close Article</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Product Details & Reviews Modal -->
+  <div id="product-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop p-4">
+    <div class="bg-white rounded-lg max-w-2xl w-full shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      <div class="p-5 flex justify-between items-center border-b border-slate-200">
+        <h3 id="modal-title" class="text-lg font-bold text-brandNavy-900" style="font-family: 'Montserrat', sans-serif;"></h3>
+        <button onclick="closeProductModal()" class="text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4">
+        <div class="h-64 bg-slate-900 rounded-lg overflow-hidden flex items-center justify-center p-2 border border-slate-200">
+          <img id="modal-image" src="" alt="Full view" class="w-full h-full object-contain" />
+        </div>
+        <p id="modal-desc" class="text-xs text-slate-600 leading-relaxed"></p>
+        <div class="flex justify-between items-center pt-2 border-t border-slate-100">
+          <div id="modal-price" class="text-lg font-bold text-slate-800"></div>
+          <button onclick="openInquiryModalFromDetails()" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all shadow-sm">Inquire Now</button>
+        </div>
+        <div class="border-t border-slate-200 pt-4 mt-4">
+          <h4 class="text-xs font-bold text-brandNavy-900 uppercase mb-3">Customer Reviews & Feedback</h4>
+          <div id="reviews-list" class="space-y-2 max-h-36 overflow-y-auto mb-4 bg-slate-50 p-3 rounded border border-slate-200"></div>
+          <div class="space-y-2">
+            <input type="text" id="reviewer-name" placeholder="Your Name (e.g. T. Moyo)" class="w-full text-xs p-2 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900" />
+            <textarea id="review-text" placeholder="Write your feedback..." rows="2" class="w-full text-xs p-2 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900"></textarea>
+            <button onclick="submitReviewFromModal()" class="bg-brandNavy-900 text-white text-xs font-semibold px-3 py-1.5 rounded hover:bg-brandNavy-800 transition-colors">Submit Review</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inquiry Modal (Name, Contact Details, Quantity) -->
+  <div id="inquiry-modal" class="hidden fixed inset-0 z-70 flex items-center justify-center modal-backdrop p-4">
+    <div class="bg-white rounded-lg max-w-md w-full shadow-2xl overflow-hidden p-6 relative">
+      <button onclick="closeInquiryModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
+      <h3 class="text-lg font-bold text-brandNavy-900 mb-1" style="font-family: 'Montserrat', sans-serif;">Product & Order Inquiry</h3>
+      <p id="inquiry-product-subtitle" class="text-xs text-slate-500 mb-4">Please fill in your details to connect instantly via WhatsApp.</p>
+      
+      <form id="inquiry-form" onsubmit="submitInquiry(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Your Name *</label>
+          <input type="text" id="inquiry-name" required placeholder="e.g. John Moyo" class="w-full text-xs p-2.5 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Contact Details (Phone / Email) *</label>
+          <input type="text" id="inquiry-contact" required placeholder="e.g. +263 77 123 4567" class="w-full text-xs p-2.5 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Quantity Needed *</label>
+          <input type="number" id="inquiry-qty" min="1" value="1" required class="w-full text-xs p-2.5 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Additional Notes / Delivery Location (Optional)</label>
+          <textarea id="inquiry-notes" rows="2" placeholder="e.g. Delivery needed in Harare Westgate" class="w-full text-xs p-2.5 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded text-xs uppercase tracking-wider transition-all shadow flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-sm"></i> Send Inquiry via WhatsApp
+        </button>
+      </form>
     </div>
   </div>
 
@@ -335,8 +405,8 @@
       { id: 4, title: "Heavy Duty Security Panel Door", category: "steel", categoryLabel: "Steel", description: importedSteelDesc, originalPrice: "$400 USD", salePrice: "$350 USD", onSale: true, rating: 5, image: "shared%20image%20(6).jpg" },
       { id: 5, title: "Teak-effect Aluminium Entrance Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "stable%20door" },
       { id: 6, title: "Premium Stable Aluminium Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "aluminium%20stable%20door" },
-      { id: 7, title: "Aluminium Composite Garage Door - Modern", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$550 USD", salePrice: "$500 USD", onSale: true, rating: 5, image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80" },
-      { id: 8, title: "Aluminium Composite Garage Door - Windowed", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$600 USD", salePrice: "$550 USD", onSale: true, rating: 5, image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80" }
+      { id: 7, title: "Aluminium Composite Garage Door - Modern", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$550 USD", salePrice: "$500 USD", onSale: true, rating: 5, image: "garage%20doors%201" },
+      { id: 8, title: "Aluminium Composite Garage Door - Windowed", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$600 USD", salePrice: "$550 USD", onSale: true, rating: 5, image: "garage%20door%202" }
     ];
 
     const slideImages = ["shared%20image%20(1).jpg", "shared%20image%20(2).jpg", "shared%20image%20(3).jpg", "shared%20image%20(6).jpg"];
@@ -355,7 +425,43 @@
       document.getElementById('modal-image').src = currentSrc;
       document.getElementById('modal-desc').innerText = "Full top-to-bottom view showing full frame and panel detail.";
       document.getElementById('modal-price').innerText = "$400 USD";
+      loadReviews('slide_' + currentSlide);
       document.getElementById('product-modal').classList.remove('hidden');
+    }
+
+    let activeInquiryProduct = "General Inquiry / Custom Order";
+
+    function openInquiryModal(productTitle) {
+      activeInquiryProduct = productTitle || "General Inquiry / Custom Order";
+      document.getElementById('inquiry-product-subtitle').innerText = "Inquiring about: " + activeInquiryProduct;
+      document.getElementById('inquiry-modal').classList.remove('hidden');
+    }
+
+    function openGeneralInquiry() {
+      openInquiryModal("General Catalog / General Order");
+    }
+
+    function openInquiryModalFromDetails() {
+      const title = document.getElementById('modal-title').innerText;
+      closeProductModal();
+      openInquiryModal(title);
+    }
+
+    function closeInquiryModal() {
+      document.getElementById('inquiry-modal').classList.add('hidden');
+    }
+
+    function submitInquiry(event) {
+      event.preventDefault();
+      const name = document.getElementById('inquiry-name').value;
+      const contact = document.getElementById('inquiry-contact').value;
+      const qty = document.getElementById('inquiry-qty').value;
+      const notes = document.getElementById('inquiry-notes').value;
+
+      const message = `Hello Maktech Doors,%0A%0AI would like to place an inquiry:%0A- *Product:* ${encodeURIComponent(activeInquiryProduct)}%0A- *Quantity:* ${encodeURIComponent(qty)}%0A- *Name:* ${encodeURIComponent(name)}%0A- *Contact Details:* ${encodeURIComponent(contact)}%0A- *Notes:* ${encodeURIComponent(notes || 'None')}`;
+      
+      window.open(`https://wa.me/263789009829?text=${message}`, '_blank');
+      closeInquiryModal();
     }
 
     function toggleFAQ(button) {
@@ -387,24 +493,34 @@
       document.getElementById('product-modal').classList.add('hidden');
     }
 
-    function submitReview(productId) {
-      const name = document.getElementById('reviewer-name').value || 'Anonymous';
-      const text = document.getElementById('review-text').value;
+    function submitReview(identifier) {
+      const nameInput = document.getElementById('reviewer-name');
+      const textInput = document.getElementById('review-text');
+      const name = nameInput.value || 'Anonymous';
+      const text = textInput.value;
       if (!text) return alert('Please write a review.');
-      const key = 'maktech_reviews_' + productId;
+      const key = 'maktech_reviews_' + identifier;
       const existing = JSON.parse(localStorage.getItem(key) || '[]');
       existing.unshift({ name, text, date: new Date().toISOString() });
       localStorage.setItem(key, JSON.stringify(existing));
-      document.getElementById('review-text').value = '';
-      document.getElementById('reviewer-name').value = '';
-      loadReviews(productId);
+      textInput.value = '';
+      nameInput.value = '';
+      loadReviews(identifier);
     }
 
-    function loadReviews(productId) {
-      const key = 'maktech_reviews_' + productId;
+    function submitReviewFromModal() {
+      // Find current modal product ID or title
+      const title = document.getElementById('modal-title').innerText;
+      const product = products.find(p => p.title === title);
+      const identifier = product ? product.id : 'general';
+      submitReview(identifier);
+    }
+
+    function loadReviews(identifier) {
+      const key = 'maktech_reviews_' + identifier;
       const list = JSON.parse(localStorage.getItem(key) || '[]');
       const container = document.getElementById('reviews-list');
-      container.innerHTML = list.length ? list.map(r => `<div class="p-3 border-b border-slate-200"><div class="text-xs text-slate-600">${r.name} <span class="text-xs text-slate-400 ml-2">${new Date(r.date).toLocaleDateString()}</span></div><p class="text-xs text-slate-700 mt-1">${r.text}</p></div>`).join('') : '<p class="text-xs text-slate-500">No reviews yet. Be the first to share your experience.</p>';
+      container.innerHTML = list.length ? list.map(r => `<div class="p-2 border-b border-slate-200"><div class="text-[11px] text-slate-600 font-semibold">${r.name} <span class="text-[10px] text-slate-400 ml-2 font-normal">${new Date(r.date).toLocaleDateString()}</span></div><p class="text-[11px] text-slate-700 mt-0.5">${r.text}</p></div>`).join('') : '<p class="text-xs text-slate-500">No reviews yet. Be the first to share your experience.</p>';
     }
 
     function renderProducts(items) {
@@ -428,7 +544,7 @@
             <div class="price-discount">
               ${product.onSale ? `<span class="original-price">${product.originalPrice}</span><span class="text-brandRed-600 font-bold">${product.salePrice}</span>` : `<span class="text-base font-bold text-slate-800">${product.salePrice}</span>`}
             </div>
-            <a href="https://wa.me/263789009829?text=Hi,%20I%20am%20interested%20in%20the%20${encodeURIComponent(product.title)}%20priced%20at%20${encodeURIComponent(product.salePrice)}" target="_blank" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-3 py-1.5 rounded transition-all shadow-sm">Inquire</a>
+            <button onclick="openInquiryModal('${product.title.replace(/'/g, "\\'")}')" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-3 py-1.5 rounded transition-all shadow-sm">Inquire</button>
           </div>
         </div>
       `).join('');
@@ -465,87 +581,64 @@
         image: "shared%20image%20(1).jpg",
         content: `
           <p>Selecting the right door material comes down to structural requirements, aesthetic preferences, and environmental conditions.</p>
-          <p><b>Custom Aluminium Doors:</b> Locally manufactured in Zimbabwe to exact dimensional specs, custom aluminium doors offer outstanding resistance to rust, weather corrosion, and warping while maintaining a sleek modern finish.</p>
-          <p><b>Imported Turkish Steel Doors:</b> Engineered primarily for structural security and thermal insulation, these standard-dimension steel doors feature heavy multi-pin deadbolts and robust frames designed for maximum protection.</p>
-          <p>For homeowners looking for both style and security, many opt for a mix of premium steel security entry doors and locally customized aluminium designs for different areas of the property.</p>
+          <p><b>Custom Aluminium Doors:</b> Locally manufactured in Zimbabwe to exact dimensional specs, custom aluminium doors offer outstanding resistance to rust, weather corrosion, and warping while maintaining sleek modern styling.</p>
+          <p><b>Imported Turkish Steel Doors:</b> Known for exceptional strength, built-in thermal insulation, heavy-duty frame structures, and multi-point locking mechanisms, steel doors provide unmatched peace of mind.</p>
         `
       },
       {
         id: 3,
-        title: "Garage Door Maintenance: Keeping Your Automatic System Running Smoothly",
+        title: "Proper Maintenance Tips for Exterior Doors in Zimbabwe",
         category: "maintenance",
         categoryLabel: "Maintenance",
-        date: "September 10, 2026",
-        excerpt: "Simple care steps to ensure your automated garage door opener and composite panels remain in perfect working order.",
-        image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=80",
+        date: "August 14, 2026",
+        excerpt: "Simple steps to keep your hinges, locks, and surface finishes pristine through all seasons.",
+        image: "shared%20image%20(3).jpg",
         content: `
-          <p>Regular maintenance of your garage door system ensures long-term reliable performance and prevents costly repairs down the line.</p>
-          <ul class="list-disc ml-5 space-y-2">
-            <li><b>Monthly Track Inspection:</b> Check garage door tracks for dirt, debris, and alignment issues. Clean with a dry cloth and ensure tracks are properly aligned.</li>
-            <li><b>Lubricate Moving Parts:</b> Apply silicone-based lubricant to springs, hinges, and rollers every 3 months. Avoid grease-based products that attract dust.</li>
-            <li><b>Test Safety Features:</b> Test the auto-reverse function by placing an object in the door's path. The door should reverse immediately upon contact.</li>
-            <li><b>Panel Cleaning:</b> Wipe down composite aluminium panels with mild detergent and water to maintain the finish and prevent weathering.</li>
-            <li><b>Remote Battery Check:</b> Replace remote control batteries annually and keep spares on hand for convenience.</li>
-          </ul>
-          <p><b>When to Call a Professional:</b> If you notice unusual sounds, slow operation, or misalignment, contact a qualified technician rather than attempting repairs yourself.</p>
-        `
-      },
-      {
-        id: 4,
-        title: "How to Clean and Care for Aluminium Composite Garage Doors",
-        category: "maintenance",
-        categoryLabel: "Maintenance",
-        date: "August 20, 2026",
-        excerpt: "Keep your garage door looking pristine with these simple cleaning and weatherproofing techniques.",
-        image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=80",
-        content: `
-          <p>Aluminium composite garage doors are designed to be low-maintenance, but periodic cleaning extends their lifespan and keeps them looking beautiful.</p>
-          <h4 class="font-bold mt-4">Routine Cleaning Steps:</h4>
-          <ul class="list-disc ml-5 space-y-2">
-            <li><b>Weekly Wipe-Down:</b> Use a soft cloth with mild soap and water to remove dust and light dirt from panels and frames.</li>
-            <li><b>Monthly Deep Clean:</b> For stubborn stains, apply a mixture of water and white vinegar. Scrub gently with a soft-bristled brush.</li>
-            <li><b>Avoid Harsh Chemicals:</b> Never use abrasive cleaners, scouring pads, or acidic solutions that can damage the composite finish.</li>
-            <li><b>Weatherproofing:</b> Apply a protective wax or sealant designed for aluminium every 6-12 months to enhance water resistance.</li>
-          </ul>
-          <p><b>Winter Care:</b> In cold climates, clear snow and ice buildup promptly. Use plastic scrapers only—never metal tools that can scratch the surface.</p>
+          <p>Regular maintenance ensures your investment continues looking pristine and operating smoothly year after year.</p>
+          <p><b>Lubricate Hinges and Locks:</b> Apply a silicone-based spray or light machine oil to multi-point lock cylinders and hinges twice a year to ensure effortless operation.</p>
+          <p><b>Gentle Cleaning:</b> Clean aluminium and steel surfaces with mild soapy water and a soft cloth. Avoid abrasive scouring pads that can scratch the protective finish.</p>
         `
       }
     ];
 
     function renderBlog(posts) {
-      const container = document.getElementById("blog-grid");
-      if (!container) return;
-      container.innerHTML = posts.map(post => `
-        <article class="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+      const grid = document.getElementById("blog-grid");
+      grid.innerHTML = posts.map(post => `
+        <div class="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
           <div>
-            <div class="relative h-48 bg-slate-900 border-b border-slate-200 overflow-hidden cursor-pointer group" onclick="openBlogModal(${post.id})">
-              <img src="${post.image}" alt="${post.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-              <span class="absolute top-3 right-3 bg-brandNavy-900/90 text-white text-[10px] uppercase font-semibold px-2 py-1 rounded border border-slate-700">${post.categoryLabel}</span>
+            <div class="h-48 bg-slate-100 border-b border-slate-200 overflow-hidden">
+              <img src="${post.image}" alt="${post.title}" class="w-full h-full object-contain p-2" />
             </div>
             <div class="p-5">
-              <span class="text-xs text-slate-400 block mb-2"><i class="fa-regular fa-calendar mr-1"></i>${post.date}</span>
-              <h3 class="text-base font-bold text-brandNavy-900 mb-2 hover:text-brandRed-600 transition-colors cursor-pointer" onclick="openBlogModal(${post.id})">${post.title}</h3>
+              <div class="flex items-center gap-2 text-xs text-slate-500 mb-2">
+                <span><i class="fa-regular fa-calendar mr-1"></i>${post.date}</span>
+                <span>•</span>
+                <span class="text-brandRed-600 font-semibold">${post.categoryLabel}</span>
+              </div>
+              <h3 class="text-sm font-bold text-brandNavy-900 mb-2">${post.title}</h3>
               <p class="text-xs text-slate-600 leading-relaxed">${post.excerpt}</p>
             </div>
           </div>
-          <div class="p-5 border-t border-slate-100 flex justify-between items-center">
-            <button onclick="openBlogModal(${post.id})" class="text-brandRed-600 hover:text-red-700 text-xs font-bold flex items-center gap-1 transition-colors">Read Article <i class="fa-solid fa-arrow-right text-[10px]"></i></button>
+          <div class="p-5 pt-0">
+            <button onclick="openBlogModal(${post.id})" class="text-brandRed-600 hover:text-red-700 text-xs font-bold flex items-center gap-1">
+              Read Article <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
           </div>
-        </article>
+        </div>
       `).join('');
     }
 
     function filterBlog(category) {
       if (category === 'all') renderBlog(blogPosts);
-      else renderBlog(blogPosts.filter(post => post.category === category));
+      else renderBlog(blogPosts.filter(p => p.category === category));
     }
 
     function openBlogModal(postId) {
       const post = blogPosts.find(p => p.id === postId);
       if (!post) return;
       document.getElementById('blog-modal-title').innerText = post.title;
-      document.getElementById('blog-modal-category').innerText = post.categoryLabel;
       document.getElementById('blog-modal-date').innerHTML = `<i class="fa-regular fa-calendar mr-1"></i>${post.date}`;
+      document.getElementById('blog-modal-category').innerText = post.categoryLabel;
       document.getElementById('blog-modal-image').src = post.image;
       document.getElementById('blog-modal-content').innerHTML = post.content;
       document.getElementById('blog-modal').classList.remove('hidden');
@@ -555,56 +648,9 @@
       document.getElementById('blog-modal').classList.add('hidden');
     }
 
+    // Initialize on load
     renderProducts(products);
     renderBlog(blogPosts);
   </script>
-
-  <div id="product-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop p-4">
-    <div class="bg-white rounded-lg max-w-3xl w-full shadow-2xl overflow-hidden">
-      <div class="p-5 flex justify-between items-start border-b border-slate-200">
-        <div>
-          <h3 id="modal-title" class="text-lg font-bold text-brandNavy-900"></h3>
-          <div id="modal-price" class="text-base text-brandNavy-900 mt-1 font-bold"></div>
-        </div>
-        <button onclick="closeProductModal()" class="text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
-      </div>
-      <div class="p-5 grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div class="flex flex-col items-center bg-slate-900 p-2 rounded border border-slate-300">
-          <img id="modal-image" src="shared%20image%20(1).jpg" alt="preview" class="w-full h-80 object-contain rounded" />
-          <p id="modal-desc" class="text-xs text-slate-200 mt-4 text-center"></p>
-        </div>
-        <div>
-          <div class="mb-4">
-            <label class="text-xs font-semibold text-brandNavy-900">Leave a Review</label>
-            <input id="reviewer-name" placeholder="Your name (optional)" class="w-full border border-slate-300 rounded px-3 py-2 mt-2 text-sm" />
-            <textarea id="review-text" placeholder="Write your review" class="w-full border border-slate-300 rounded px-3 py-2 mt-2 text-sm h-20"></textarea>
-            <div class="flex gap-2 mt-2">
-              <button onclick="submitReview(currentModalProductId || 1)" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all">Submit</button>
-              <button onclick="loadReviews(currentModalProductId || 1)" class="bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold px-4 py-2 rounded transition-all">Refresh</button>
-            </div>
-          </div>
-          <div class="border-t pt-3">
-            <h4 class="text-sm font-semibold text-brandNavy-900 mb-2">Reviews</h4>
-            <div id="reviews-list" class="text-xs text-slate-700 max-h-48 overflow-auto"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    let currentModalProductId = null;
-    const openProductModalOrig = openProductModal;
-    function openProductModal(productId) { currentModalProductId = productId; openProductModalOrig(productId); }
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeProductModal();
-        closeBlogModal();
-      }
-    });
-    document.getElementById('product-modal')?.addEventListener('click', (e) => { if (e.target.id === 'product-modal') closeProductModal(); });
-    document.getElementById('blog-modal')?.addEventListener('click', (e) => { if (e.target.id === 'blog-modal') closeBlogModal(); });
-  </script>
-
 </body>
 </html>
