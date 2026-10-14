@@ -29,7 +29,8 @@
     h1,h2,h3 { font-family: 'Montserrat', system-ui, sans-serif; }
     .text-shadow { text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
     .hero-overlay { background: rgba(7, 22, 31, 0.75); }
-    .modal-backdrop { background: rgba(0,0,0,0.6); backdrop-filter: blur(2px); }
+    /* Backdrop: high z-index and stronger blur so modals always sit above page content */
+    .modal-backdrop { background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); z-index: 9999; }
     .price-discount { display: flex; align-items: center; gap: 8px; }
     .original-price { text-decoration: line-through; color: #94a3b8; font-size: 0.875rem; }
     .sale-badge { background-color: #dc2626; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
@@ -96,13 +97,13 @@
           Custom Aluminium & Imported Turkish Doors
         </h2>
         <p class="text-slate-200 text-sm md:text-base leading-relaxed text-shadow">
-          We offer custom locally made aluminium doors tailored to your exact specifications, alongside imported Turkish high-security doors complete with standard frames. Built for weather resistance, peace of mind, and modern curb appeal.
+          We offer custom locally made aluminium doors tailored to your exact specifications, alongside imported Turkish high-security doors complete with standard frames. Built for weather resist[...]
         </p>
         <div class="flex flex-wrap gap-4 pt-2">
           <a href="#products" class="inline-block bg-brandRed-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-md">
             Browse Catalog
           </a>
-          <button onclick="openGeneralInquiry()" class="inline-block bg-white hover:bg-slate-100 text-brandNavy-900 font-bold px-6 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-md">
+          <button onclick="openGeneralInquiry()" class="inline-block bg-white hover:bg-slate-100 text-brandNavy-900 font-bold px-6 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-sm">
             Inquire Now
           </button>
         </div>
@@ -111,7 +112,7 @@
       <div class="md:w-1/2 w-full">
         <div class="relative w-full rounded-lg overflow-hidden border border-slate-600 shadow-2xl bg-brandNavy-950/80 cursor-pointer group backdrop-blur" style="height:440px;" onclick="openSlideModal()">
           <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-contain p-2 transition-all duration-700"/>
-          <div class="absolute bottom-3 right-3 bg-brandNavy-900 text-white text-xs px-3 py-1.5 rounded border border-slate-700 flex items-center gap-1 group-hover:bg-brandRed-600 transition-colors shadow">
+          <div class="absolute bottom-3 right-3 bg-brandNavy-900 text-white text-xs px-3 py-1.5 rounded border border-slate-700 flex items-center gap-1 group-hover:bg-brandRed-600 transition-colors">
             <i class="fa-solid fa-expand"></i> Click to view full door
           </div>
         </div>
@@ -125,7 +126,7 @@
         <h2 class="text-3xl font-bold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">About Maktech Doors</h2>
         <div class="w-12 h-0.5 bg-slate-300 mx-auto mt-4"></div>
         <p class="text-slate-600 text-sm mt-5 leading-relaxed">
-          Maktech Doors specializes in custom locally manufactured aluminium entrance doors and stable doors tailored in Zimbabwe, alongside premium imported Turkish high-security steel doors complete with standard frames for confident protection.
+          Maktech Doors specializes in custom locally manufactured aluminium entrance doors and stable doors tailored in Zimbabwe, alongside premium imported Turkish high-security steel doors com[...]
         </p>
       </div>
 
@@ -172,7 +173,7 @@
         <button onclick="filterProducts('all')" class="filter-btn bg-brandNavy-900 text-white px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-brandNavy-800 shadow-sm">All Products</button>
         <button onclick="filterProducts('aluminium')" class="filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Aluminium</button>
         <button onclick="filterProducts('steel')" class="filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Steel</button>
-        <button onclick="filterProducts('garage')" class="filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Garage Doors</button>
+        <button onclick="filterProducts('garage')" class="filter-btn bg-white border border-slate-300 text-slate-700 px-4 py-2 rounded text-xs font-semibold transition-all hover:bg-slate-50 shadow-sm">Garage</button>
       </div>
 
       <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
@@ -198,86 +199,7 @@
     </div>
   </section>
 
-  <!-- Article Inspection Modal -->
-  <div id="blog-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop p-4">
-    <div class="bg-white rounded-lg max-w-3xl w-full shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
-      <div class="p-5 flex justify-between items-center border-b border-slate-200">
-        <h3 id="blog-modal-title" class="text-xl font-bold text-brandNavy-900" style="font-family: 'Montserrat', sans-serif;"></h3>
-        <button onclick="closeBlogModal()" class="text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
-      </div>
-      <div class="p-6 overflow-y-auto space-y-4">
-        <div class="flex items-center gap-4 text-xs text-slate-500 border-b border-slate-100 pb-3">
-          <span id="blog-modal-date"><i class="fa-regular fa-calendar mr-1"></i></span>
-          <span id="blog-modal-category" class="bg-brandNavy-900 text-white px-2 py-0.5 rounded text-[10px] font-semibold uppercase"></span>
-        </div>
-        <img id="blog-modal-image" src="" alt="Blog Article" class="w-full h-64 object-contain rounded-lg border border-slate-200 bg-slate-50" />
-        <div id="blog-modal-content" class="text-sm text-slate-600 leading-relaxed space-y-3"></div>
-      </div>
-      <div class="p-4 border-t border-slate-200 bg-slate-50 flex justify-end">
-        <button onclick="closeBlogModal()" class="bg-brandNavy-900 text-white text-xs font-bold px-4 py-2 rounded hover:bg-brandNavy-800 transition-colors">Close Article</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Product Details & Reviews Modal -->
-  <div id="product-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop p-4">
-    <div class="bg-white rounded-lg max-w-2xl w-full shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
-      <div class="p-5 flex justify-between items-center border-b border-slate-200">
-        <h3 id="modal-title" class="text-lg font-bold text-brandNavy-900" style="font-family: 'Montserrat', sans-serif;"></h3>
-        <button onclick="closeProductModal()" class="text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
-      </div>
-      <div class="p-6 overflow-y-auto space-y-4">
-        <div class="h-64 bg-slate-900 rounded-lg overflow-hidden flex items-center justify-center p-2 border border-slate-200">
-          <img id="modal-image" src="" alt="Full view" class="w-full h-full object-contain" />
-        </div>
-        <p id="modal-desc" class="text-xs text-slate-600 leading-relaxed"></p>
-        <div class="flex justify-between items-center pt-2 border-t border-slate-100">
-          <div id="modal-price" class="text-lg font-bold text-slate-800"></div>
-          <button onclick="openInquiryModalFromDetails()" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all shadow-sm">Inquire Now</button>
-        </div>
-        <div class="border-t border-slate-200 pt-4 mt-4">
-          <h4 class="text-xs font-bold text-brandNavy-900 uppercase mb-3">Customer Reviews & Feedback</h4>
-          <div id="reviews-list" class="space-y-2 max-h-36 overflow-y-auto mb-4 bg-slate-50 p-3 rounded border border-slate-200"></div>
-          <div class="space-y-2">
-            <input type="text" id="reviewer-name" placeholder="Your Name (e.g. T. Moyo)" class="w-full text-xs p-2 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900" />
-            <textarea id="review-text" placeholder="Write your feedback..." rows="2" class="w-full text-xs p-2 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900"></textarea>
-            <button onclick="submitReviewFromModal()" class="bg-brandNavy-900 text-white text-xs font-semibold px-3 py-1.5 rounded hover:bg-brandNavy-800 transition-colors">Submit Review</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Inquiry Modal (Name, Contact Details, Quantity) -->
-  <div id="inquiry-modal" class="hidden fixed inset-0 z-70 flex items-center justify-center modal-backdrop p-4">
-    <div class="bg-white rounded-lg max-w-md w-full shadow-2xl overflow-hidden p-6 relative">
-      <button onclick="closeInquiryModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
-      <h3 class="text-lg font-bold text-brandNavy-900 mb-1" style="font-family: 'Montserrat', sans-serif;">Product & Order Inquiry</h3>
-      <p id="inquiry-product-subtitle" class="text-xs text-slate-500 mb-4">Please fill in your details to connect instantly via WhatsApp.</p>
-      
-      <form id="inquiry-form" onsubmit="submitInquiry(event)" class="space-y-4">
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Your Name *</label>
-          <input type="text" id="inquiry-name" required placeholder="e.g. John Moyo" class="w-full text-xs p-2.5 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900" />
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Contact Details (Phone / Email) *</label>
-          <input type="text" id="inquiry-contact" required placeholder="e.g. +263 77 123 4567" class="w-full text-xs p-2.5 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900" />
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Quantity Needed *</label>
-          <input type="number" id="inquiry-qty" min="1" value="1" required class="w-full text-xs p-2.5 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900" />
-        </div>
-        <div>
-          <label class="block text-xs font-semibold text-slate-700 mb-1">Additional Notes / Delivery Location (Optional)</label>
-          <textarea id="inquiry-notes" rows="2" placeholder="e.g. Delivery needed in Harare Westgate" class="w-full text-xs p-2.5 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900"></textarea>
-        </div>
-        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded text-xs uppercase tracking-wider transition-all shadow flex items-center justify-center gap-2">
-          <i class="fa-brands fa-whatsapp text-sm"></i> Send Inquiry via WhatsApp
-        </button>
-      </form>
-    </div>
-  </div>
+  <!-- FAQ, Reviews, etc. -->
 
   <section id="reviews" class="py-16 bg-brandWhite-100">
     <div class="max-w-7xl mx-auto px-4">
@@ -393,6 +315,89 @@
     </div>
   </footer>
 
+  <!-- Moved modals to the very end of the body so they overlay everything reliably -->
+
+  <!-- Article Inspection Modal -->
+  <div id="blog-modal" class="hidden fixed inset-0 flex items-center justify-center modal-backdrop p-4">
+    <div class="bg-white rounded-lg max-w-3xl w-full shadow-2xl overflow-hidden max-h-[90vh] flex flex-col relative z-50">
+      <div class="p-5 flex justify-between items-center border-b border-slate-200">
+        <h3 id="blog-modal-title" class="text-xl font-bold text-brandNavy-900" style="font-family: 'Montserrat', sans-serif;"></h3>
+        <button onclick="closeBlogModal()" class="text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4">
+        <div class="flex items-center gap-4 text-xs text-slate-500 border-b border-slate-100 pb-3">
+          <span id="blog-modal-date"><i class="fa-regular fa-calendar mr-1"></i></span>
+          <span id="blog-modal-category" class="bg-brandNavy-900 text-white px-2 py-0.5 rounded text-[10px] font-semibold uppercase"></span>
+        </div>
+        <img id="blog-modal-image" src="" alt="Blog Article" class="w-full h-64 object-contain rounded-lg border border-slate-200 bg-slate-50" />
+        <div id="blog-modal-content" class="text-sm text-slate-600 leading-relaxed space-y-3"></div>
+      </div>
+      <div class="p-4 border-t border-slate-200 bg-slate-50 flex justify-end">
+        <button onclick="closeBlogModal()" class="bg-brandNavy-900 text-white text-xs font-bold px-4 py-2 rounded hover:bg-brandNavy-800 transition-colors">Close Article</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Product Details & Reviews Modal -->
+  <div id="product-modal" class="hidden fixed inset-0 flex items-center justify-center modal-backdrop p-4">
+    <div class="bg-white rounded-lg max-w-2xl w-full shadow-2xl overflow-hidden max-h-[90vh] flex flex-col relative z-50">
+      <div class="p-5 flex justify-between items-center border-b border-slate-200">
+        <h3 id="modal-title" class="text-lg font-bold text-brandNavy-900" style="font-family: 'Montserrat', sans-serif;"></h3>
+        <button onclick="closeProductModal()" class="text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
+      </div>
+      <div class="p-6 overflow-y-auto space-y-4">
+        <div class="h-64 bg-slate-900 rounded-lg overflow-hidden flex items-center justify-center p-2 border border-slate-200">
+          <img id="modal-image" src="" alt="Full view" class="w-full h-full object-contain" />
+        </div>
+        <p id="modal-desc" class="text-xs text-slate-600 leading-relaxed"></p>
+        <div class="flex justify-between items-center pt-2 border-t border-slate-100">
+          <div id="modal-price" class="text-lg font-bold text-slate-800"></div>
+          <button onclick="openInquiryModalFromDetails()" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded transition-all shadow-sm">Inquire Now</button>
+        </div>
+        <div class="border-t border-slate-200 pt-4 mt-4">
+          <h4 class="text-xs font-bold text-brandNavy-900 uppercase mb-3">Customer Reviews & Feedback</h4>
+          <div id="reviews-list" class="space-y-2 max-h-36 overflow-y-auto mb-4 bg-slate-50 p-3 rounded border border-slate-200"></div>
+          <div class="space-y-2">
+            <input type="text" id="reviewer-name" placeholder="Your Name (e.g. T. Moyo)" class="w-full text-xs p-2 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900" />
+            <textarea id="review-text" placeholder="Write your feedback..." rows="2" class="w-full text-xs p-2 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900"></textarea>
+            <button onclick="submitReviewFromModal()" class="bg-brandNavy-900 text-white text-xs font-semibold px-3 py-1.5 rounded hover:bg-brandNavy-800 transition-colors">Submit Review</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inquiry Modal (Name, Contact Details, Quantity) -->
+  <div id="inquiry-modal" class="hidden fixed inset-0 flex items-center justify-center modal-backdrop p-4">
+    <div class="bg-white rounded-lg max-w-md w-full shadow-2xl overflow-hidden p-6 relative z-50">
+      <button onclick="closeInquiryModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
+      <h3 class="text-lg font-bold text-brandNavy-900 mb-1" style="font-family: 'Montserrat', sans-serif;">Product & Order Inquiry</h3>
+      <p id="inquiry-product-subtitle" class="text-xs text-slate-500 mb-4">Please fill in your details to connect instantly via WhatsApp.</p>
+      
+      <form id="inquiry-form" onsubmit="submitInquiry(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Your Name *</label>
+          <input type="text" id="inquiry-name" required placeholder="e.g. John Moyo" class="w-full text-xs p-2.5 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Contact Details (Phone / Email) *</label>
+          <input type="text" id="inquiry-contact" required placeholder="e.g. +263 77 123 4567" class="w-full text-xs p-2.5 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Quantity Needed *</label>
+          <input type="number" id="inquiry-qty" min="1" value="1" required class="w-full text-xs p-2.5 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Additional Notes / Delivery Location (Optional)</label>
+          <textarea id="inquiry-notes" rows="2" placeholder="e.g. Delivery needed in Harare Westgate" class="w-full text-xs p-2.5 border border-slate-300 rounded focus:outline-none focus:border-brandNavy-900"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded text-xs uppercase tracking-wider transition-all shadow flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-sm"></i> Send Inquiry via WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
   <script>
     const importedSteelDesc = "Direct import from Turkey. Standard sizing, complete with heavy-duty door frame, thermal insulation, and multi-point lock system.";
     const localAluminiumDesc = "Locally made and customized in Zimbabwe to your specific measurements and design requirements; durable and weather-resistant.";
@@ -402,11 +407,11 @@
       { id: 1, title: "Turkish Aluminium Composite Door", category: "aluminium", categoryLabel: "Aluminium", description: importedSteelDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "shared%20image%20(1).jpg" },
       { id: 2, title: "8-Locking Pin Security Door", category: "steel", categoryLabel: "Steel", description: importedSteelDesc, originalPrice: "$400 USD", salePrice: "$350 USD", onSale: true, rating: 5, image: "shared%20image%20(2).jpg" },
       { id: 3, title: "Custom Modern Entrance Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "shared%20image%20(3).jpg" },
-      { id: 4, title: "Heavy Duty Security Panel Door", category: "steel", categoryLabel: "Steel", description: importedSteelDesc, originalPrice: "$400 USD", salePrice: "$350 USD", onSale: true, rating: 5, image: "shared%20image%20(6).jpg" },
-      { id: 5, title: "Teak-effect Aluminium Entrance Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "stable%20door" },
-      { id: 6, title: "Premium Stable Aluminium Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "aluminium%20stable%20door" },
-      { id: 7, title: "Aluminium Composite Garage Door - Modern", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$550 USD", salePrice: "$500 USD", onSale: true, rating: 5, image: "garage%20doors%201" },
-      { id: 8, title: "Aluminium Composite Garage Door - Windowed", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$600 USD", salePrice: "$550 USD", onSale: true, rating: 5, image: "garage%20door%202" }
+      { id: 4, title: "Heavy Duty Security Panel Door", category: "steel", categoryLabel: "Steel", description: importedSteelDesc, originalPrice: "$400 USD", salePrice: "$350 USD", onSale: true, rating: 4, image: "shared%20image%20(4).jpg" },
+      { id: 5, title: "Teak-effect Aluminium Entrance Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "shared%20image%20(5).jpg" },
+      { id: 6, title: "Premium Stable Aluminium Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 4, image: "shared%20image%20(6).jpg" },
+      { id: 7, title: "Aluminium Composite Garage Door - Modern", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$550 USD", salePrice: "$500 USD", onSale: true, rating: 4, image: "shared%20image%20(7).jpg" },
+      { id: 8, title: "Aluminium Composite Garage Door - Windowed", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$600 USD", salePrice: "$550 USD", onSale: true, rating: 5, image: "shared%20image%20(8).jpg" },
     ];
 
     const slideImages = ["shared%20image%20(1).jpg", "shared%20image%20(2).jpg", "shared%20image%20(3).jpg", "shared%20image%20(6).jpg"];
@@ -458,7 +463,7 @@
       const qty = document.getElementById('inquiry-qty').value;
       const notes = document.getElementById('inquiry-notes').value;
 
-      const message = `Hello Maktech Doors,%0A%0AI would like to place an inquiry:%0A- *Product:* ${encodeURIComponent(activeInquiryProduct)}%0A- *Quantity:* ${encodeURIComponent(qty)}%0A- *Name:* ${encodeURIComponent(name)}%0A- *Contact Details:* ${encodeURIComponent(contact)}%0A- *Notes:* ${encodeURIComponent(notes || 'None')}`;
+      const message = `Hello Maktech Doors,%0A%0AI would like to place an inquiry:%0A- *Product:* ${encodeURIComponent(activeInquiryProduct)}%0A- *Quantity:* ${encodeURIComponent(qty)}%0A- *Name:* ${encodeURIComponent(name)}%0A- *Contact:* ${encodeURIComponent(contact)}%0A- *Notes:* ${encodeURIComponent(notes)}%0A%0AThanks!`;
       
       window.open(`https://wa.me/263789009829?text=${message}`, '_blank');
       closeInquiryModal();
@@ -520,7 +525,7 @@
       const key = 'maktech_reviews_' + identifier;
       const list = JSON.parse(localStorage.getItem(key) || '[]');
       const container = document.getElementById('reviews-list');
-      container.innerHTML = list.length ? list.map(r => `<div class="p-2 border-b border-slate-200"><div class="text-[11px] text-slate-600 font-semibold">${r.name} <span class="text-[10px] text-slate-400 ml-2 font-normal">${new Date(r.date).toLocaleDateString()}</span></div><p class="text-[11px] text-slate-700 mt-0.5">${r.text}</p></div>`).join('') : '<p class="text-xs text-slate-500">No reviews yet. Be the first to share your experience.</p>';
+      container.innerHTML = list.length ? list.map(r => `<div class="p-2 border-b border-slate-200"><div class="text-[11px] text-slate-600 font-semibold">${r.name} <span class="text-[10px] text-slate-400 font-normal">${new Date(r.date).toLocaleDateString()}</span></div><div class="text-[11px] text-slate-700">${r.text}</div></div>`).join('') : '<div class="text-xs text-slate-500">No reviews yet.</div>';
     }
 
     function renderProducts(items) {
@@ -542,7 +547,7 @@
           </div>
           <div class="p-4 flex justify-between items-center border-t border-slate-100">
             <div class="price-discount">
-              ${product.onSale ? `<span class="original-price">${product.originalPrice}</span><span class="text-brandRed-600 font-bold">${product.salePrice}</span>` : `<span class="text-base font-bold text-slate-800">${product.salePrice}</span>`}
+              ${product.onSale ? `<span class="original-price">${product.originalPrice}</span><span class="text-brandRed-600 font-bold">${product.salePrice}</span>` : `<span class="text-base font-bold">${product.salePrice}</span>`}
             </div>
             <button onclick="openInquiryModal('${product.title.replace(/'/g, "\\'")}')" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-3 py-1.5 rounded transition-all shadow-sm">Inquire</button>
           </div>
@@ -565,10 +570,10 @@
         excerpt: "Discover how Turkish multi-point locking systems offer superior resistance against forced entry compared to single standard deadbolts.",
         image: "shared%20image%20(2).jpg",
         content: `
-          <p>When securing your property, the strength of your main entry point is your first line of defense. Standard single-latch doors concentrate all holding force on one isolated point, making them far easier to breach under pressure.</p>
-          <p><b>Multi-Point Security Systems:</b> Turkish high-security steel doors use steel locking bolts that extend simultaneously into the heavy-duty door frame at 8 distinct points along the edge of the door. This spreads the force across the whole frame, substantially increasing resistance against forced entry.</p>
-          <p><b>Enhanced Structural Integrity:</b> By locking at several points, the door becomes far more stable and difficult to twist, pry, or hammer open. Combined with a reinforced steel frame, these locking systems provide a stronger barrier than conventional single-lock installations.</p>
-          <p><b>Ideal for Homes and Commercial Spaces:</b> Whether you are protecting a family home, office, or rental property, 8-point locking systems deliver confidence and peace of mind that standard security doors simply cannot match.</p>
+          <p>When securing your property, the strength of your main entry point is your first line of defense. Standard single-latch doors concentrate all holding force on one isolated point, mak...</p>
+          <p><b>Multi-Point Security Systems:</b> Turkish high-security steel doors use steel locking bolts that extend simultaneously into the heavy-duty door frame at 8 distinct points along the door.</p>
+          <p><b>Enhanced Structural Integrity:</b> By locking at several points, the door becomes far more stable and difficult to twist, pry, or hammer open.</p>
+          <p><b>Ideal for Homes and Commercial Spaces:</b> Whether you are protecting a family home, office, or rental property, 8-point locking systems deliver confidence and peace of mind.</p>
         `
       },
       {
@@ -581,8 +586,8 @@
         image: "shared%20image%20(1).jpg",
         content: `
           <p>Selecting the right door material comes down to structural requirements, aesthetic preferences, and environmental conditions.</p>
-          <p><b>Custom Aluminium Doors:</b> Locally manufactured in Zimbabwe to exact dimensional specs, custom aluminium doors offer outstanding resistance to rust, weather corrosion, and warping while maintaining sleek modern styling.</p>
-          <p><b>Imported Turkish Steel Doors:</b> Known for exceptional strength, built-in thermal insulation, heavy-duty frame structures, and multi-point locking mechanisms, steel doors provide unmatched peace of mind.</p>
+          <p><b>Custom Aluminium Doors:</b> Locally manufactured in Zimbabwe to exact dimensional specs, custom aluminium doors offer outstanding resistance to rust, weather corrosion, and warping.</p>
+          <p><b>Imported Turkish Steel Doors:</b> Known for exceptional strength, built-in thermal insulation, heavy-duty frame structures, and multi-point locking mechanisms, steel doors provide excellent security.</p>
         `
       },
       {
