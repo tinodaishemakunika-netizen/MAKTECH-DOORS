@@ -33,6 +33,9 @@
     .price-discount { display: flex; align-items: center; gap: 8px; }
     .original-price { text-decoration: line-through; color: #94a3b8; font-size: 0.875rem; }
     .sale-badge { background-color: #dc2626; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+
+    #blog-modal, #product-modal { z-index: 1000; }
+    #inquiry-modal { z-index: 1100; }
   </style>
 </head>
 <body class="bg-white text-slate-700 font-sans antialiased">
@@ -95,7 +98,7 @@
           Custom Aluminium & Imported Turkish Doors
         </h2>
         <p class="text-slate-200 text-sm md:text-base leading-relaxed text-shadow">
-          We offer custom locally made aluminium doors tailored to your exact specifications, alongside imported Turkish high-security doors complete with standard frames. Built for weather resistance, security and style.
+          We offer custom locally made aluminium doors tailored to your exact specifications, alongside imported Turkish high-security doors complete with standard frames. Built for weather resistance, long-term durability, and home security.
         </p>
         <div class="flex flex-wrap gap-4 pt-2">
           <a href="#products" class="inline-block bg-brandRed-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-md">
@@ -124,7 +127,7 @@
         <h2 class="text-3xl font-bold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">About Maktech Doors</h2>
         <div class="w-12 h-0.5 bg-slate-300 mx-auto mt-4"></div>
         <p class="text-slate-600 text-sm mt-5 leading-relaxed">
-          Maktech Doors specializes in custom locally manufactured aluminium entrance doors and stable doors tailored in Zimbabwe, alongside premium imported Turkish high-security steel doors complete with standard frames for modern homes, offices, and residential projects.
+          Maktech Doors specializes in custom locally manufactured aluminium entrance doors and stable doors tailored in Zimbabwe, alongside premium imported Turkish high-security steel doors complete with matching frames and locking systems.
         </p>
       </div>
 
@@ -197,7 +200,7 @@
     </div>
   </section>
 
-  <div id="blog-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop p-4">
+  <div id="blog-modal" class="hidden fixed inset-0 flex items-center justify-center modal-backdrop p-4">
     <div class="bg-white rounded-lg max-w-3xl w-full shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
       <div class="p-5 flex justify-between items-center border-b border-slate-200">
         <h3 id="blog-modal-title" class="text-xl font-bold text-brandNavy-900" style="font-family: 'Montserrat', sans-serif;"></h3>
@@ -217,7 +220,7 @@
     </div>
   </div>
 
-  <div id="product-modal" class="hidden fixed inset-0 z-60 flex items-center justify-center modal-backdrop p-4">
+  <div id="product-modal" class="hidden fixed inset-0 flex items-center justify-center modal-backdrop p-4">
     <div class="bg-white rounded-lg max-w-2xl w-full shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
       <div class="p-5 flex justify-between items-center border-b border-slate-200">
         <h3 id="modal-title" class="text-lg font-bold text-brandNavy-900" style="font-family: 'Montserrat', sans-serif;"></h3>
@@ -245,7 +248,7 @@
     </div>
   </div>
 
-  <div id="inquiry-modal" class="hidden fixed inset-0 z-70 flex items-center justify-center modal-backdrop p-4">
+  <div id="inquiry-modal" class="hidden fixed inset-0 flex items-center justify-center modal-backdrop p-4">
     <div class="bg-white rounded-lg max-w-md w-full shadow-2xl overflow-hidden p-6 relative">
       <button onclick="closeInquiryModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
       <h3 class="text-lg font-bold text-brandNavy-900 mb-1" style="font-family: 'Montserrat', sans-serif;">Product & Order Inquiry</h3>
@@ -399,10 +402,10 @@
       { id: 2, title: "8-Locking Pin Security Door", category: "steel", categoryLabel: "Steel", description: importedSteelDesc, originalPrice: "$400 USD", salePrice: "$350 USD", onSale: true, rating: 5, image: "shared%20image%20(2).jpg" },
       { id: 3, title: "Custom Modern Entrance Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "shared%20image%20(3).jpg" },
       { id: 4, title: "Heavy Duty Security Panel Door", category: "steel", categoryLabel: "Steel", description: importedSteelDesc, originalPrice: "$400 USD", salePrice: "$350 USD", onSale: true, rating: 5, image: "shared%20image%20(6).jpg" },
-      { id: 5, title: "Teak-effect Aluminium Entrance Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "shared%20image%20(1).jpg" },
-      { id: 6, title: "Premium Stable Aluminium Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "shared%20image%20(3).jpg" },
-      { id: 7, title: "Aluminium Composite Garage Door - Modern", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$550 USD", salePrice: "$500 USD", onSale: true, rating: 5, image: "garage%20door%201.png" },
-      { id: 8, title: "Aluminium Composite Garage Door - Windowed", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$600 USD", salePrice: "$550 USD", onSale: true, rating: 5, image: "garage%20door%202.png" }
+      { id: 5, title: "Teak-effect Aluminium Entrance Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "stable%20door" },
+      { id: 6, title: "Premium Stable Aluminium Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "aluminium%20stable%20door" },
+      { id: 7, title: "Aluminium Composite Garage Door - Modern", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$960 USD", salePrice: "$1,500 USD", onSale: true, rating: 5, image: "garage%20doors%201" },
+      { id: 8, title: "Aluminium Composite Garage Door - Windowed", category: "garage", categoryLabel: "Garage Door", description: garageDesc, originalPrice: "$960 USD", salePrice: "$1,500 USD", onSale: true, rating: 5, image: "garage%20door%202" }
     ];
 
     const slideImages = ["shared%20image%20(1).jpg", "shared%20image%20(2).jpg", "shared%20image%20(3).jpg", "shared%20image%20(6).jpg"];
@@ -415,36 +418,49 @@
     }
     setInterval(nextSlide, 5000);
 
-    function openSlideModal() {
-      const currentSrc = slideImages[currentSlide];
-      document.getElementById('modal-title').innerText = "Full Door View";
-      document.getElementById('modal-image').src = currentSrc;
-      document.getElementById('modal-desc').innerText = "Full top-to-bottom view showing full frame and panel detail.";
-      document.getElementById('modal-price').innerText = "$400 USD";
-      loadReviews('slide_' + currentSlide);
-      document.getElementById('product-modal').classList.remove('hidden');
+    function closeAllModals() {
+      const modalIds = ['blog-modal', 'product-modal', 'inquiry-modal'];
+      modalIds.forEach((id) => {
+        const modal = document.getElementById(id);
+        if (modal) modal.classList.add('hidden');
+      });
+      document.body.style.overflow = '';
     }
 
-    let activeInquiryProduct = "General Inquiry / Custom Order";
+    function openSlideModal() {
+      const currentSrc = slideImages[currentSlide];
+      document.getElementById('modal-title').innerText = 'Full Door View';
+      document.getElementById('modal-image').src = currentSrc;
+      document.getElementById('modal-desc').innerText = 'Full top-to-bottom view showing full frame and panel detail.';
+      document.getElementById('modal-price').innerText = '$400 USD';
+      loadReviews('slide_' + currentSlide);
+      closeAllModals();
+      document.getElementById('product-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    let activeInquiryProduct = 'General Inquiry / Custom Order';
 
     function openInquiryModal(productTitle) {
-      activeInquiryProduct = productTitle || "General Inquiry / Custom Order";
-      document.getElementById('inquiry-product-subtitle').innerText = "Inquiring about: " + activeInquiryProduct;
+      activeInquiryProduct = productTitle || 'General Inquiry / Custom Order';
+      document.getElementById('inquiry-product-subtitle').innerText = 'Inquiring about: ' + activeInquiryProduct;
+      closeAllModals();
       document.getElementById('inquiry-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     }
 
     function openGeneralInquiry() {
-      openInquiryModal("General Catalog / General Order");
+      openInquiryModal('General Catalog / General Order');
     }
 
     function openInquiryModalFromDetails() {
       const title = document.getElementById('modal-title').innerText;
-      closeProductModal();
+      closeAllModals();
       openInquiryModal(title);
     }
 
     function closeInquiryModal() {
-      document.getElementById('inquiry-modal').classList.add('hidden');
+      closeAllModals();
     }
 
     function submitInquiry(event) {
@@ -454,8 +470,7 @@
       const qty = document.getElementById('inquiry-qty').value;
       const notes = document.getElementById('inquiry-notes').value;
 
-      const message = `Hello Maktech Doors,%0A%0AI would like to place an inquiry:%0A- *Product:* ${encodeURIComponent(activeInquiryProduct)}%0A- *Quantity:* ${encodeURIComponent(qty)}%0A- *Name:* ${encodeURIComponent(name)}%0A- *Contact:* ${encodeURIComponent(contact)}%0A- *Notes:* ${encodeURIComponent(notes || 'No extra notes')}%0A`;
-      
+      const message = `Hello Maktech Doors,%0A%0AI would like to place an inquiry:%0A- *Product:* ${encodeURIComponent(activeInquiryProduct)}%0A- *Quantity:* ${encodeURIComponent(qty)}%0A- *Name:* ${encodeURIComponent(name)}%0A- *Contact:* ${encodeURIComponent(contact)}%0A- *Notes:* ${encodeURIComponent(notes || 'None')}%0A`;
       window.open(`https://wa.me/263789009829?text=${message}`, '_blank');
       closeInquiryModal();
     }
@@ -482,11 +497,13 @@
         priceElement.innerText = product.salePrice;
       }
       loadReviews(productId);
+      closeAllModals();
       modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     }
 
     function closeProductModal() {
-      document.getElementById('product-modal').classList.add('hidden');
+      closeAllModals();
     }
 
     function submitReview(identifier) {
@@ -515,11 +532,11 @@
       const key = 'maktech_reviews_' + identifier;
       const list = JSON.parse(localStorage.getItem(key) || '[]');
       const container = document.getElementById('reviews-list');
-      container.innerHTML = list.length ? list.map(r => `<div class="p-2 border-b border-slate-200"><div class="text-[11px] text-slate-600 font-semibold">${r.name} <span class="text-[10px] text-slate-400">${new Date(r.date).toLocaleDateString()}</span></div><p class="text-[11px] text-slate-600 mt-1">${r.text}</p></div>`).join('') : '<p class="text-[11px] text-slate-500">No reviews yet. Be the first to share feedback.</p>';
+      container.innerHTML = list.length ? list.map(r => `<div class="p-2 border-b border-slate-200"><div class="text-[11px] text-slate-600 font-semibold">${r.name} <span class="text-[10px] text-slate-400">${new Date(r.date).toLocaleDateString()}</span></div><p class="text-[11px] text-slate-600 mt-1">${r.text}</p></div>`).join('') : '<div class="text-[11px] text-slate-500">No reviews yet. Be the first to leave one.</div>';
     }
 
     function renderProducts(items) {
-      const grid = document.getElementById("product-grid");
+      const grid = document.getElementById('product-grid');
       grid.innerHTML = items.map(product => `
         <div class="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
           <div>
@@ -530,16 +547,16 @@
               <span class="absolute bottom-2 left-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur">Click for full view</span>
             </div>
             <div class="p-4">
-              <div class="flex items-center gap-1 text-amber-500 text-xs mb-2">${"★".repeat(product.rating)}</div>
+              <div class="flex items-center gap-1 text-amber-500 text-xs mb-2">${'★'.repeat(product.rating)}</div>
               <h3 class="text-sm font-semibold text-brandNavy-900 mb-2">${product.title}</h3>
               <p class="text-xs text-slate-600 leading-relaxed">${product.description}</p>
             </div>
           </div>
           <div class="p-4 flex justify-between items-center border-t border-slate-100">
             <div class="price-discount">
-              ${product.onSale ? `<span class="original-price">${product.originalPrice}</span><span class="text-brandRed-600 font-bold">${product.salePrice}</span>` : `<span class="text-base font-bold text-brandNavy-900">${product.salePrice}</span>`}
+              ${product.onSale ? `<span class="original-price">${product.originalPrice}</span><span class="text-brandRed-600 font-bold">${product.salePrice}</span>` : `<span class="text-base font-bold text-slate-800">${product.salePrice}</span>`}
             </div>
-            <button onclick="openInquiryModal('${product.title.replace(/'/g, "\\'") }')" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-3 py-1.5 rounded transition-all shadow-sm">Inquiry</button>
+            <button onclick="openInquiryModal('${product.title.replace(/'/g, "\\'") }')" class="bg-brandRed-600 hover:bg-red-700 text-white text-xs font-bold px-3 py-1.5 rounded transition-all shadow-sm">Inquire</button>
           </div>
         </div>
       `).join('');
@@ -553,41 +570,41 @@
     const blogPosts = [
       {
         id: 1,
-        title: "Why 8-Locking Pin Doors Are Essential for Modern Home Security",
-        category: "security",
-        categoryLabel: "Security",
-        date: "September 5, 2026",
-        excerpt: "Discover how Turkish multi-point locking systems offer superior resistance against forced entry compared to single standard deadbolts.",
-        image: "shared%20image%20(2).jpg",
+        title: 'Why 8-Locking Pin Doors Are Essential for Modern Home Security',
+        category: 'security',
+        categoryLabel: 'Security',
+        date: 'September 5, 2026',
+        excerpt: 'Discover how Turkish multi-point locking systems offer superior resistance against forced entry compared to single standard deadbolts.',
+        image: 'shared%20image%20(2).jpg',
         content: `
-          <p>When securing your property, the strength of your main entry point is your first line of defense. Standard single-latch doors concentrate all holding force on one isolated point, making forced entry easier.</p>
-          <p><b>Multi-Point Security Systems:</b> Turkish high-security steel doors use steel locking bolts that extend simultaneously into the heavy-duty door frame at 8 distinct points along the edge, significantly improving resistance to impact and prying.</p>
-          <p><b>Enhanced Structural Integrity:</b> By locking at several points, the door becomes far more stable and difficult to twist, pry, or hammer open. Combined with a reinforced steel frame, this creates a much stronger barrier.</p>
-          <p><b>Ideal for Homes and Commercial Spaces:</b> Whether you are protecting a family home, office, or rental property, 8-point locking systems deliver confidence and peace of mind that your main entry is well protected.</p>
+          <p>When securing your property, the strength of your main entry point is your first line of defense. Standard single-latch doors concentrate all holding force on one isolated point, making them vulnerable to leverage and forced entry attempts.</p>
+          <p><b>Multi-Point Security Systems:</b> Turkish high-security steel doors use steel locking bolts that extend simultaneously into the heavy-duty door frame at 8 distinct points along the edge of the door.</p>
+          <p><b>Enhanced Structural Integrity:</b> By locking at several points, the door becomes far more stable and difficult to twist, pry, or hammer open. Combined with a reinforced steel frame, this makes a major difference in real-world security.</p>
+          <p><b>Ideal for Homes and Commercial Spaces:</b> Whether you are protecting a family home, office, or rental property, 8-point locking systems deliver confidence and peace of mind that static single-point locking cannot match.</p>
         `
       },
       {
         id: 2,
-        title: "Aluminium vs. Steel Doors: Which One Suits Your Property?",
-        category: "design",
-        categoryLabel: "Design & Style",
-        date: "August 28, 2026",
-        excerpt: "A practical guide comparing custom locally fabricated aluminium doors with heavy-duty imported Turkish steel doors.",
-        image: "shared%20image%20(1).jpg",
+        title: 'Aluminium vs. Steel Doors: Which One Suits Your Property?',
+        category: 'design',
+        categoryLabel: 'Design & Style',
+        date: 'August 28, 2026',
+        excerpt: 'A practical guide comparing custom locally fabricated aluminium doors with heavy-duty imported Turkish steel doors.',
+        image: 'shared%20image%20(1).jpg',
         content: `
           <p>Selecting the right door material comes down to structural requirements, aesthetic preferences, and environmental conditions.</p>
           <p><b>Custom Aluminium Doors:</b> Locally manufactured in Zimbabwe to exact dimensional specs, custom aluminium doors offer outstanding resistance to rust, weather corrosion, and warping.</p>
-          <p><b>Imported Turkish Steel Doors:</b> Known for exceptional strength, built-in thermal insulation, heavy-duty frame structures, and multi-point locking mechanisms, steel doors provide robust security without compromising modern design.</p>
+          <p><b>Imported Turkish Steel Doors:</b> Known for exceptional strength, built-in thermal insulation, heavy-duty frame structures, and multi-point locking mechanisms, steel doors provide very high protection and are ideal for entrance security.</p>
         `
       },
       {
         id: 3,
-        title: "Proper Maintenance Tips for Exterior Doors in Zimbabwe",
-        category: "maintenance",
-        categoryLabel: "Maintenance",
-        date: "August 14, 2026",
-        excerpt: "Simple steps to keep your hinges, locks, and surface finishes pristine through all seasons.",
-        image: "shared%20image%20(3).jpg",
+        title: 'Proper Maintenance Tips for Exterior Doors in Zimbabwe',
+        category: 'maintenance',
+        categoryLabel: 'Maintenance',
+        date: 'August 14, 2026',
+        excerpt: 'Simple steps to keep your hinges, locks, and surface finishes pristine through all seasons.',
+        image: 'shared%20image%20(3).jpg',
         content: `
           <p>Regular maintenance ensures your investment continues looking pristine and operating smoothly year after year.</p>
           <p><b>Lubricate Hinges and Locks:</b> Apply a silicone-based spray or light machine oil to multi-point lock cylinders and hinges twice a year to ensure effortless operation.</p>
@@ -597,7 +614,7 @@
     ];
 
     function renderBlog(posts) {
-      const grid = document.getElementById("blog-grid");
+      const grid = document.getElementById('blog-grid');
       grid.innerHTML = posts.map(post => `
         <div class="bg-white border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
           <div>
@@ -636,11 +653,13 @@
       document.getElementById('blog-modal-category').innerText = post.categoryLabel;
       document.getElementById('blog-modal-image').src = post.image;
       document.getElementById('blog-modal-content').innerHTML = post.content;
+      closeAllModals();
       document.getElementById('blog-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
     }
 
     function closeBlogModal() {
-      document.getElementById('blog-modal').classList.add('hidden');
+      closeAllModals();
     }
 
     renderProducts(products);
