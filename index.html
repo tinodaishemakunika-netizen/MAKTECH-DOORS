@@ -28,7 +28,7 @@
     body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
     h1,h2,h3 { font-family: 'Montserrat', system-ui, sans-serif; }
     .text-shadow { text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
-    .hero-overlay { background: linear-gradient(to right, rgba(7, 22, 31, 0.9), rgba(7, 22, 31, 0.65)); }
+    .hero-overlay { background: linear-gradient(to right, rgba(7, 22, 31, 0.85), rgba(7, 22, 31, 0.60)); }
     .modal-backdrop { background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); z-index: 9999; }
     .price-discount { display: flex; align-items: center; gap: 8px; }
     .original-price { text-decoration: line-through; color: #94a3b8; font-size: 0.875rem; }
@@ -86,38 +86,42 @@
     </div>
   </header>
 
-  <!-- Enhanced Hero Section with home page image.jpg background -->
-  <section class="relative text-white border-b border-slate-700 overflow-hidden py-20 md:py-32 px-4 bg-cover bg-center" style="background-image: url('home%20page%20image.jpg');">
+  <!-- Hero Section with Masking Card to Prevent Image Text Collision -->
+  <section class="relative text-white border-b border-slate-700 overflow-hidden py-12 md:py-20 px-4 bg-cover bg-center" style="background-image: url('home%20page%20image.jpg');">
     <div class="absolute inset-0 hero-overlay"></div>
-    <div class="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-      <div class="md:w-1/2 space-y-6">
-        <div class="inline-flex items-center gap-2 bg-brandRed-600/90 text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-widest shadow">
+    <div class="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
+      
+      <!-- Text Container in Backdrop Card -->
+      <div class="lg:w-1/2 w-full bg-brandNavy-950/85 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/10 shadow-2xl space-y-5">
+        <div class="inline-flex items-center gap-2 bg-brandRed-600 text-white text-[10px] md:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow">
           <i class="fa-solid fa-shield-halved"></i> Zimbabwe's Trusted High-Security Supplier
         </div>
-        <h2 class="text-4xl md:text-6xl font-black leading-tight tracking-tight text-white text-shadow" style="font-family: 'Montserrat', sans-serif;">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight text-white" style="font-family: 'Montserrat', sans-serif;">
           Custom Aluminium & Imported Turkish Doors
         </h2>
-        <p class="text-slate-200 text-sm md:text-base leading-relaxed text-shadow">
+        <p class="text-slate-200 text-xs sm:text-sm md:text-base leading-relaxed">
           Elevate your property's safety and modern aesthetics with weather-resistant custom locally fabricated aluminium doors and heavy-duty 8-locking pin Turkish steel doors.
         </p>
-        <div class="flex flex-wrap gap-4 pt-2">
-          <a href="#products" class="inline-block bg-brandRed-600 hover:bg-red-700 text-white font-bold px-6 py-3.5 rounded text-xs uppercase tracking-wider transition-all shadow-lg">
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="#products" class="inline-block bg-brandRed-600 hover:bg-red-700 text-white font-bold px-5 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-lg">
             Browse Door Catalog
           </a>
-          <button onclick="openGeneralInquiry()" class="inline-block bg-white hover:bg-slate-100 text-brandNavy-900 font-bold px-6 py-3.5 rounded text-xs uppercase tracking-wider transition-all shadow-lg">
-            Request Quote / Inquire
+          <button onclick="openGeneralInquiry()" class="inline-block bg-white hover:bg-slate-100 text-brandNavy-900 font-bold px-5 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-lg">
+            Inquire Now
           </button>
         </div>
       </div>
 
-      <div class="md:w-1/2 w-full">
-        <div class="relative w-full rounded-xl overflow-hidden border-2 border-white/20 shadow-2xl bg-brandNavy-950/80 cursor-pointer group backdrop-blur" style="height:440px;" onclick="openSlideModal()">
+      <!-- Slideshow Area -->
+      <div class="lg:w-1/2 w-full">
+        <div class="relative w-full rounded-xl overflow-hidden border border-white/20 shadow-2xl bg-brandNavy-950/90 cursor-pointer group backdrop-blur" style="height:380px;" onclick="openSlideModal()">
           <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-contain p-2 transition-all duration-700"/>
           <div class="absolute bottom-3 right-3 bg-brandNavy-900/90 text-white text-xs px-3 py-1.5 rounded border border-slate-700 flex items-center gap-1.5 group-hover:bg-brandRed-600 transition-colors shadow-lg">
             <i class="fa-solid fa-expand"></i> Click to view full door
           </div>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -162,7 +166,7 @@
     </div>
   </section>
 
-  <!-- Product Catalog Section (Garage Doors Removed, Collapsible Prices Added) -->
+  <!-- Door Catalog Section -->
   <section id="products" class="py-16 bg-brandWhite-100">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-10">
@@ -181,7 +185,7 @@
     </div>
   </section>
 
-  <!-- Updated Blog Section with relevant Unsplash images -->
+  <!-- Blog Section -->
   <section id="blog" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-10">
@@ -470,7 +474,6 @@
       icon.classList.toggle('fa-chevron-up');
     }
 
-    // Toggle collapsible price on product cards
     function togglePrice(button) {
       const priceDiv = button.nextElementSibling;
       priceDiv.classList.toggle('hidden');
@@ -662,7 +665,6 @@
       document.getElementById('blog-modal').classList.add('hidden');
     }
 
-    // Initialize catalog and blog on load
     renderProducts(products);
     renderBlog(blogPosts);
   </script>
