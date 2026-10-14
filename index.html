@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maktech Doors | Security, Style, Durability</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -27,9 +28,9 @@
   <style>
     body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
     h1,h2,h3 { font-family: 'Montserrat', system-ui, sans-serif; }
-    .text-shadow { text-shadow: 0 1px 3px rgba(0,0,0,0.4); }
-    .hero-overlay { background: linear-gradient(to right, rgba(7, 22, 31, 0.85), rgba(7, 22, 31, 0.60)); }
-    .modal-backdrop { background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); z-index: 9999; }
+    .text-shadow-lg { text-shadow: 0 2px 8px rgba(0,0,0,0.7); }
+    .hero-overlay-light { background: linear-gradient(to right, rgba(7, 22, 31, 0.75), rgba(7, 22, 31, 0.35)); }
+    .modal-backdrop { background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); z-index: 9999; }
     .price-discount { display: flex; align-items: center; gap: 8px; }
     .original-price { text-decoration: line-through; color: #94a3b8; font-size: 0.875rem; }
     .sale-badge { background-color: #dc2626; color: white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
@@ -74,6 +75,7 @@
 
       <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wide text-slate-700 ml-auto mr-8">
         <a href="#about" class="hover:text-brandRed-600 transition-colors">About Us</a>
+        <a href="#gallery" class="hover:text-brandRed-600 transition-colors">Gallery</a>
         <a href="#products" class="hover:text-brandRed-600 transition-colors">Products</a>
         <a href="#blog" class="hover:text-brandRed-600 transition-colors">Blog</a>
         <a href="#reviews" class="hover:text-brandRed-600 transition-colors">Ratings</a>
@@ -86,42 +88,29 @@
     </div>
   </header>
 
-  <!-- Hero Section with Masking Card to Prevent Image Text Collision -->
-  <section class="relative text-white border-b border-slate-700 overflow-hidden py-12 md:py-20 px-4 bg-cover bg-center" style="background-image: url('home%20page%20image.jpg');">
-    <div class="absolute inset-0 hero-overlay"></div>
-    <div class="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8">
-      
-      <!-- Text Container in Backdrop Card -->
-      <div class="lg:w-1/2 w-full bg-brandNavy-950/85 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/10 shadow-2xl space-y-5">
-        <div class="inline-flex items-center gap-2 bg-brandRed-600 text-white text-[10px] md:text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow">
+  <!-- Clean & Clear Homepage Hero Section -->
+  <section class="relative text-white border-b border-slate-700 overflow-hidden py-24 md:py-36 px-4 bg-cover bg-center" style="background-image: url('home%20page%20image.jpg');">
+    <div class="absolute inset-0 hero-overlay-light"></div>
+    <div class="relative z-10 max-w-7xl mx-auto flex flex-col items-start justify-center">
+      <div class="max-w-2xl bg-brandNavy-950/80 backdrop-blur-md p-6 sm:p-10 rounded-2xl border border-white/10 shadow-2xl space-y-6">
+        <div class="inline-flex items-center gap-2 bg-brandRed-600 text-white text-[10px] sm:text-[11px] font-bold px-3.5 py-1.5 rounded-full uppercase tracking-widest shadow">
           <i class="fa-solid fa-shield-halved"></i> Zimbabwe's Trusted High-Security Supplier
         </div>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight text-white" style="font-family: 'Montserrat', sans-serif;">
+        <h2 class="text-3xl sm:text-5xl font-black leading-tight tracking-tight text-white text-shadow-lg" style="font-family: 'Montserrat', sans-serif;">
           Custom Aluminium & Imported Turkish Doors
         </h2>
-        <p class="text-slate-200 text-xs sm:text-sm md:text-base leading-relaxed">
+        <p class="text-slate-200 text-sm sm:text-base leading-relaxed text-shadow-lg">
           Elevate your property's safety and modern aesthetics with weather-resistant custom locally fabricated aluminium doors and heavy-duty 8-locking pin Turkish steel doors.
         </p>
-        <div class="flex flex-wrap gap-3 pt-2">
-          <a href="#products" class="inline-block bg-brandRed-600 hover:bg-red-700 text-white font-bold px-5 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-lg">
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#products" class="inline-block bg-brandRed-600 hover:bg-red-700 text-white font-bold px-6 py-3.5 rounded text-xs uppercase tracking-wider transition-all shadow-xl">
             Browse Door Catalog
           </a>
-          <button onclick="openGeneralInquiry()" class="inline-block bg-white hover:bg-slate-100 text-brandNavy-900 font-bold px-5 py-3 rounded text-xs uppercase tracking-wider transition-all shadow-lg">
+          <button onclick="openGeneralInquiry()" class="inline-block bg-white hover:bg-slate-100 text-brandNavy-900 font-bold px-6 py-3.5 rounded text-xs uppercase tracking-wider transition-all shadow-xl">
             Inquire Now
           </button>
         </div>
       </div>
-
-      <!-- Slideshow Area -->
-      <div class="lg:w-1/2 w-full">
-        <div class="relative w-full rounded-xl overflow-hidden border border-white/20 shadow-2xl bg-brandNavy-950/90 cursor-pointer group backdrop-blur" style="height:380px;" onclick="openSlideModal()">
-          <img id="slideshow-img" src="shared%20image%20(1).jpg" alt="Maktech Slide" class="w-full h-full object-contain p-2 transition-all duration-700"/>
-          <div class="absolute bottom-3 right-3 bg-brandNavy-900/90 text-white text-xs px-3 py-1.5 rounded border border-slate-700 flex items-center gap-1.5 group-hover:bg-brandRed-600 transition-colors shadow-lg">
-            <i class="fa-solid fa-expand"></i> Click to view full door
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -166,12 +155,65 @@
     </div>
   </section>
 
-  <!-- Door Catalog Section -->
+  <!-- Door Showcase Gallery Section -->
+  <section id="gallery" class="py-16 bg-slate-900 text-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-white uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">Door Showcase Gallery</h2>
+        <p class="text-xs text-slate-400 mt-2">Explore our full-height installed door profiles, frames, and multi-lock details</p>
+        <div class="w-12 h-0.5 bg-brandRed-600 mx-auto mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden shadow-lg group hover:border-brandRed-600 transition-all cursor-pointer" onclick="openGalleryModal('shared%20image%20(1).jpg', 'Turkish Aluminium Composite Door', 'High-security entrance door profile with heavy-duty frame and modern finish.')">
+          <div class="h-96 sm:h-[420px] overflow-hidden p-2 flex items-center justify-center bg-black">
+            <img src="shared%20image%20(1).jpg" alt="Turkish Aluminium Composite Door" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"/>
+          </div>
+          <div class="p-4 bg-slate-900/90 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-200">Turkish Aluminium Composite</span>
+            <span class="text-[10px] text-brandRed-600 font-bold uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-expand"></i> Inspect</span>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden shadow-lg group hover:border-brandRed-600 transition-all cursor-pointer" onclick="openGalleryModal('shared%20image%20(2).jpg', '8-Locking Pin Security Door', 'Turkish heavy-duty steel security door featuring 8 independent locking bolts.')">
+          <div class="h-96 sm:h-[420px] overflow-hidden p-2 flex items-center justify-center bg-black">
+            <img src="shared%20image%20(2).jpg" alt="8-Locking Pin Security Door" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"/>
+          </div>
+          <div class="p-4 bg-slate-900/90 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-200">8-Locking Pin Steel Door</span>
+            <span class="text-[10px] text-brandRed-600 font-bold uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-expand"></i> Inspect</span>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden shadow-lg group hover:border-brandRed-600 transition-all cursor-pointer" onclick="openGalleryModal('shared%20image%20(3).jpg', 'Custom Modern Entrance Door', 'Locally fabricated custom aluminium entrance door tailored to exact measurements.')">
+          <div class="h-96 sm:h-[420px] overflow-hidden p-2 flex items-center justify-center bg-black">
+            <img src="shared%20image%20(3).jpg" alt="Custom Modern Entrance Door" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"/>
+          </div>
+          <div class="p-4 bg-slate-900/90 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-200">Custom Modern Entrance</span>
+            <span class="text-[10px] text-brandRed-600 font-bold uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-expand"></i> Inspect</span>
+          </div>
+        </div>
+
+        <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden shadow-lg group hover:border-brandRed-600 transition-all cursor-pointer" onclick="openGalleryModal('shared%20image%20(6).jpg', 'Premium Stable Aluminium Door', 'Custom stable door design crafted with durable local aluminium fabrication.')">
+          <div class="h-96 sm:h-[420px] overflow-hidden p-2 flex items-center justify-center bg-black">
+            <img src="shared%20image%20(6).jpg" alt="Premium Stable Aluminium Door" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"/>
+          </div>
+          <div class="p-4 bg-slate-900/90 border-t border-slate-800 flex items-center justify-between">
+            <span class="text-xs font-semibold text-slate-200">Premium Stable Aluminium</span>
+            <span class="text-[10px] text-brandRed-600 font-bold uppercase tracking-wider flex items-center gap-1"><i class="fa-solid fa-expand"></i> Inspect</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog Section -->
   <section id="products" class="py-16 bg-brandWhite-100">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-10">
         <h2 class="text-3xl font-bold text-brandNavy-900 uppercase tracking-wide" style="font-family: 'Montserrat', sans-serif;">Door Catalog</h2>
-        <p class="text-xs text-slate-500 mt-2">Click any image to inspect the full top-to-bottom door profile and frame details</p>
+        <p class="text-xs text-slate-500 mt-2">Click any door to view full frame details or submit a price quote request</p>
         <div class="w-12 h-0.5 bg-slate-300 mx-auto mt-4"></div>
       </div>
 
@@ -347,7 +389,7 @@
         <button onclick="closeProductModal()" class="text-slate-400 hover:text-slate-600 text-2xl">&times;</button>
       </div>
       <div class="p-6 overflow-y-auto space-y-4">
-        <div class="h-64 bg-slate-900 rounded-lg overflow-hidden flex items-center justify-center p-2 border border-slate-200">
+        <div class="h-80 bg-slate-900 rounded-lg overflow-hidden flex items-center justify-center p-2 border border-slate-200">
           <img id="modal-image" src="" alt="Full view" class="w-full h-full object-contain" />
         </div>
         <p id="modal-desc" class="text-xs text-slate-600 leading-relaxed"></p>
@@ -411,23 +453,12 @@
       { id: 6, title: "Premium Stable Aluminium Door", category: "aluminium", categoryLabel: "Aluminium", description: localAluminiumDesc, originalPrice: "$400 USD", salePrice: "$400 USD", onSale: false, rating: 5, image: "shared%20image%20(6).jpg" }
     ];
 
-    const slideImages = ["shared%20image%20(1).jpg", "shared%20image%20(2).jpg", "shared%20image%20(3).jpg", "shared%20image%20(6).jpg"];
-    let currentSlide = 0;
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % slideImages.length;
-      const img = document.getElementById("slideshow-img");
-      if (img) img.src = slideImages[currentSlide];
-    }
-    setInterval(nextSlide, 5000);
-
-    function openSlideModal() {
-      const currentSrc = slideImages[currentSlide];
-      document.getElementById('modal-title').innerText = "Full Door View";
-      document.getElementById('modal-image').src = currentSrc;
-      document.getElementById('modal-desc').innerText = "Full top-to-bottom view showing full frame and panel detail.";
+    function openGalleryModal(imgSrc, title, desc) {
+      document.getElementById('modal-title').innerText = title;
+      document.getElementById('modal-image').src = imgSrc;
+      document.getElementById('modal-desc').innerText = desc;
       document.getElementById('modal-price').innerText = "$400 USD";
-      loadReviews('slide_' + currentSlide);
+      loadReviews('gallery_' + encodeURIComponent(title));
       document.getElementById('product-modal').classList.remove('hidden');
     }
 
