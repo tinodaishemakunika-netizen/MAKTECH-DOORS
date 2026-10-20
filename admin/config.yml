@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: tinodaishemakunika-netizen/MAKTECH-DOORS
+  branch: main
+
+media_folder: ""
+public_folder: ""
+
+collections:
+  - name: "doors"
+    label: "Door Catalog"
+    folder: "content/doors"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["aluminium", "steel"] }
+      - { label: "Price", name: "salePrice", widget: "string", default: "$400 USD" }
+      - { label: "On Sale", name: "onSale", widget: "boolean", default: false }
+      - { label: "Original Price", name: "originalPrice", widget: "string", required: false }
+      - { label: "Door Photo", name: "image", widget: "image" }
+      - { label: "Description", name: "description", widget: "text" }
