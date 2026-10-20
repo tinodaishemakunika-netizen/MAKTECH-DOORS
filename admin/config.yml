@@ -2,6 +2,7 @@ backend:
   name: github
   repo: tinodaishemakunika-netizen/MAKTECH-DOORS
   branch: main
+  site_domain: maktechdoors.co.zw
 
 media_folder: ""
 public_folder: ""
