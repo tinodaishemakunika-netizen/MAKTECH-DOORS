@@ -2,7 +2,8 @@ backend:
   name: github
   repo: tinodaishemakunika-netizen/MAKTECH-DOORS
   branch: main
-  site_domain: maktechdoors.co.zw
+  base_url: https://sveltia-cms-auth.sveltia.dev
+  auth_endpoint: /authenticate
 
 media_folder: ""
 public_folder: ""
